@@ -1,0 +1,77 @@
+/*  CURRENT PROBLEMS
+        - Cannot get the nav bar to stick to the top of the page. Sticky does not move, 
+        fixed removes overlay position.
+
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 7.5vh;
+    background-color: rgba(0,0,0,0.57);
+    overflow: hidden;
+}
+
+.nav {
+    margin-top: 3px;
+}
+
+.nav a {
+    color: rgba(50, 236, 191, 1);
+    text-shadow: 2px 2px rgba(183, 35, 35, 1);
+    text-decoration: none;
+    display: block;
+}
+
+.nav a:hover {
+    color: rgb(93, 250, 90);
+}
+
+.nav li {
+    list-style-type: none;
+    float: left;
+    margin-bottom: 6px;
+}
+
+.navLeft {
+    padding-left: 20px;
+}
+
+.navRight {
+    padding-right: 30px;
+}
+
+.navLeft a {
+    margin-left: 30px;
+}
+
+.navRight a {
+    margin-right: 30px;
+}
+
+.logo {
+    position: absolute;
+}
+
+.logoSplash {
+    height: 35vh;
+    width: auto;
+    transform: translate(45vw, 10vw) rotate(-10deg);
+    filter: drop-shadow(7px 7px rgba(183, 35, 35, 1))
+}
+
+.logoNav {
+    height: 10vh;
+    width: auto;
+    transform: translate(40vw, -6vh) rotate(-10deg);
+    filter: drop-shadow(3px 4px rgba(183, 35, 35, 1))
+}
