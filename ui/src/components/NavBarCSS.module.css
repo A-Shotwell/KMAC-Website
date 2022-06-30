@@ -11,13 +11,17 @@
     overflow-x: hidden;
 }
 
+.main {
+    position: "fixed";
+}
+
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100vw;
     height: 7.5vh;
-    background-color: rgba(0,0,0,0.57);
+    background-color: rgba(0,0,0,0.65);
     overflow: hidden;
 }
 
@@ -72,6 +76,6 @@
 .logoNav {
     height: 10vh;
     width: auto;
-    transform: translate(40vw, -6vh) rotate(-10deg);
-    filter: drop-shadow(3px 4px rgba(183, 35, 35, 1))
+    transform: translate(40vw, -6.5vh) rotate(-10deg);
+    filter: drop-shadow(3px 4px rgba(183, 35, 35, 1));
 }

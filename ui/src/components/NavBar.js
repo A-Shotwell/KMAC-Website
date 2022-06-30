@@ -3,7 +3,7 @@ import styles from "./NavBarCSS.module.css";
 
 const NavBar = () => {
   return (
-    <div>
+    <div className={styles.main}>
       <nav className={styles.container}>
         <div className={`${styles.nav} ${styles.navLeft}`}>
           <ul>
@@ -26,7 +26,7 @@ const NavBar = () => {
           </ul>
         </div>
       </nav>
-      <img src="images/logo.png" alt="KMAC logo" className={`${styles.logo} ${styles.logoSplash}`} />
+      <img src="images/logo.png" alt="KMAC logo" className={`${styles.logo} ${styles.logoNav}`} />
     </div>
   );
 };
