@@ -1,8 +1,5 @@
 /*  CURRENT PROBLEMS
-        - Cannot get the nav bar to stick to the top of the page. Sticky does not move, 
-        fixed removes overlay position.
-
-
+        - Cannot get the nav bar to stick to the top of the page. Does not move, and transparency effect is not working.
 */
 
 * {
@@ -12,10 +9,14 @@
 }
 
 .main {
-    position: "fixed";
+    position: absolute;
+    background: transparent;
+    height: 100vh;
+    width: 100vw;
 }
 
 .container {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,18 +65,19 @@
 
 .logo {
     position: absolute;
+    width: auto;
+    transition: all .5s;
 }
 
-.logoSplash {
+.logoHero {
     height: 35vh;
-    width: auto;
     transform: translate(45vw, 10vw) rotate(-10deg);
-    filter: drop-shadow(7px 7px rgba(183, 35, 35, 1))
+    filter: drop-shadow(7px 7px rgba(183, 35, 35, 1));
 }
 
 .logoNav {
+    position: fixed;
     height: 10vh;
-    width: auto;
-    transform: translate(40vw, -6.5vh) rotate(-10deg);
+    transform: translate(40vw, 1.5vh) rotate(-10deg);
     filter: drop-shadow(3px 4px rgba(183, 35, 35, 1));
 }

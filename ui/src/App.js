@@ -4,7 +4,11 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <div style={{height: "400vh", width: "100%", backgroundColor: "gray"}} />
+      <div 
+        style={{height: "400vh", 
+        width: "100%", 
+        backgroundImage: "linear-gradient(to bottom right, green, blue)",
+        }} />
     </div>
   );
 }
