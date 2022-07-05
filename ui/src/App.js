@@ -5,9 +5,11 @@ function App() {
     <div className="App">
       <NavBar />
       <div 
-        style={{height: "400vh", 
-        width: "100%", 
-        backgroundImage: "linear-gradient(to bottom right, green, blue)",
+        style={{
+          height: "400vh", 
+          width: "100vw", 
+          backgroundImage: "linear-gradient(to bottom right, green, blue)",
+          overflow: "hidden"
         }} />
     </div>
   );
