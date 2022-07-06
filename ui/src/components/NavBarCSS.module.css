@@ -1,7 +1,3 @@
-/*  CURRENT PROBLEMS
-        - Cannot get the nav bar to stick to the top of the page. Does not move, and transparency effect is not working.
-*/
-
 * {
     margin: 0;
     padding: 0;
@@ -84,7 +80,7 @@
 
 /********************** RESPONSIVE BREAKPOINTS ********************************/
 
-@media (min-width: 1px) and (max-width: 360px){
+@media screen and (min-width: 361px) and (max-width: 768px){ /* 412 */
     .nav ul {
         display: none;
     }
@@ -103,9 +99,7 @@
     }
 }
 
-/* THIS BREAKPOINT DOES NOT WORK */
-
-@media (min-width: 361px) and (max-width: 375px){
+@media screen and (min-width: 1px) and (max-width: 360px){
     .nav ul {
         display: none;
     }
