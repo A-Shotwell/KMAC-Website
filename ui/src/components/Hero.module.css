@@ -1,0 +1,76 @@
+.container {
+    z-index: 1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.imageWide {
+    position: absolute;
+    left: 5vw;
+}
+
+.imageMobile {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 40%;
+}
+
+.overlay {
+    z-index: 10;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+
+    background: radial-gradient(81.3% 81.3% at 50% 50%, rgba(74, 183, 35, 0.39) 0%, rgba(49, 28, 9, 0.836698) 56.76%, #000000 100%);
+}
+
+.background {
+    z-index: 1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+
+    background: url("../../public/images/skyline.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 7% 7%;
+}
+
+/* --------------- RESPONSIVE BREAKPOINTS --------------- */
+
+@media (min-width: 769px) {
+
+}
+
+@media screen and (min-width: 361px) and (max-width: 768px) {
+    .background {
+        z-index: 1;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+    
+        background: url("../../public/images/denver-skyline-3.jpg");
+        background-size: 400%;
+        background-repeat: no-repeat;
+        background-position: 15% 50%;
+    }
+}
+
+@media screen and (min-width: 1px) and (max-width: 360px) {
+    .background {
+        z-index: 1;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+    
+        background: url("../../public/images/denver-skyline-3.jpg");
+        background-size: 400%;
+        background-repeat: no-repeat;
+        background-position: 15% 50%;
+    }
+}

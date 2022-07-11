@@ -1,10 +1,3 @@
-/*
-
-  PROBLEMS:
-    - clicking the dropdown menu button and then resizing the window back to desktop width leaves dropdown open.
-
-*/
-
 import { React, useEffect, useState } from "react";
 import styles from "./NavBarCSS.module.css";
 

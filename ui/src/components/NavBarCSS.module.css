@@ -10,7 +10,7 @@ MOBILE PROBLEMS:
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    z-index: 1;
+    z-index: 10000000;
 }
 
 .main {
@@ -21,6 +21,7 @@ MOBILE PROBLEMS:
 }
 
 .container {
+    z-index: 1000000;
     position: fixed;
     display: flex;
     justify-content: space-between;
@@ -80,8 +81,9 @@ MOBILE PROBLEMS:
 }
 
 .logoHero {
+    z-index: 100000;
     height: 20vw;
-    transform: translate(45vw, 15vw) rotate(-10deg);
+    transform: translate(40vw, 15vw) rotate(-10deg);
     filter: drop-shadow(7px 7px rgba(183, 35, 35, 1));
 }
 
@@ -97,6 +99,7 @@ MOBILE PROBLEMS:
 }
 
 .navDrop {
+    z-index: 1000000;
     position: fixed;
     margin-top: 54px;
     z-index: 10;
