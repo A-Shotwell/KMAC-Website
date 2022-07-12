@@ -1,5 +1,4 @@
 .container {
-    z-index: 1;
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -7,11 +6,13 @@
 }
 
 .imageWide {
+    z-index: 100;
     position: absolute;
     left: 5vw;
 }
 
 .imageMobile {
+    z-index: 100;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -30,7 +31,6 @@
 }
 
 .background {
-    z-index: 1;
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -49,7 +49,6 @@
 
 @media screen and (min-width: 361px) and (max-width: 768px) {
     .background {
-        z-index: 1;
         position: absolute;
         width: 100vw;
         height: 100vh;
@@ -59,11 +58,20 @@
         background-repeat: no-repeat;
         background-position: 15% 50%;
     }
+
+    .imageMobile {
+        z-index: 100;
+        position: absolute;
+        width: 100vw;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        top: 40%;
+    }
 }
 
 @media screen and (min-width: 1px) and (max-width: 360px) {
     .background {
-        z-index: 1;
         position: absolute;
         width: 100vw;
         height: 100vh;
@@ -72,5 +80,15 @@
         background-size: 400%;
         background-repeat: no-repeat;
         background-position: 15% 50%;
+    }
+
+    .imageMobile {
+        z-index: 100;
+        width: 100vw;
+        height: auto;
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        top: 40%;
     }
 }

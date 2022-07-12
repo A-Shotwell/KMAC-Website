@@ -22,10 +22,6 @@ const NavBar = () => {
       setDropMenu(prev => !prev)
     }
 
-    const dropDown = {
-      
-    }
-
    return (
     <div className={styles.main}>
       <nav className={styles.container}>
