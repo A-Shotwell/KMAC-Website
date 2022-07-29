@@ -1,10 +1,11 @@
 import NavBar from './components/NavBar.js';
 import Hero from './components/Hero.js';
+import ContactAndBooking from './components/ContactAndBooking.js';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      {/* <NavBar />
       <Hero />
       <div 
         style={{
@@ -14,7 +15,8 @@ function App() {
           width: "100vw", 
           backgroundImage: "linear-gradient(to bottom right, green, blue)",
           overflow: "hidden"
-        }} />
+        }} /> */}
+        <ContactAndBooking />
     </div>
   );
 }
