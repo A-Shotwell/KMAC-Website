@@ -62,7 +62,7 @@ const ContactAndBooking = () => {
                 isValid = false
             }
             // If phone number length is neither 10 nor 11 digits long, trigger invalid flag
-            if (!contact.phone || ![10,11].includes(contact.phone.split('-').join('').split('').length)){
+            if (!contact.phone || ![10,11].includes(contact.phone.split('-').join('').split('').length) || contact.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e))){
                 isValid = false
             }
             // If no reason for contact is given, trigger invalid flag
@@ -85,7 +85,7 @@ const ContactAndBooking = () => {
                 isValid = false
             }
             // If phone number length is neither 10 nor 11 digits long, trigger invalid flag
-            if (!booking.phone || ![10,11].includes(booking.phone.split('-').join('').split('').length)){
+            if (!booking.phone || ![10,11].includes(booking.phone.split('-').join('').split('').length)|| booking.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e))){
                 isValid = false
             }
             // If no booking date is selected, trigger invalid flag
@@ -153,7 +153,7 @@ const ContactAndBooking = () => {
                     type="text" 
                     onChange={e => setContact({...contact, phone: e.target.value})} 
                 />
-                {!validFlag && (!contact.phone || ![10,11].includes(contact.phone.split('-').join('').split('').length)) && <span>Please enter a valid phone number.</span>}
+                {!validFlag && (!contact.phone || ![10,11].includes(contact.phone.split('-').join('').split('').length) || contact.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e))) && <span>Please enter a valid phone number.</span>}
                 <select 
                     className={styles.select} 
                     onChange={e => setContact({...contact, reason: e.target.value})}
@@ -202,7 +202,7 @@ const ContactAndBooking = () => {
                     type="text" 
                     onChange={e => setBooking({...booking, phone: e.target.value})} 
                 />
-                {!validFlag && (!booking.phone || ![10,11].includes(booking.phone.split('-').join('').split('').length)) && <span>Please enter a valid phone number.</span>}
+                {!validFlag && (!booking.phone || ![10,11].includes(booking.phone.split('-').join('').split('').length)|| booking.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e))) && <span>Please enter a valid phone number.</span>}
                 <label className={styles.label} htmlFor="date">Select Date: </label>
                 <input 
                     type="date" 
