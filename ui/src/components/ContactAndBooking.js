@@ -113,16 +113,18 @@ const ContactAndBooking = () => {
         setValidFlag(true)
         if (validate()){
             if (typeContact === "contact"){
+                // To be replaced with Axios request
                 console.log(contact)
             }
             else if (typeContact === "booking"){
+                // To be replaced with Axios request
                 console.log(booking)
             }
         }
         // set form validation alert flag on validation failure
         else {
             setValidFlag(false)
-            console.log("INVALID")
+            console.log("SUBMISSION INVALID")
         }
     }
 
@@ -137,7 +139,7 @@ const ContactAndBooking = () => {
                     type="text" 
                     onChange={e => setContact({...contact, name: e.target.value})} 
                 />
-                {!validFlag && !contact.name && <span>Please enter your name.</span>}
+                {!validFlag && !contact.name && <span className={styles.warning}>Please enter your name.</span>}
                 <label className={styles.label} htmlFor="email">Email: </label>
                 <input 
                     className={styles.input} 
@@ -145,7 +147,7 @@ const ContactAndBooking = () => {
                     type="email" 
                     onChange={e => setContact({...contact, email: e.target.value})} 
                 />
-                {!validFlag && (!contact.email || !contact.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) && <span>Please enter a valid email address.</span>}
+                {!validFlag && (!contact.email || !contact.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) && <span className={styles.warning}>Please enter a valid email address.</span>}
                 <label className={styles.label} htmlFor="phone">Phone: </label>
                 <input 
                     className={styles.input} 
@@ -153,7 +155,7 @@ const ContactAndBooking = () => {
                     type="text" 
                     onChange={e => setContact({...contact, phone: e.target.value})} 
                 />
-                {!validFlag && (!contact.phone || ![10,11].includes(contact.phone.split('-').join('').split('').length) || contact.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e))) && <span>Please enter a valid phone number.</span>}
+                {!validFlag && (!contact.phone || ![10,11].includes(contact.phone.split('-').join('').split('').length) || contact.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e))) && <span className={styles.warning}>Please enter a valid phone number.</span>}
                 <select 
                     className={styles.select} 
                     onChange={e => setContact({...contact, reason: e.target.value})}
@@ -163,13 +165,13 @@ const ContactAndBooking = () => {
                     <option className={styles.option} value="Business Inquiry">Business Inquiry</option>
                     <option className={styles.option} value="Other">Other</option>
                 </select>
-                {!validFlag && !contact.reason && <span>Please select a reason for contact.</span>}
+                {!validFlag && !contact.reason && <span className={styles.warning}>Please select a reason for contact.</span>}
                 <textarea 
                     className={styles.textarea} 
                     placeholder="How can I help you?" 
                     onChange={e => setContact({...contact, message: e.target.value})} 
                 />
-                {!validFlag && !contact.message && <span>Please enter your message.</span>}
+                {!validFlag && !contact.message && <span className={styles.warning}>Please enter your message.</span>}
                 <button role="submit">Submit</button>
             </form>
         )
@@ -186,7 +188,7 @@ const ContactAndBooking = () => {
                     type="text" 
                     onChange={e => setBooking({...booking, name: e.target.value})} 
                 />
-                {!validFlag && !booking.name && <span>Please enter your name.</span>}
+                {!validFlag && !booking.name && <span className={styles.warning}>Please enter your name.</span>}
                 <label className={styles.label} htmlFor="email">Email: </label>
                 <input 
                     className={styles.input} 
@@ -194,7 +196,7 @@ const ContactAndBooking = () => {
                     type="email" 
                     onChange={e => setBooking({...booking, email: e.target.value})} 
                 />
-                {!validFlag && (!booking.email || !booking.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) && <span>Please enter a valid email address.</span>}
+                {!validFlag && (!booking.email || !booking.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) && <span className={styles.warning}>Please enter a valid email address.</span>}
                 <label className={styles.label} htmlFor="phone">Phone: </label>
                 <input 
                     className={styles.input} 
@@ -202,7 +204,7 @@ const ContactAndBooking = () => {
                     type="text" 
                     onChange={e => setBooking({...booking, phone: e.target.value})} 
                 />
-                {!validFlag && (!booking.phone || ![10,11].includes(booking.phone.split('-').join('').split('').length)|| booking.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e))) && <span>Please enter a valid phone number.</span>}
+                {!validFlag && (!booking.phone || ![10,11].includes(booking.phone.split('-').join('').split('').length)|| booking.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e))) && <span className={styles.warning}>Please enter a valid phone number.</span>}
                 <label className={styles.label} htmlFor="date">Select Date: </label>
                 <input 
                     type="date" 
@@ -210,29 +212,30 @@ const ContactAndBooking = () => {
                     min={minDate}
                     onChange={e => setBooking({...booking, date: e.target.value})} 
                 />
-                {!validFlag && !booking.date && <span>Please select a date for your event.</span>}
+                {!validFlag && !booking.date && <span className={styles.warning}>Please select a date for your event.</span>}
                 <label className={styles.label} htmlFor="time">Select Time: </label>
                 <input 
                     type="time"
                     name="time"
                     onChange={e => setBooking({...booking, time: e.target.value})}
                 />
-                {!validFlag && !booking.time && <span>Please select a time for your event.</span>}
+                {!validFlag && !booking.time && <span className={styles.warning}>Please select a time for your event.</span>}
                 <textarea 
                     className={styles.textarea} 
                     placeholder="Please give a brief description of your event." 
                     onChange={e => setBooking({...booking, description: e.target.value})} 
                 />
-                {!validFlag && !booking.description && <span>Please describe your event.</span>}
+                {!validFlag && !booking.description && <span className={styles.warning}>Please describe your event.</span>}
                 <button role="submit">Submit</button>
             </form>
         )
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <button 
-                role="button" 
+                role="button"
+                className={styles.toggle} 
                 onClick={() => {
                     setTypeContact("contact")
                     setValidFlag(true)
@@ -241,7 +244,8 @@ const ContactAndBooking = () => {
                 Contact
             </button>
             <button 
-                role="button" 
+                role="button"
+                className={styles.toggle} 
                 onClick={() => {
                     setTypeContact("booking")
                     setValidFlag(true)
