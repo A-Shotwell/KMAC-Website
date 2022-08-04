@@ -1,19 +1,16 @@
 .container {
-    position: absolute;
     background: rgba(0,0,0,0.65);
     width: 40vw;
     height: 100vh;
-    transform: translateX(130%);
+    transform: translateX(140%);
 }
 
 .toggle {
     width: 50%;
     padding-top: 1%;
-    margin-bottom: 2.5%;
-    
+    margin-bottom: 2.5%;    
     font-size: larger;
-    background: black;
-    
+    background: black; 
     padding-bottom: 2px;
 }
 
@@ -22,9 +19,19 @@
     border-bottom: 2px rgba(50, 236, 191, 1) solid;
 }
 
+.toggleContact:hover {
+    color: rgb(93, 250, 90);
+    border-bottom: 2px rgb(93, 250, 90) solid;
+}
+
 .toggleBooking {
     color:rgb(252, 111, 111);
     border-bottom: 2px rgb(252, 111, 111) solid;
+}
+
+.toggleBooking:hover {
+    color:rgb(249, 49, 49);
+    border-bottom: 2px rgb(249, 49, 49) solid;
 }
 
 .label {
@@ -53,7 +60,7 @@
     width: 86%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%;
+    margin-top: 1%;
     font-size: medium;
     background:rgba(50, 236, 191, 1);
 }
@@ -73,7 +80,6 @@
 .textarea {
     display: block;
     resize: none;
-    height: 15vh;
     width: 86%;
     margin-left: auto;
     margin-right: auto;
@@ -81,8 +87,23 @@
     background:rgba(50, 236, 191, 1);
 }
 
+.textareaContact {
+    height: 25vh;
+}
+
+.textareaBooking {
+    height: 15vh;
+}
+
 .warning {
     color: rgb(252, 111, 111);
+    display: block;
+    margin-left: 7%;
+    font-size: small;
+}
+
+.warningHidden {
+    color: transparent;
     display: block;
     margin-left: 7%;
     font-size: small;

@@ -25,7 +25,7 @@ const ContactAndBooking = () => {
     const [minDate, setMinDate] = useState()
 
     // Display contact form or booking form, switch on button press
-    const [typeContact, setTypeContact] = useState("booking")
+    const [typeContact, setTypeContact] = useState("contact")
 
     // Flag invalid form values for validation alerts
     const [validFlag, setValidFlag] = useState(true)
@@ -139,7 +139,7 @@ const ContactAndBooking = () => {
                     type="text" 
                     onChange={e => setContact({...contact, name: e.target.value})} 
                 />
-                {!validFlag && !contact.name && <span className={styles.warning}>Please enter your name.</span>}
+                <span className={!validFlag && !contact.name ? styles.warning : styles.warningHidden}>Please enter your name.</span>
                 <label className={styles.label} htmlFor="email">Email: </label>
                 <input 
                     className={styles.input} 
@@ -147,7 +147,13 @@ const ContactAndBooking = () => {
                     type="email" 
                     onChange={e => setContact({...contact, email: e.target.value})} 
                 />
-                {!validFlag && (!contact.email || !contact.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) && <span className={styles.warning}>Please enter a valid email address.</span>}
+                <span className={
+                    !validFlag && (!contact.email || !contact.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/))
+                    ? styles.warning
+                    : styles.warningHidden
+                }>
+                    Please enter a valid email address.
+                </span>
                 <label className={styles.label} htmlFor="phone">Phone: </label>
                 <input 
                     className={styles.input} 
@@ -155,7 +161,11 @@ const ContactAndBooking = () => {
                     type="text" 
                     onChange={e => setContact({...contact, phone: e.target.value})} 
                 />
-                {!validFlag && (!contact.phone || ![10,11].includes(contact.phone.split('-').join('').split('').length) || contact.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e))) && <span className={styles.warning}>Please enter a valid phone number.</span>}
+                <span className={
+                    !validFlag && (!contact.phone || ![10,11].includes(contact.phone.split('-').join('').split('').length) || contact.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e)))
+                    ? styles.warning
+                    : styles.warningHidden
+                }>Please enter a valid phone number.</span>}
                 <select 
                     className={styles.select} 
                     onChange={e => setContact({...contact, reason: e.target.value})}
@@ -165,13 +175,13 @@ const ContactAndBooking = () => {
                     <option className={styles.option} value="Business Inquiry">Business Inquiry</option>
                     <option className={styles.option} value="Other">Other</option>
                 </select>
-                {!validFlag && !contact.reason && <span className={styles.warning}>Please select a reason for contact.</span>}
+                <span className={!validFlag && !contact.reason ? styles.warning : styles.warningHidden}>Please select a reason for contact.</span>
                 <textarea 
-                    className={styles.textarea} 
+                    className={`${styles.textarea} ${styles.textareaContact}`} 
                     placeholder="How can I help you?" 
                     onChange={e => setContact({...contact, message: e.target.value})} 
                 />
-                {!validFlag && !contact.message && <span className={styles.warning}>Please enter your message.</span>}
+                <span className={!validFlag && !contact.message ? styles.warning : styles.warningHideen}>Please enter your message.</span>
                 <button className={styles.submit} role="submit">Submit</button>
             </form>
         )
@@ -188,7 +198,7 @@ const ContactAndBooking = () => {
                     type="text" 
                     onChange={e => setBooking({...booking, name: e.target.value})} 
                 />
-                {!validFlag && !booking.name && <span className={styles.warning}>Please enter your name.</span>}
+                <span className={!validFlag && !booking.name ? styles.warning : styles.warningHidden}>Please enter your name.</span>
                 <label className={styles.label} htmlFor="email">Email: </label>
                 <input 
                     className={styles.input} 
@@ -196,7 +206,13 @@ const ContactAndBooking = () => {
                     type="email" 
                     onChange={e => setBooking({...booking, email: e.target.value})} 
                 />
-                {!validFlag && (!booking.email || !booking.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) && <span className={styles.warning}>Please enter a valid email address.</span>}
+                <span className={
+                    !validFlag && (!booking.email || !booking.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/))
+                    ? styles.warning
+                    : styles.warningHidden
+                }>
+                    Please enter a valid email address.
+                </span>
                 <label className={styles.label} htmlFor="phone">Phone: </label>
                 <input 
                     className={styles.input} 
@@ -204,7 +220,13 @@ const ContactAndBooking = () => {
                     type="text" 
                     onChange={e => setBooking({...booking, phone: e.target.value})} 
                 />
-                {!validFlag && (!booking.phone || ![10,11].includes(booking.phone.split('-').join('').split('').length)|| booking.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e))) && <span className={styles.warning}>Please enter a valid phone number.</span>}
+                <span className={
+                    !validFlag && (!booking.phone || ![10,11].includes(booking.phone.split('-').join('').split('').length)|| booking.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e)))
+                    ? styles.warning
+                    : styles.warningHidden
+                }>
+                    Please enter a valid phone number.
+                </span>
                 <label className={styles.label} htmlFor="date">Select Date: </label>
                 <input
                     className={styles.datetime} 
@@ -213,7 +235,7 @@ const ContactAndBooking = () => {
                     min={minDate}
                     onChange={e => setBooking({...booking, date: e.target.value})} 
                 />
-                {!validFlag && !booking.date && <span className={styles.warning}>Please select a date for your event.</span>}
+                <span className={!validFlag && !booking.date ? styles.warning : styles.warningHidden}>Please select a date for your event.</span>
                 <label className={styles.label} htmlFor="time">Select Time: </label>
                 <input
                     className={styles.datetime} 
@@ -221,13 +243,13 @@ const ContactAndBooking = () => {
                     name="time"
                     onChange={e => setBooking({...booking, time: e.target.value})}
                 />
-                {!validFlag && !booking.time && <span className={styles.warning}>Please select a time for your event.</span>}
+                <span className={!validFlag && !booking.time ? styles.warning : styles.warningHidden}>Please select a time for your event.</span>
                 <textarea 
-                    className={styles.textarea} 
+                    className={`${styles.textarea} ${styles.textareaBooking}`} 
                     placeholder="Please give a brief description of your event." 
                     onChange={e => setBooking({...booking, description: e.target.value})} 
                 />
-                {!validFlag && !booking.description && <span className={styles.warning}>Please describe your event.</span>}
+                <span className={!validFlag && !booking.description ? styles.warning : styles.warningHidden}>Please describe your event.</span>
                 <button className={styles.submit} role="submit">Submit</button>
             </form>
         )
@@ -243,7 +265,7 @@ const ContactAndBooking = () => {
                     setValidFlag(true)
                 }}
             >
-                Contact
+                CONTACT
             </button>
             <button 
                 role="button"
@@ -253,7 +275,7 @@ const ContactAndBooking = () => {
                     setValidFlag(true)
                 }}
             >
-                Booking
+                BOOKING
             </button>
             <br />
             {typeContact === "contact" && contactWindow()}
