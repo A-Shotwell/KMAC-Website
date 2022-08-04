@@ -159,7 +159,7 @@ const ContactAndBooking = () => {
                 <select 
                     className={styles.select} 
                     onChange={e => setContact({...contact, reason: e.target.value})}
-                    value="Reason for contact"
+                    defaultValue="Reason for contact"
                 >
                     <option className={styles.option} value="Reason for contact" disabled>Reason for contact</option>
                     <option className={styles.option} value="Business Inquiry">Business Inquiry</option>
@@ -172,7 +172,7 @@ const ContactAndBooking = () => {
                     onChange={e => setContact({...contact, message: e.target.value})} 
                 />
                 {!validFlag && !contact.message && <span className={styles.warning}>Please enter your message.</span>}
-                <button role="submit">Submit</button>
+                <button className={styles.submit} role="submit">Submit</button>
             </form>
         )
     }
@@ -206,7 +206,8 @@ const ContactAndBooking = () => {
                 />
                 {!validFlag && (!booking.phone || ![10,11].includes(booking.phone.split('-').join('').split('').length)|| booking.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e))) && <span className={styles.warning}>Please enter a valid phone number.</span>}
                 <label className={styles.label} htmlFor="date">Select Date: </label>
-                <input 
+                <input
+                    className={styles.datetime} 
                     type="date" 
                     name="date"
                     min={minDate}
@@ -214,7 +215,8 @@ const ContactAndBooking = () => {
                 />
                 {!validFlag && !booking.date && <span className={styles.warning}>Please select a date for your event.</span>}
                 <label className={styles.label} htmlFor="time">Select Time: </label>
-                <input 
+                <input
+                    className={styles.datetime} 
                     type="time"
                     name="time"
                     onChange={e => setBooking({...booking, time: e.target.value})}
@@ -226,7 +228,7 @@ const ContactAndBooking = () => {
                     onChange={e => setBooking({...booking, description: e.target.value})} 
                 />
                 {!validFlag && !booking.description && <span className={styles.warning}>Please describe your event.</span>}
-                <button role="submit">Submit</button>
+                <button className={styles.submit} role="submit">Submit</button>
             </form>
         )
     }
@@ -235,7 +237,7 @@ const ContactAndBooking = () => {
         <div className={styles.container}>
             <button 
                 role="button"
-                className={styles.toggle} 
+                className={`${styles.toggle} ${styles.toggleContact}`} 
                 onClick={() => {
                     setTypeContact("contact")
                     setValidFlag(true)
@@ -245,7 +247,7 @@ const ContactAndBooking = () => {
             </button>
             <button 
                 role="button"
-                className={styles.toggle} 
+                className={`${styles.toggle} ${styles.toggleBooking}`} 
                 onClick={() => {
                     setTypeContact("booking")
                     setValidFlag(true)

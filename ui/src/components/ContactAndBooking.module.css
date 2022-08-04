@@ -3,33 +3,103 @@
 }
 
 .container {
-
+    background: rgba(0,0,0,0.65);
+    width: 40vw;
+    height: 100vh;
 }
 
 .toggle {
+    width: 50%;
+    padding-top: 1%;
+    margin-bottom: 2.5%;
+    
+    font-size: larger;
+    background: black;
+    
+    padding-bottom: 2px;
+}
 
+.toggleContact {
+    color: rgba(50, 236, 191, 1);
+    border-bottom: 2px rgba(50, 236, 191, 1) solid;
+}
+
+.toggleBooking {
+    color:rgb(252, 111, 111);
+    border-bottom: 2px rgb(252, 111, 111) solid;
 }
 
 .label {
-
+    color: rgba(50, 236, 191, 1);
+    text-shadow: 2px 2px rgba(183, 35, 35, 1);
+    display: block;
+    color: white;
+    margin-left: 7%;
+    margin-top: 2%;
+    margin-bottom: .5%
 }
 
-.input {
-
+.input, input:focus {
+    display: block;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 1px rgba(50, 236, 191, 1) solid;
 }
 
 .select {
-
+    display: block;
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    font-size: medium;
+    background:rgba(50, 236, 191, 1);
 }
 
 .option {
 
 }
 
+.datetime {
+    width: 85%;
+    margin-left: 7%;
+    margin-right: auto;
+    background:rgba(50, 236, 191, 1);
+    font-size: large;
+}
+
 .textarea {
-    
+    display: block;
+    resize: none;
+    height: 15vh;
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    background:rgba(50, 236, 191, 1);
 }
 
 .warning {
-    
+    color: rgb(252, 111, 111);
+    display: block;
+    margin-left: 7%;
+    font-size: small;
+}
+
+.submit {
+    display: block;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    font-size: larger;
+    border: 2px rgba(50, 236, 191, 1) solid;
+    border-radius: 500px;
+    background: transparent;
+    color: rgba(50, 236, 191, 1);
+    text-shadow: 2px 2px rgba(183, 35, 35, 1);
 }
