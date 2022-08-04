@@ -1,11 +1,9 @@
-* {
-
-}
-
 .container {
+    position: absolute;
     background: rgba(0,0,0,0.65);
     width: 40vw;
     height: 100vh;
+    transform: translateX(130%);
 }
 
 .toggle {
@@ -61,7 +59,7 @@
 }
 
 .option {
-
+    background:rgb(39, 197, 157);
 }
 
 .datetime {
