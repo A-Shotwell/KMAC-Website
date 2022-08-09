@@ -173,6 +173,7 @@ const ContactAndBooking = () => {
                 >
                     <option className={styles.option} value="Reason for contact" disabled>Reason for contact</option>
                     <option className={styles.option} value="Business Inquiry">Business Inquiry</option>
+                    <option className={styles.option} value="Ticket Sales">Ticket Sales</option>
                     <option className={styles.option} value="Other">Other</option>
                 </select>
                 <span className={!validFlag && !contact.reason ? styles.warning : styles.warningHidden}>Please select a reason for contact.</span>
