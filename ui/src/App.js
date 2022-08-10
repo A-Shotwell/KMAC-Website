@@ -4,7 +4,7 @@ import Contact from './components/Contact.js';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{height: "auto", width: "100vw"}}>
       <NavBar />
       <Hero />
       <div style={{width: "100vw", height: "100vh", background: "blue"}} />

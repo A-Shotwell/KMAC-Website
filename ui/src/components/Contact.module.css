@@ -74,3 +74,28 @@
     height: 100%;
     width: 100%;
 }
+
+/* --------------- RESPONSIVE BREAKPOINTS --------------- */
+
+@media screen and (min-width: 361px) and (max-width: 768px) {
+    .main {
+        background-image: linear-gradient(265.87deg, rgba(183, 35, 35, 0.3) 9.77%, rgba(51, 169, 236, 0.3) 44.18%, rgba(74, 183, 35, 0.3) 61.72%), url("../../public/images/graffiti2.jpg");
+        background-repeat: no-repeat;
+        background-size: inherit;
+    }
+
+    .banner {
+        transform: translate(11vh, 22vw);
+        font-size: 2.5em;
+    }
+
+    .socialContainer {
+        transform: translate(13vh, 30vw);
+        height: 15vh;
+        width: 40vw;
+    }
+}
+
+@media screen and (min-width: 1px) and (max-width: 360px) {
+
+}
