@@ -1,9 +1,12 @@
 .container {
     z-index: 10;
     background: rgba(0,0,0,0.65);
-    width: 40vw;
+    width: 45vw;
     height: 100vh;
-    transform: translateX(140%);
+    transform: translateX(110.5%);
+    /* width: 40vw;
+    height: 100vh;
+    transform: translateX(137%); */
 }
 
 .toggle {
@@ -123,7 +126,7 @@
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%;
+    margin-top: 1%;
     font-size: larger;
     border: 2px rgba(50, 236, 191, 1) solid;
     border-radius: 500px;
