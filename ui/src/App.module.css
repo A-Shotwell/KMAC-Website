@@ -1,0 +1,23 @@
+::-webkit-scrollbar {
+    background: rgb(0, 0, 0);
+    width: .75em;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(77, 77, 77, 0.5);
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(78, 78, 78);
+}
+
+.App {
+    height: "auto";
+    width: "100vw";
+}

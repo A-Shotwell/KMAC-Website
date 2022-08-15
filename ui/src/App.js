@@ -2,10 +2,11 @@ import NavBar from './components/NavBar.js';
 import Hero from './components/Hero.js';
 import Contact from './components/Contact.js';
 import About from './components/About.js';
+import styles from './App.module.css';
 
 function App() {
   return (
-    <div className="App" style={{height: "auto", width: "100vw"}}>
+    <div className={styles.App}>
       <NavBar />
       <Hero />
       <About />
