@@ -257,7 +257,7 @@ const ContactAndBooking = () => {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} id="contact">
             <button 
                 role="button"
                 className={`${styles.toggle} ${styles.toggleContact}`} 

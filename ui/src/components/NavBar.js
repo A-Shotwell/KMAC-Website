@@ -22,26 +22,32 @@ const NavBar = () => {
       setDropMenu(prev => !prev)
     }
 
+    const handleSelect = (target) => {
+      const element = document.querySelector(`#${target}`);
+      element.scrollIntoView({behavior: 'smooth', block: 'end'});
+      setDropMenu(false);
+    }
+
    return (
     <div className={styles.main}>
       <nav className={styles.container}>
         <div className={`${styles.nav} ${styles.navLeft}`}>
           <ul>
             <li>
-              <button role="button" onClick={null}>HOME</button>
+              <button role="button" onClick={e => handleSelect("home")}>HOME</button>
             </li>
             <li>
-              <button role="button" onClick={null}>ABOUT</button>
+              <button role="button" onClick={e => handleSelect("about")}>ABOUT</button>
             </li>
           </ul>
         </div>
         <div className={`${styles.nav} ${styles.navRight}`}>
           <ul>
             <li>
-              <button role="button" onClick={null}>SHOWS</button>
+              <button role="button" onClick={e => handleSelect("shows")}>SHOWS</button>
             </li>
             <li>
-              <button role="button" onClick={null}>CONTACT</button>
+              <button role="button" onClick={e => handleSelect("contact")}>CONTACT</button>
             </li>
           </ul>
         </div>
@@ -55,16 +61,16 @@ const NavBar = () => {
         <nav className={styles.navDrop}>
           <ul>
             <li>
-              <button role="button" onClick={null}>HOME</button>
+              <button role="button" onClick={e => handleSelect("home")}>HOME</button>
             </li>
             <li>
-              <button role="button" onClick={null}>ABOUT</button>
+              <button role="button" onClick={e => handleSelect("about")}>ABOUT</button>
             </li>
             <li>
-              <button role="button" onClick={null}>SHOWS</button>
+              <button role="button" onClick={e => handleSelect("shows")}>SHOWS</button>
             </li>
             <li>
-              <button role="button" onClick={null}>CONTACT</button>
+              <button role="button" onClick={e => handleSelect("contact")}>CONTACT</button>
             </li>
           </ul>
         </nav>

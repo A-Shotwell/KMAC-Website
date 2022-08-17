@@ -2,10 +2,9 @@
     display: block;
     height: 100vh;
     width: 100vw;
-    margin-top: 100vh;
     background: linear-gradient(229.54deg, rgba(183, 35, 35, 0.39) 3.15%, rgba(74, 183, 35, 0.39) 29.66%, rgba(50, 236, 191, 0.39) 52.25%), url("../../public/images/turntables.jpg");
     background-size: cover;
-    overflow: hidden;   
+    overflow: hidden;
 }
 
 .overlay {
@@ -21,6 +20,7 @@
     width: 35vw;
     height: 80vh;
     padding: 10vh;
+    overflow: hidden;
 }
 
 .header {
@@ -31,12 +31,22 @@
 }
 
 .text {
-    color: rgba(50, 236, 191, 1);
+    color: white;
+}
+
+.textContainer {
+    background: rgba(0,0,0,.25);
+    padding: 1em;
+    height: 80%;
+    width: 100%;
+    margin-left: -1em;
+    margin-top: 2em;
 }
 
 .border {
-    position: absolute;
-    transform: translate(5vw, 10vh);
+    position: relative;
+    left: 5vw;
+    top: 10vh;
     display: flex;
     height: 77vh;
     width: 77vh;
@@ -47,11 +57,100 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    animation-name: borderSpinner;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 
 .profilePic {
-    height: 75vh;
-    width: 75vh;
-    border: 10px solid transparent;
+    display: block;
+    height: 70vh;
+    width: 70vh;
+    border: 0px solid transparent;
     border-radius: 500px;
+    background: url('../../public/images/007-COLOR.png');
+    background-size: cover;
+    animation-name: counterSpinner;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+/* --------------- ANIMATION FRAMES  --------------- */
+
+@keyframes borderSpinner {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(90deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(270deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes counterSpinner {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(-90deg); }
+    50% { transform: rotate(-180deg); }
+    75% { transform: rotate(-270deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+/* --------------- RESPONSIVE BREAKPOINTS --------------- */
+
+@media (min-width: 769px) {
+
+}
+
+@media screen and (min-width: 361px) and (max-width: 768px) {
+    .section {
+        position: absolute;
+        transform: translateX(3%);
+        transform: translateY(35%);
+        background: rgba(0,0,0,.5);
+        width: 60vw;
+        height: 50vh;
+        padding: 10vh;
+        margin-top: 2.5vh;
+        overflow: hidden;
+    }
+
+    .header {
+        display: block;
+        color: white;
+        font-weight: lighter;
+        font-size: 2em;
+        margin-bottom: -1vh;
+        margin-left: .5em;
+    }
+
+    .textContainer::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .textContainer {
+        background: rgba(0,0,0,.25);
+        padding: 1em;
+        height: 80%;
+        width: 130%;
+        margin-left: -3.85em;
+        margin-top: 2em;
+    }
+    
+    .border {
+        left: 17vw;
+        top: 7vh;
+        height: 27vh;
+        width: 27vh;
+    }
+    
+    .profilePic {
+        height: 26vh;
+        width: 26vh;
+        background: url('../../public/images/008-COLOR.png');
+        background-size: cover;
+    }
+}
+
+@media screen and (min-width: 1px) and (max-width: 360px) {
+    
 }
