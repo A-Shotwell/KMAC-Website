@@ -30,6 +30,9 @@ const ContactAndBooking = () => {
     // Flag invalid form values for validation alerts
     const [validFlag, setValidFlag] = useState(true)
 
+    // Successful message confirmation flag
+    const [confirm, setConfirm] = useState(false)
+
     // Keep track of today's date, booking calendar selection minimum
     useEffect(()=> {
         let today = new Date
@@ -112,6 +115,10 @@ const ContactAndBooking = () => {
         e.preventDefault()
         setValidFlag(true)
         if (validate()){
+            console.log("CONFIRMATION TRIGGERING...") // TESTING
+            // Trigger confirmation window
+            setConfirm(true) // NOT TRIGGERING
+            console.log("CONFIRMATION TRIGGERED") // TESTING
             if (typeContact === "contact"){
                 // To be replaced with Axios request
                 console.log(contact)
@@ -256,6 +263,17 @@ const ContactAndBooking = () => {
         )
     }
 
+    // Message confirmation window, triggered on successful validation and submission
+    const confirmWindow = () => {
+        return (
+            <div className={styles.confirmContainer}>
+                <h1 className={`${styles.confirmText} ${styles.confirmThankYou}`}>Thanks for the message!</h1>
+                <h3 className={`${styles.confirmText} ${styles.confirmSubThankYou}`}>I'll get back to you ASAP.</h3>
+                <button className={styles.confirmOkay} onClick={setConfirm(false)}>Okay</button>
+            </div>
+        )
+    }
+
     return (
         <div className={styles.container} id="contact">
             <button 
@@ -281,6 +299,7 @@ const ContactAndBooking = () => {
             <br />
             {typeContact === "contact" && contactWindow()}
             {typeContact === "booking" && bookingWindow()}
+            {confirm && confirmWindow()}
         </div>
     )
 }
