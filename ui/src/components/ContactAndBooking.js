@@ -1,3 +1,11 @@
+/*
+    UNRESOLVED PROBLEM:    
+    There is a strange problem happening with Chrome's autofill feature here.  If I fill fields with autofill on the 
+    first submitted message, the state updates and it validates with no problem. If I try to fill those fields with 
+    autofill for a second message, it will not update the state, and therefore does not validate. However, if I autofill, 
+    then delete the value I just selected, then autofill AGAIN, it updates the state just fine. I'm unsure how to fix this.
+*/
+
 import { useState, useEffect, useCallback } from 'react'
 import styles from "./ContactAndBooking.module.css"
 
@@ -48,10 +56,6 @@ const ContactAndBooking = () => {
         today = yyyy + '-' + mm + '-' + dd
         setMinDate(today)
     })
-
-    // useCallback(() => {
-    //     validFlag ? setConfirm(true) : setConfirm(false)
-    // }, [validFlag, confirm])
 
     // Validate form values
     const validate = () => {
@@ -119,10 +123,8 @@ const ContactAndBooking = () => {
         e.preventDefault()
         setValidFlag(true)
         if (validate()){
-            console.log("CONFIRMATION TRIGGERING...") // TESTING
             // Trigger confirmation window
-            setConfirm(true) // NOT TRIGGERING
-            console.log("CONFIRMATION TRIGGERED") // TESTING
+            setConfirm(true)
             if (typeContact === "contact"){
                 // To be replaced with Axios request
                 console.log(contact)
