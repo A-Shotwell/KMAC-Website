@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import styles from "./ContactAndBooking.module.css"
 
 const ContactAndBooking = () => {
@@ -48,6 +48,10 @@ const ContactAndBooking = () => {
         today = yyyy + '-' + mm + '-' + dd
         setMinDate(today)
     })
+
+    // useCallback(() => {
+    //     validFlag ? setConfirm(true) : setConfirm(false)
+    // }, [validFlag, confirm])
 
     // Validate form values
     const validate = () => {
@@ -122,15 +126,33 @@ const ContactAndBooking = () => {
             if (typeContact === "contact"){
                 // To be replaced with Axios request
                 console.log(contact)
+                setContact({
+                    name: null,
+                    email: null,
+                    phone: null,
+                    reason: null,
+                    message: null
+                })
+                document.getElementById('contactForm').reset() // CURRENTLY NOT TRIGGERING
             }
             else if (typeContact === "booking"){
                 // To be replaced with Axios request
                 console.log(booking)
+                setBooking({
+                    name: null,
+                    email: null,
+                    phone: null,
+                    date: null,
+                    time: null,
+                    description: null
+                })
+                document.getElementById('bookingForm').reset() // CURRENTLY NOT TRIGGERING
             }
         }
         // set form validation alert flag on validation failure
         else {
             setValidFlag(false)
+            setConfirm(false)
             console.log("SUBMISSION INVALID")
         }
     }
@@ -138,7 +160,7 @@ const ContactAndBooking = () => {
     // Contact form view
     const contactWindow = () => {
         return (
-            <form onSubmit={e => handleSubmit(e)}>
+            <form id="contactForm" onSubmit={e => handleSubmit(e)}>
                 <label className={styles.label} htmlFor="name">Name: </label>
                 <input 
                     className={styles.input} 
@@ -172,7 +194,7 @@ const ContactAndBooking = () => {
                     !validFlag && (!contact.phone || ![10,11].includes(contact.phone.split('-').join('').split('').length) || contact.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e)))
                     ? styles.warning
                     : styles.warningHidden
-                }>Please enter a valid phone number.</span>}
+                }>Please enter a valid phone number.</span>
                 <select 
                     className={styles.select} 
                     onChange={e => setContact({...contact, reason: e.target.value})}
@@ -198,7 +220,8 @@ const ContactAndBooking = () => {
     // Booking form view
     const bookingWindow = () => {
         return (
-            <form onSubmit={handleSubmit}>
+            <form id="bookingForm" onSubmit={handleSubmit}>
+                {confirm && <h1 style={{color: "white"}}>TRIGGER TEST</h1>}
                 <label className={styles.label} htmlFor="name">Name: </label>
                 <input 
                     className={styles.input} 
@@ -269,13 +292,14 @@ const ContactAndBooking = () => {
             <div className={styles.confirmContainer}>
                 <h1 className={`${styles.confirmText} ${styles.confirmThankYou}`}>Thanks for the message!</h1>
                 <h3 className={`${styles.confirmText} ${styles.confirmSubThankYou}`}>I'll get back to you ASAP.</h3>
-                <button className={styles.confirmOkay} onClick={setConfirm(false)}>Okay</button>
+                <button className={styles.confirmOkay} onClick={() => setConfirm(false)}>Okay</button>
             </div>
         )
     }
 
     return (
         <div className={styles.container} id="contact">
+            {confirm && confirmWindow()}
             <button 
                 role="button"
                 className={`${styles.toggle} ${styles.toggleContact}`} 
@@ -299,7 +323,6 @@ const ContactAndBooking = () => {
             <br />
             {typeContact === "contact" && contactWindow()}
             {typeContact === "booking" && bookingWindow()}
-            {confirm && confirmWindow()}
         </div>
     )
 }
