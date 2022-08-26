@@ -55,7 +55,7 @@ const ContactAndBooking = () => {
 
         today = yyyy + '-' + mm + '-' + dd
         setMinDate(today)
-    })
+    }, [])
 
     // Validate form values
     const validate = () => {
