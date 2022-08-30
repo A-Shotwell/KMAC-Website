@@ -11,7 +11,6 @@ function App() {
       <NavBar />
       <Hero />
       <About />
-      {/* <div style={{width: "100vw", height: "100vh", background: "blue"}} /> */}
       <Shows />
       <Contact />
     </div>    
