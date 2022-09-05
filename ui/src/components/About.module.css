@@ -72,10 +72,16 @@
     border-radius: 500px;
     background: url('../../public/images/007-COLOR.png');
     background-size: cover;
+    overflow: hidden;
     animation-name: counterSpinner;
     animation-timing-function: linear;
     animation-duration: 2s;
     animation-iteration-count: infinite;
+}
+
+.noScroll {
+    height: 100%;
+    overflow: hidden;
 }
 
 /* --------------- ANIMATION FRAMES  --------------- */
@@ -156,6 +162,12 @@
         width: 26vh;
         background: url('../../public/images/008-COLOR.png');
         background-size: cover;
+    }
+
+    .noScroll {
+        height: 90%;
+        overflow: hidden;
+        transform: translateY(-4%)
     }
 }
 

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {React, useState} from 'react';
 import styles from './Shows.module.css';
 
 /*
@@ -19,7 +19,7 @@ const Shows = () => {
         image: file ???
     */
 
-    // FOR TESTING PURPOSES
+    // FOR TESTING PURPOSES, REPLACE WITH ARRAY FROM DATABASE QUERY
     const testShows = [
         {
             eventTitle: "EVENT 1",
@@ -50,11 +50,17 @@ const Shows = () => {
         }
     ]
 
+    const displayImage = () => {
+        // REPLACE WITH IMAGE FILE FROM DATABASE QUERY, FILE READER?
+        return <img src={process.env.PUBLIC_URL+"images/poster.jpg"} style={{height: 'auto', width: '100%'}} alt="poster image" />
+    }
+
     const Show = (details) => {
         return (
             <div className={styles.showMain}>
                 <div className={styles.posterFrame} style={null /* SET BACKGROUND IMAGE HERE, COVER??? */}>
-                    <span>{details.image}</span>
+                    {/* <span>{details.image}</span> */}
+                    <span>{displayImage()}</span>
                 </div>
                 <div className={styles.textFrame}>
                     <h1 className={styles.showTextHeader}>{details.eventTitle}</h1>
@@ -80,11 +86,9 @@ const Shows = () => {
                         document.getElementById('showWindow').scrollLeft -= (document.getElementById('show').offsetWidth)
                     }}>&lArr;</div>
                     <div className={styles.showWindow} id='showWindow'>
-                        <div className={styles.showBody} id="show">{Show(testShows[0])}</div>
-                        <div className={styles.showBody} id="show">{Show(testShows[1])}</div>
-                        <div className={styles.showBody} id="show">{Show(testShows[2])}</div>
-                        <div className={styles.showBody} id="show">{Show(testShows[1])}</div>
-                        <div className={styles.showBody} id="show">{Show(testShows[0])}</div>
+                        {testShows.map((show, index) => (
+                            <div key={index} className={styles.showBody} id="show">{Show(show)}</div>
+                        ))}
                     </div>
                     <div className={styles.scrollButton} onClick={() => {
                         document.getElementById('showWindow').scrollLeft += (document.getElementById('show').offsetWidth)

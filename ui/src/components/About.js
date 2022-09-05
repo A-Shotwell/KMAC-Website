@@ -15,9 +15,12 @@ const About = () => {
                         <p className={styles.text}>{aboutText}</p>
                     </div>
                 </section>
-                <div className={styles.border}>
-                    <div className={styles.profilePic} />
+                <div className={styles.noScroll}>
+                    <div className={styles.border}>
+                        <div className={styles.profilePic} />
+                    </div>
                 </div>
+                
             </div>
         </div>
     )
