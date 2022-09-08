@@ -7,7 +7,6 @@ import styles from './App.module.css';
 
 /*
     PROBLEMS: 
-      - Scrolling over profile picture on About section often causes picture position to jitter rather than scrolling through
       - Horizontal scrolling shifts show template slightly to the left and right.
       - Upcoming shows window not yet responsive.
       - Nav Bar lays over "CONTACT/BOOKING" buttons on contact form. Need to adjust CSS.

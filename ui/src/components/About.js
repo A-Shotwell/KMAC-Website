@@ -1,3 +1,9 @@
+/*
+    NOTE:
+    The purpose of the "noScroll" div is to fix a bug with the profile pic. It
+    would occasionally jitter upon scrolling and prevent normal scrolling behavior.
+*/
+
 import { useState } from "react";
 import styles from "./About.module.css";
 
