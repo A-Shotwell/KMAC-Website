@@ -8,6 +8,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import styles from "./ContactAndBooking.module.css"
+import axios from 'axios'
 
 const ContactAndBooking = () => {
     // Contact form values
@@ -119,36 +120,67 @@ const ContactAndBooking = () => {
         return isValid
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setValidFlag(true)
         if (validate()){
             // Trigger confirmation window
             setConfirm(true)
             if (typeContact === "contact"){
-                // To be replaced with Axios request
-                console.log(contact)
-                setContact({
-                    name: null,
-                    email: null,
-                    phone: null,
-                    reason: null,
-                    message: null
-                })
-                document.getElementById('contactForm').reset() // CURRENTLY NOT TRIGGERING
+                // Axios request currently not hitting the backend
+                try {
+                    let result = await axios.post('http://localhost:4000/contact', contact)
+                    console.log(result.response)
+
+                    setContact({
+                        name: null,
+                        email: null,
+                        phone: null,
+                        reason: null,
+                        message: null
+                    })
+                    document.getElementById('contactForm').reset()
+                } catch (err) {
+                    console.log(err.response)
+
+                    setContact({
+                        name: null,
+                        email: null,
+                        phone: null,
+                        reason: null,
+                        message: null
+                    })
+                    document.getElementById('contactForm').reset()
+                }
             }
             else if (typeContact === "booking"){
-                // To be replaced with Axios request
-                console.log(booking)
-                setBooking({
-                    name: null,
-                    email: null,
-                    phone: null,
-                    date: null,
-                    time: null,
-                    description: null
-                })
-                document.getElementById('bookingForm').reset() // CURRENTLY NOT TRIGGERING
+                // Axios request currently not hitting the backend
+                try {
+                    let result = await axios.post('http://localhost:4000/booking', booking)
+                    console.log(result.response)
+
+                    setBooking({
+                        name: null,
+                        email: null,
+                        phone: null,
+                        date: null,
+                        time: null,
+                        description: null
+                    })
+                    document.getElementById('bookingForm').reset() // CURRENTLY NOT TRIGGERING
+                } catch (err) {
+                    console.log(err.response)
+
+                    setBooking({
+                        name: null,
+                        email: null,
+                        phone: null,
+                        date: null,
+                        time: null,
+                        description: null
+                    })
+                    document.getElementById('bookingForm').reset() // CURRENTLY NOT TRIGGERING
+                }
             }
         }
         // set form validation alert flag on validation failure
