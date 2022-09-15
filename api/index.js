@@ -51,11 +51,21 @@ app.post('/contact', bodyParser.json(), function(req, res){
 
 app.post('/booking', bodyParser.json(), function(req, res){
     console.log(req.body)
+    let day = new Date(req.body.date).toLocaleDateString('en-us', {weekday: "long", year: "numeric", month: "short", day: "numeric"})
+
+    const timeFunc = (dateString) => {
+        const timeArr = dateString.split(':')
+        const hour = Number(timeArr[0]) % 12
+        const ampm = Number(timeArr[0]) < 12 || Number(timeArr[0]) === 24 ? 'AM' : 'PM'
+
+        return `${hour}:${timeArr[1]} ${ampm}`
+    }
+
     const mailOptions = {
         from: process.env.EMAIL,
         to: 'aaronspleasantnightmares@gmail.com',
         subject: `NEW BOOKING from ${req.body.name}`,
-        text: `${req.body.name} would like to book your services!\n\n\tDATE: ${req.body.date}\n\tTIME: ${req.body.time}\n\tDESCRIPTION:\n\t\t${req.body.description}\n\n\tCONTACT INFO:\n\t\t${req.body.email}\n\t\t${req.body.phone}`
+        text: `${req.body.name} would like to book your services!\n\n\tDATE: ${day}\n\tTIME: ${timeFunc(req.body.time)}\n\tDESCRIPTION:\n\t\t${req.body.description}\n\n\tCONTACT INFO:\n\t\t${req.body.email}\n\t\t${req.body.phone}`
     }
 
     transporter.sendMail(mailOptions, function(error, info){
