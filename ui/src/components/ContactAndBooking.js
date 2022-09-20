@@ -1,13 +1,10 @@
 /*
     UNRESOLVED PROBLEM:    
-    There is a strange problem happening with Chrome's autofill feature here.  If I fill fields with autofill on the 
-    first submitted message, the state updates and it validates with no problem. If I try to fill those fields with 
-    autofill for a second message, it will not update the state, and therefore does not validate. However, if I autofill, 
-    then delete the value I just selected, then autofill AGAIN, it updates the state just fine. I'm unsure how to fix this.
-
-    UNRESOLVED PROBLEM:
-    There is a problem with the confirmation overlay on the booking tab. Overlay does not cover the entire form,
-    unwanted scrolling is present despite overflow being hidden. Overlay works just fine on the contact tab.
+    There is a strange problem happening with Chrome's autofill feature here.  If I fill fields with autofill 
+    on the first submitted message, the state updates and it validates with no problem. If I try to fill those 
+    fields with autofill for a second message, it will not update the state, and therefore does not validate. 
+    However, if I autofill, then delete the value I just selected, then autofill AGAIN, it updates the state 
+    just fine. I'm unsure how to fix this.
 */
 
 import { useState, useEffect, useCallback } from 'react'
@@ -171,9 +168,7 @@ const ContactAndBooking = () => {
                         time: null,
                         description: null
                     })
-                    document.getElementById('bookingForm').reset() // CURRENTLY NOT TRIGGERING
-                } catch (err) {
-                    console.log(err.response)
+                    document.getElementById('bookingForm').reset()
 
                     setBooking({
                         name: null,
@@ -183,7 +178,9 @@ const ContactAndBooking = () => {
                         time: null,
                         description: null
                     })
-                    document.getElementById('bookingForm').reset() // CURRENTLY NOT TRIGGERING
+                    document.getElementById('bookingForm').reset()
+                } catch (err){
+                    console.log(err.response)
                 }
             }
         }
