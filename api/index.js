@@ -1,39 +1,51 @@
-/*
-PROBLEM: Sending email in this fashion is a violation of terms of service. Spam. Find alternate method.
-*/
-
 import mongoose from 'mongoose'
 import express from 'express'
 import * as dotenv from 'dotenv'
-import nodemailer from 'nodemailer'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import MailJet from 'node-mailjet'
+
+// NEW FROM TRAVERSY TUTORIAL ----------------------------------------------------------------
+
+import * as ReactViews from 'express-react-views'
+import multer from 'multer'
+import * as GridFsStorage from 'multer-gridfs-storage'
+import * as Grid from 'gridfs-stream'
+import * as methodOverride from 'method-override'
+import crypto from 'crypto'
+
+// -------------------------------------------------------------------------------------------
+
+// SUGGESTED FIX: '__dirname is not defined in ES module scope'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+// SUGGESTED FIX: '__dirname is not defined in ES module scope'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 dotenv.config()
 
 const app = express()
 const port = process.env.PORT
+
+// Set View Engine
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', ReactViews.createEngine())
+
+// Set CORS and connect
+app.use(bodyParser.json()) // TRAVERSY
 app.use(cors())
 app.listen(port, () => console.log(`Server listening on port ${port}`))
 
+// Conenct to MongoDB server
 async function main() {
     await mongoose.connect(process.env.MONGOOSE_CONNECT)
 }
 // main.catch(err => console.log(err))
 
-// EMAIL SERVICE TRANSPORTER (ATTEMPTING SMTP)
-// const transporter = nodemailer.createTransport({
-//     host: "in-v3.mailjet.com",
-//     port: 587,
-//     secure: false,
-//     auth: {
-//         user: process.env.EMAIL,
-//         pass: process.env.EMAIL_PASS
-//     }
-// })
-
-//MAILJET CONFIGURATION
+// MailJet configuration
 const mailjet = MailJet.apiConnect(
     process.env.MAIL_KEY,
     process.env.MAIL_SECRET
@@ -43,22 +55,12 @@ app.get('/getShow', function(req, res){
     res.send('GET SHOW')
 })
 
-app.post('/postShow', function(req, res){
-    res.send('POST SHOW')
+app.get('/postShow', function(req, res){
+    res.render('index', {})
 })
 
 app.post('/contact', bodyParser.json(), function(req, res){
     console.log(req.body)
-    // const mailOptions = {
-    //     from: process.env.EMAIL,
-    //     to: 'aaronspleasantnightmares@gmail.com',
-    //     subject: `NEW CONTACT from ${req.body.name}`,
-    //     text: `${req.body.name} writes regarding ${req.body.reason}:\n\n\t${req.body.message}\n\nCONTACT INFO:\n\t${req.body.email}\n\t${req.body.phone}`
-    // }
-
-    // transporter.sendMail(mailOptions, function(error, info){
-    //     error ? console.log(error) : console.log('Email sent: ' + info.response)
-    // })
 
     const request = mailjet.post('send', { version: 'v3.1' }).request({
         Messages: [
@@ -100,16 +102,6 @@ app.post('/booking', bodyParser.json(), function(req, res){
         return `${hour}:${timeArr[1]} ${ampm}`
     }
 
-    // const mailOptions = {
-    //     from: process.env.EMAIL,
-    //     to: 'aaronspleasantnightmares@gmail.com',
-    //     subject: `NEW BOOKING from ${req.body.name}`,
-    //     text: `${req.body.name} would like to book your services!\n\n\tDATE: ${day}\n\tTIME: ${timeFunc(req.body.time)}\n\tDESCRIPTION:\n\t\t${req.body.description}\n\n\tCONTACT INFO:\n\t\t${req.body.email}\n\t\t${req.body.phone}`
-    // }
-
-    // transporter.sendMail(mailOptions, function(error, info){
-    //     error ? console.log(error) : console.log('Email sent: ' + info.response)
-    // })
     const request = mailjet.post('send', { version: 'v3.1' }).request({
         Messages: [
             {
