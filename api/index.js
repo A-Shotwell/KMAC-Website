@@ -9,9 +9,9 @@ import MailJet from 'node-mailjet'
 
 import * as ReactViews from 'express-react-views'
 import multer from 'multer'
-import * as GridFsStorage from 'multer-gridfs-storage'
-import * as Grid from 'gridfs-stream'
-import * as methodOverride from 'method-override'
+import { GridFsStorage } from 'multer-gridfs-storage'
+import Grid from 'gridfs-stream'
+import methodOverride from 'method-override' // Problem import, methodOverride() is not a function
 import crypto from 'crypto'
 
 // -------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ import crypto from 'crypto'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-// SUGGESTED FIX: '__dirname is not defined in ES module scope'
+// SUGGESTED FIX for: '__dirname is not defined in ES module scope'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
@@ -36,14 +36,47 @@ app.engine('jsx', ReactViews.createEngine())
 
 // Set CORS and connect
 app.use(bodyParser.json()) // TRAVERSY
+app.use(methodOverride('_method')) // TRAVERSY, set to use query string for database item deletion
 app.use(cors())
 app.listen(port, () => console.log(`Server listening on port ${port}`))
 
 // Conenct to MongoDB server
-async function main() {
-    await mongoose.connect(process.env.MONGOOSE_CONNECT)
-}
-// main.catch(err => console.log(err))
+// async function main() {
+//     await mongoose.connect(process.env.MONGOOSE_CONNECT)
+//     console.log("MongoDB connected...")
+// }
+// main().catch(err => console.log(err))
+
+const conn = mongoose.createConnection(process.env.MONGOOSE_CONNECT)
+
+// Init GFS
+let gfs;
+conn.once('open', () => {
+    // Init stream
+    gfs = Grid(conn.db, mongoose.mongo)
+    gfs.collection('uploads')
+})
+
+// Create storage engine
+const storage = new GridFsStorage({
+    url: process.env.MONGOOSE_CONNECT,
+    file: (req, file) => {
+        return new Promise((resolve, reject) => {
+            crypto.randomBytes(16, (err, buf) => {
+                if (err) {
+                    return reject(err)
+                }
+                const filename = buf.toString('hex') + path.extname(file.originalname)
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: 'uploads'
+                }
+                resolve(fileInfo);
+            })
+        })
+    }
+})
+const upload = multer({ storage })
 
 // MailJet configuration
 const mailjet = MailJet.apiConnect(
@@ -51,12 +84,19 @@ const mailjet = MailJet.apiConnect(
     process.env.MAIL_SECRET
 )
 
-app.get('/getShow', function(req, res){
-    res.send('GET SHOW')
+app.get('/newShow', function(req, res){
+    res.render('index', {})
 })
 
-app.get('/postShow', function(req, res){
-    res.render('index', {})
+app.get('/postShow', upload.single('file'), function(req, res){
+    res.send('UPLOAD SHOW')
+})
+
+app.post('/upload', upload.single('file'), function (req, res) {
+    console.log(req.body.fieldone)
+    console.log(req.body.fieldtwo)
+    console.log(req.body.fieldthree)
+    res.json({file: req.file})
 })
 
 app.post('/contact', bodyParser.json(), function(req, res){
