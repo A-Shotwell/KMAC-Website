@@ -88,14 +88,31 @@ app.get('/newShow', function(req, res){
     res.render('index', {})
 })
 
-app.get('/postShow', upload.single('file'), function(req, res){
-    res.send('UPLOAD SHOW')
-})
+app.post('/upload', upload.single('file'), function (req, res) {    
+    // Convert date
+    const dateParts = req.body.date.split('-')
+    dateParts.push(dateParts.shift())
+    const newDate = dateParts.join('-')
 
-app.post('/upload', upload.single('file'), function (req, res) {
-    console.log(req.body.fieldone)
-    console.log(req.body.fieldtwo)
-    console.log(req.body.fieldthree)
+    // Convert time
+    const timeParts = req.body.time.split(":")
+    const daylight = timeParts[0] < 12 ? " AM" : " PM"
+    timeParts[0] !== "12" && parseInt(timeParts[0]) !== 0 
+    ? timeParts.unshift(timeParts.shift() % 12) 
+    : timeParts[0] = "12"
+    const newTime = timeParts.join(":") + daylight
+
+    // ACCESS BODY, UPLOAD TO MONGODB DATABASE
+    console.log({
+        TITLE: req.body.eventTitle,
+        LOCATION: req.body.location,
+        DATE: newDate,
+        TIME: newTime,
+        TICKET: req.body.ticket,
+        DESC: req.body.desc
+    })
+
+    // Res image file JSON
     res.json({file: req.file})
 })
 
