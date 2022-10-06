@@ -11,12 +11,12 @@ import * as ReactViews from 'express-react-views'
 import multer from 'multer'
 import { GridFsStorage } from 'multer-gridfs-storage'
 import Grid from 'gridfs-stream'
-import methodOverride from 'method-override' // Problem import, methodOverride() is not a function
+import methodOverride from 'method-override'
 import crypto from 'crypto'
 
 // -------------------------------------------------------------------------------------------
 
-// SUGGESTED FIX: '__dirname is not defined in ES module scope'
+// SUGGESTED FIX for: '__dirname is not defined in ES module scope'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -30,6 +30,7 @@ const app = express()
 const port = process.env.PORT
 
 // Set View Engine
+// TRAVERSY: May choose an alternate method...
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', ReactViews.createEngine())
@@ -40,13 +41,6 @@ app.use(methodOverride('_method')) // TRAVERSY, set to use query string for data
 app.use(cors())
 app.listen(port, () => console.log(`Server listening on port ${port}`))
 
-// Conenct to MongoDB server
-// async function main() {
-//     await mongoose.connect(process.env.MONGOOSE_CONNECT)
-//     console.log("MongoDB connected...")
-// }
-// main().catch(err => console.log(err))
-
 const conn = mongoose.createConnection(process.env.MONGOOSE_CONNECT)
 
 // Init GFS
@@ -54,7 +48,7 @@ let gfs;
 conn.once('open', () => {
     // Init stream
     gfs = Grid(conn.db, mongoose.mongo)
-    gfs.collection('uploads')
+    gfs.collection('shows')
 })
 
 // Create storage engine
@@ -69,7 +63,7 @@ const storage = new GridFsStorage({
                 const filename = buf.toString('hex') + path.extname(file.originalname)
                 const fileInfo = {
                     filename: filename,
-                    bucketName: 'uploads'
+                    bucketName: 'shows'
                 }
                 resolve(fileInfo);
             })
@@ -84,11 +78,12 @@ const mailjet = MailJet.apiConnect(
     process.env.MAIL_SECRET
 )
 
+// TRAVERSY: May choose an alternate method...
 app.get('/newShow', function(req, res){
     res.render('index', {})
 })
 
-app.post('/upload', upload.single('file'), function (req, res) {    
+app.post('/uploadShow', upload.single('file'), function (req, res) {    
     // Convert date
     const dateParts = req.body.date.split('-')
     dateParts.push(dateParts.shift())

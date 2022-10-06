@@ -14,7 +14,7 @@ const ShowUploadView = (props) => {
             background: "black"
         }}>
             <h1 style={{color: "white", marginTop: "0%"}}>NEW SHOW</h1>
-            <form style={{width: "100%", marginLeft: "20%"}} action="/upload" method="POST" encType="multipart/form-data">
+            <form style={{width: "100%", marginLeft: "20%"}} action="/uploadShow" method="POST" encType="multipart/form-data">
                 <label style={{color: "white"}} htmlFor="eventTitle">Event Title: </label>
                 <br />
                 <input style={{width: "80%"}} type="text" name="eventTitle" />
