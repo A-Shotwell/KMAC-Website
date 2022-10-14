@@ -1,12 +1,7 @@
-import React, { Fragment } from 'react';
-import NavBar from './components/NavBar.js';
-import Hero from './components/Hero.js';
-import Contact from './components/Contact.js';
-import About from './components/About.js';
-import Shows from './components/Shows.js';
-import Main from './components/Main.js';
-import styles from './App.module.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { Fragment } from 'react'
+import Main from './components/Main.js'
+import Admin from './components/Admin'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 /*
     PROBLEMS: 
@@ -20,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index path="/" element={<Main />} />
-        <Route path="/admin" element={<h1>ADMIN ELEMENT</h1>} />
+        <Route path="/admin" element={<Admin />} />
       </Routes> 
     </BrowserRouter>
   );

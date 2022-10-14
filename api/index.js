@@ -104,11 +104,13 @@ app.post('/uploadShow', upload.single('file'), function (req, res) {
         DATE: newDate,
         TIME: newTime,
         TICKET: req.body.ticket,
-        DESC: req.body.desc
+        DESC: req.body.desc,
+        IMAGE: req.body.image // EMPTY FILE LIST OBJECT. WHY?
     })
 
+    res.sendStatus(200)
     // Res image file JSON
-    res.json({file: req.file})
+    // res.json({file: req.file})
 })
 
 app.post('/contact', bodyParser.json(), function(req, res){
