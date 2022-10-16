@@ -14,18 +14,22 @@ const Admin = () => {
         image: null
     })
 
+    // REQUEST IS NOT MAKING IT TO THE SERVER
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(formValues)
-
         const formData = new FormData()
-        formData.append('eventTitle', formValues.eventTitle)
-        formData.append('location', formValues.location)
-        formData.append('date', formValues.date)
-        formData.append('time', formValues.time)
-        formData.append('ticket', formValues.ticket)
-        formData.append('desc', formValues.desc)
-        formData.append('image', /*formValues.image*/ document.getElementById("image").files)
+        
+        Array.from(document.getElementById("form").elements).forEach(element => {
+            switch (element.name){
+                case "image":
+                    formData.append(`${element.name}`, element.files)
+                    break
+                case "submit":
+                    break
+                default:
+                    formData.append(`${element.name}`, element.value)
+            }
+        })
 
         console.log([...formData])
 
@@ -35,17 +39,6 @@ const Admin = () => {
         } catch (e) {
             console.log(e)
         }
-
-        // axios({
-        //     method: "POST",
-        //     url: "http://localhost:4000/uploadShow",
-        //     data: formValues,
-        //     headers: {
-        //         'Content-Type': 'multipart/form-data'
-        //     }
-        // })
-        // .then(function(res){console.log(res)})
-        // .catch(function(err){console.log(err)})
     }
 
     return (
@@ -78,7 +71,7 @@ const Admin = () => {
                             <label htmlFor="image">Select Image: </label>
                             <input type="file" id="image" name="image" onChange={e => setFormValues({...formValues, image: e.target.files})}/>
                             <br />
-                            <button className={styles.submit} type="submit">Submit</button>
+                            <button className={styles.submit} name="submit" type="submit">Submit</button>
                         </form>
                     </div>
                 </div>

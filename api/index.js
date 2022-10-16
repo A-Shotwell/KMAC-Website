@@ -83,7 +83,7 @@ app.get('/newShow', function(req, res){
     res.render('index', {})
 })
 
-app.post('/uploadShow', upload.single('file'), function (req, res) {    
+app.post('/uploadShow', upload.single('image'), function (req, res) {    
     // Convert date
     const dateParts = req.body.date.split('-')
     dateParts.push(dateParts.shift())
@@ -105,12 +105,11 @@ app.post('/uploadShow', upload.single('file'), function (req, res) {
         TIME: newTime,
         TICKET: req.body.ticket,
         DESC: req.body.desc,
-        IMAGE: req.body.image // EMPTY FILE LIST OBJECT. WHY?
+        IMAGE: req.body.image // EMPTY FILE LIST OBJECT. WHY? ACTUALLY RETURNING STRING: '[object FileList]'
     })
 
-    res.sendStatus(200)
-    // Res image file JSON
-    // res.json({file: req.file})
+    res.status(200)
+    res.send("FORM RECIEVED")
 })
 
 app.post('/contact', bodyParser.json(), function(req, res){
