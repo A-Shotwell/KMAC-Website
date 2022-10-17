@@ -14,15 +14,29 @@ const Admin = () => {
         image: null
     })
 
-    // REQUEST IS NOT MAKING IT TO THE SERVER
     const handleSubmit = async (e) => {
         e.preventDefault()
+
         const formData = new FormData()
+
+        // FILE READER
+        const getImageFile = () => {
+            return new Promise(resolve => {
+                const reader = new FileReader()
+                reader.onload = function () {
+                    resolve(reader.result)
+                    // console.log(`IMAGE FILE:\n ${imageFile}`) // imageFile IS NOT UNDEFINED HERE, BASE64 STRING
+                }
+                reader.readAsDataURL(document.getElementById("image").files[0])
+            })
+        }
         
-        Array.from(document.getElementById("form").elements).forEach(element => {
+        const imageFile = await getImageFile()
+        
+        Array.from(document.getElementById("form").elements).forEach(element => {           
             switch (element.name){
                 case "image":
-                    formData.append(`${element.name}`, element.files)
+                    formData.append(`${element.name}`, imageFile) // UNDEFINED. WHY?
                     break
                 case "submit":
                     break
@@ -50,7 +64,7 @@ const Admin = () => {
                 <div className={styles.formWindow}>
                     <div className={styles.newShowHeader}>
                         <h1>New Show</h1>
-                        <form className={styles.showForm} id="form" onSubmit={e => handleSubmit(e)}>
+                        <form className={styles.showForm} id="form" method="post" encType="multipart/form-data" onSubmit={e => handleSubmit(e)}>
                             <label htmlFor="eventTitle">Event Title: </label>
                             <input className={styles.fieldInput} type="text" name="eventTitle" onChange={e => setFormValues({...formValues, eventTitle: e.target.value})}/>
                             <br />
@@ -69,7 +83,7 @@ const Admin = () => {
                             <textarea name="desc" placeholder="Event Description" rows="8" onChange={e => setFormValues({...formValues, desc: e.target.value})}/>
                             <br />
                             <label htmlFor="image">Select Image: </label>
-                            <input type="file" id="image" name="image" onChange={e => setFormValues({...formValues, image: e.target.files})}/>
+                            <input type="file" id="image" name="image" accept="image/jpeg" onChange={e => setFormValues({...formValues, image: e.target.files})}/>
                             <br />
                             <button className={styles.submit} name="submit" type="submit">Submit</button>
                         </form>
