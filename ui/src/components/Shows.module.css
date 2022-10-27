@@ -35,12 +35,15 @@
     width: 100%;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .bannerText {
     font-weight: lighter;
     color: rgba(50, 236, 191, 1);
     text-shadow: 2px 2px rgba(183, 35, 35, 1);
+    font-size: 2em;
+    margin-top: 100px;
 }
 
 .scrollButton {

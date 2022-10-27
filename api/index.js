@@ -4,21 +4,24 @@ import * as dotenv from 'dotenv'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 import MailJet from 'node-mailjet'
-
-// NEW FROM TRAVERSY TUTORIAL ----------------------------------------------------------------
-
-import * as ReactViews from 'express-react-views'
 import multer from 'multer'
-import { GridFsStorage } from 'multer-gridfs-storage'
-import Grid from 'gridfs-stream'
-import methodOverride from 'method-override'
-import crypto from 'crypto'
-
-// -------------------------------------------------------------------------------------------
 
 // SUGGESTED FIX for: '__dirname is not defined in ES module scope'
 import path from 'path'
 import { fileURLToPath } from 'url'
+
+// Create Show schema and model
+const showSchema = new mongoose.Schema({
+    eventTitle: String,
+    location: String,
+    date: String,
+    time: String,
+    ticket: String,
+    desc: String,
+    image: String
+})
+
+const Show = mongoose.model('Show', showSchema)
 
 // SUGGESTED FIX for: '__dirname is not defined in ES module scope'
 const __filename = fileURLToPath(import.meta.url)
@@ -29,48 +32,14 @@ dotenv.config()
 const app = express()
 const port = process.env.PORT
 
-// Set View Engine
-// TRAVERSY: May choose an alternate method...
-app.set('views', __dirname + '/views')
-app.set('view engine', 'jsx')
-app.engine('jsx', ReactViews.createEngine())
-
 // Set CORS and connect
-app.use(bodyParser.json()) // TRAVERSY
-app.use(methodOverride('_method')) // TRAVERSY, set to use query string for database item deletion
-app.use(cors())
+app.use(cors()) 
 app.listen(port, () => console.log(`Server listening on port ${port}`))
 
-const conn = mongoose.createConnection(process.env.MONGOOSE_CONNECT)
-
-// Init GFS
-let gfs;
-conn.once('open', () => {
-    // Init stream
-    gfs = Grid(conn.db, mongoose.mongo)
-    gfs.collection('shows')
-})
+mongoose.connect(process.env.MONGOOSE_CONNECT)
 
 // Create storage engine
-const storage = new GridFsStorage({
-    url: process.env.MONGOOSE_CONNECT,
-    file: (req, file) => {
-        return new Promise((resolve, reject) => {
-            crypto.randomBytes(16, (err, buf) => {
-                if (err) {
-                    return reject(err)
-                }
-                const filename = buf.toString('hex') + path.extname(file.originalname)
-                const fileInfo = {
-                    filename: filename,
-                    bucketName: 'shows'
-                }
-                resolve(fileInfo);
-            })
-        })
-    }
-})
-const upload = multer({ storage })
+const upload = multer()
 
 // MailJet configuration
 const mailjet = MailJet.apiConnect(
@@ -78,12 +47,8 @@ const mailjet = MailJet.apiConnect(
     process.env.MAIL_SECRET
 )
 
-// TRAVERSY: May choose an alternate method...
-app.get('/newShow', function(req, res){
-    res.render('index', {})
-})
-
-app.post('/uploadShow', upload.single('image'), function (req, res) {    
+// Upload new show 
+app.post('/uploadShow', upload.single(), async function (req, res) {    
     // Convert date
     const dateParts = req.body.date.split('-')
     dateParts.push(dateParts.shift())
@@ -97,19 +62,38 @@ app.post('/uploadShow', upload.single('image'), function (req, res) {
     : timeParts[0] = "12"
     const newTime = timeParts.join(":") + daylight
 
-    // ACCESS BODY, UPLOAD TO MONGODB DATABASE
-    console.log({
-        TITLE: req.body.eventTitle,
-        LOCATION: req.body.location,
-        DATE: newDate,
-        TIME: newTime,
-        TICKET: req.body.ticket,
-        DESC: req.body.desc,
-        IMAGE: req.body.image // EMPTY FILE LIST OBJECT. WHY? ACTUALLY RETURNING STRING: '[object FileList]'
+    // ACCESS BODY, CONFORM TO SCHEMA
+    const newShow = new Show({
+        eventTitle: req.body.eventTitle,
+        location: req.body.location,
+        date: newDate,
+        time: newTime,
+        ticket: req.body.ticket,
+        desc: req.body.desc,
+        image: req.body.image
     })
 
-    res.status(200)
-    res.send("FORM RECIEVED")
+    // UPLOAD TO MONGODB DATABASE
+    try {
+        await newShow.save()
+        console.log('SHOW SAVED')
+        res.status(200).send('FORM RECEIVED')
+    } catch (err) {
+        console.log(err)
+        res.status(400).send(err)
+    }
+
+    
+})
+
+app.get('/getShows', bodyParser.json(), async function (req, res){
+    try {
+        const allShows = await Show.find()
+        res.status(200).send(allShows)
+    } catch (err) {
+        console.log(err)
+        res.status(400).send(err)
+    }    
 })
 
 app.post('/contact', bodyParser.json(), function(req, res){
@@ -182,4 +166,3 @@ app.post('/booking', bodyParser.json(), function(req, res){
             console.log(err.statusCode)
         })
 })
-

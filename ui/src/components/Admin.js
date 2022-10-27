@@ -50,7 +50,11 @@ const Admin = () => {
         try {
             const response = axios.post('http://localhost:4000/uploadShow', formData)
             console.log(response)
+            alert('NEW SHOW SUBMITTED')
+            document.getElementById("form").reset()
+
         } catch (e) {
+            alert(e)
             console.log(e)
         }
     }
@@ -82,7 +86,7 @@ const Admin = () => {
                             <br />
                             <textarea name="desc" placeholder="Event Description" rows="8" onChange={e => setFormValues({...formValues, desc: e.target.value})}/>
                             <br />
-                            <label htmlFor="image">Select Image: </label>
+                            <label htmlFor="image">Select Image &#40;15MB or less&#41;: </label>
                             <input type="file" id="image" name="image" accept="image/jpeg" onChange={e => setFormValues({...formValues, image: e.target.files})}/>
                             <br />
                             <button className={styles.submit} name="submit" type="submit">Submit</button>

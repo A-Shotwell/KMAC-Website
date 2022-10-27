@@ -2,7 +2,8 @@ import {React, useState} from 'react';
 import styles from './Shows.module.css';
 
 /*
-    PROBLEM: Horizontal scrolling shifts show template slightly to the left and right
+    PROBLEM: Horizontal scrolling shifts show template slightly to the left and right, 
+    scrolling either too much or too little.
 */
 
 // FOR TESTING PURPOSES
