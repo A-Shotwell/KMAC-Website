@@ -17,8 +17,8 @@ import ShowListing from './components/ShowListing.js'
 const dummyValues = {
   eventTitle: "Test Show",
   location: "Anywhere, Testville, USA",
-  date: "10-30-2022",
-  time: "5:00 PM",
+  date: "10-25-2022",
+  time: "7:00 AM",
   ticket: "$10",
   desc: "Test description describing things testfully.",
   image: null

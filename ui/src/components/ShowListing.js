@@ -33,20 +33,30 @@ const ShowListing = (props) => {
         window.location.reload()
     }
 
-    const handleEditSubmit = () => {
+    const handleEditSubmit = (e) => {
         // TODO: post request for update with props.params._id
+        // e.preventDefault()
+        alert(`SHOW EDITED:\n${formValues.eventTitle}\nFORMERLY:\n${props.parans.eventTitle}`)
+        window.location.reload()
     }
 
     const dateConvert = () => {
-        // TODO: covert props.param.date to format "year-month-day", call for date input default value
-        // date: "10-30-2022"
-        return "2022-10-30" // <-- This format works
+        // covert props.param.date to format "year-month-day", call for date input default value
+        const dateArr = props.params.date.split('-')
+        const year = dateArr.pop()
+        dateArr.unshift(year)
+        return dateArr.join('-')
     }
 
     const timeConvert = () => {
-        // TODO: covert props.param.ttime to 24-hour format, call for time input default value
-        // time: "5:00 PM"
-        return "17:00" // <-- This format works
+        // covert props.param.time to 24-hour format, call for time input default value
+        const timeArr = props.params.time.split(' ')
+        const time = timeArr[0].split(":")
+        if (timeArr[1] === 'PM')
+            time[0] = ((parseInt(time[0])) + 12).toString()
+        if (parseInt(time[0]) < 10)
+            time[0] = "0" + time[0]
+        return time.join(":")
     }
 
     return (
@@ -106,7 +116,7 @@ const ShowListing = (props) => {
                         <input type="file" id="image" name="image" accept="image/jpeg" onChange={e => setFormValues({...formValues, image: e.target.files})}/>
                         <br />
                         <br />
-                        <button className={styles.submit} name="submit" type="submit">Submit</button>
+                        <button className={styles.submit} name="submit" onClick={handleEditSubmit}>Submit</button>
                         <button onClick={() => setEditForm(false)}>Cancel</button>
                     </form>
                 </div>
