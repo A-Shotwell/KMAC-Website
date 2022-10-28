@@ -1,8 +1,9 @@
 /* DELETE THIS SECTION ONE COMPONENT IS FINISHED */
 .temp {
-    height: 100vh;
-    width: 100vw;
+    height: auto;
+    width: auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -17,7 +18,7 @@
     border: 1px solid transparent;
     border-radius: 8px;
     background-color: rgb(18, 18, 19);
-    box-shadow: 10px 10px 10px rgb(26, 25, 25);
+    /* box-shadow: 10px 10px 10px rgb(26, 25, 25); */
     overflow: hidden;
 }
 
@@ -101,4 +102,37 @@
 
 .deleteNo {
     background-color: red;
+}
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 5px;
+    background-color: rgb(18, 18, 19); 
+    /* background-color: red; */
+    border: 1px solid transparent;
+    border-radius: 8px;
+}
+
+.formFrame {
+    width: 90%;
+    height: 80%;
+}
+
+.formLabel {
+    color: white;
+}
+
+.fieldInput {
+    width: 100%;
+}
+
+.formDesc {
+    resize: none;
+    width: 100%;
 }
