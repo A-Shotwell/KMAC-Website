@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './Admin.module.css'
 import axios from 'axios'
 import FormData from 'form-data'
+import ShowListing from './ShowListing.js'
 
 const Admin = () => {
     const [formValues, setFormValues] = useState({
@@ -13,6 +14,15 @@ const Admin = () => {
         desc: null,
         image: null
     })
+
+    const [currShows, setCurrShows] = useState(null)
+
+    useEffect(() => {
+        axios.get("http://localhost:4000/getShows").then(response => {
+            // console.log(response.data)
+            setCurrShows(response.data)
+        })
+    }, [])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -45,22 +55,22 @@ const Admin = () => {
             }
         })
 
-        console.log([...formData])
+        // console.log([...formData])
 
         try {
             const response = axios.post('http://localhost:4000/uploadShow', formData)
             console.log(response)
             alert('NEW SHOW SUBMITTED')
-            document.getElementById("form").reset()
+            window.location.reload()
 
         } catch (e) {
             alert(e)
-            console.log(e)
+            // console.log(e)
         }
     }
 
     return (
-        <div>
+        <div className={styles.background}>
             <div className={styles.main}>
                 <div className={styles.titleContainer}>
                     <h1>KMAC ADMIN</h1>
@@ -93,6 +103,13 @@ const Admin = () => {
                         </form>
                     </div>
                 </div>
+            </div>
+            <div>
+                {
+                    currShows === null ? null : currShows.map((show, index) => {
+                        return <ShowListing key={index} params={show} />
+                    })
+                }
             </div>
         </div>
     )

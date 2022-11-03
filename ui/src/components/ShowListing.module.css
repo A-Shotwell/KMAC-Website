@@ -13,12 +13,11 @@
     flex-direction: row;
     width: 80%;
     height: 60px;
+    margin-bottom: 1em;
     align-items: center;
     justify-content: center;
-    border: 1px solid transparent;
-    border-radius: 8px;
     background-color: rgb(18, 18, 19);
-    /* box-shadow: 10px 10px 10px rgb(26, 25, 25); */
+    box-shadow: 10px 10px 10px rgb(45, 44, 44);
     overflow: hidden;
 }
 
@@ -112,11 +111,9 @@
     height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-top: 5px;
+    margin-top: -1em;
+    margin-bottom: 1em;
     background-color: rgb(18, 18, 19); 
-    /* background-color: red; */
-    border: 1px solid transparent;
-    border-radius: 8px;
 }
 
 .formFrame {
@@ -129,6 +126,8 @@
 }
 
 .fieldInput {
+    all: unset;
+    background-color: white;
     width: 100%;
 }
 
@@ -141,4 +140,8 @@
 .formDesc {
     resize: none;
     width: 100%;
+}
+
+.submit {
+    margin-right: 5%;
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import axios from 'axios'
 import styles from './ShowListing.module.css'
 
-// const [formValues, setFormValues] = useState({
+// SHOW OBJECT SHAPE:
 //     eventTitle: null,
 //     location: null,
 //     date: null,
@@ -9,7 +10,6 @@ import styles from './ShowListing.module.css'
 //     ticket: null,
 //     desc: null,
 //     image: null
-// })
 
 const ShowListing = (props) => {
     // Toggle deletion warning
@@ -25,6 +25,25 @@ const ShowListing = (props) => {
         image: null
     })
 
+    // covert props.params.date to format "year-month-day", call for date input default value
+    const dateConvert = () => {
+        const dateArr = props.params.date.split('-')
+        const year = dateArr.pop()
+        dateArr.unshift(year)
+        return dateArr.join('-')
+    }
+
+    // covert props.param.time to 24-hour format, call for time input default value
+    const timeConvert = () => {
+        const timeArr = props.params.time.split(' ')
+        const time = timeArr[0].split(":")
+        if (timeArr[1] === 'PM')
+            time[0] = ((parseInt(time[0])) + 12).toString()
+        if (parseInt(time[0]) < 10)
+            time[0] = "0" + time[0]
+        return time.join(":")
+    }
+
     const handleDelete = () => {
         // TODO: delete request with props.params._id
 
@@ -33,30 +52,14 @@ const ShowListing = (props) => {
         window.location.reload()
     }
 
-    const handleEditSubmit = (e) => {
-        // TODO: post request for update with props.params._id
-        // e.preventDefault()
-        alert(`SHOW EDITED:\n${formValues.eventTitle}\nFORMERLY:\n${props.parans.eventTitle}`)
+    const handleEditSubmit = (e) => {     
+        e.preventDefault()
+
+        // TODO: post request for show update with props.params._id
+        
+        console.log(formValues)
+        alert(`SHOW EDITED:\n${formValues.eventTitle}\nFORMERLY:\n${props.params.eventTitle}`)
         window.location.reload()
-    }
-
-    const dateConvert = () => {
-        // covert props.param.date to format "year-month-day", call for date input default value
-        const dateArr = props.params.date.split('-')
-        const year = dateArr.pop()
-        dateArr.unshift(year)
-        return dateArr.join('-')
-    }
-
-    const timeConvert = () => {
-        // covert props.param.time to 24-hour format, call for time input default value
-        const timeArr = props.params.time.split(' ')
-        const time = timeArr[0].split(":")
-        if (timeArr[1] === 'PM')
-            time[0] = ((parseInt(time[0])) + 12).toString()
-        if (parseInt(time[0]) < 10)
-            time[0] = "0" + time[0]
-        return time.join(":")
     }
 
     return (
@@ -88,7 +91,7 @@ const ShowListing = (props) => {
             editForm &&
             <div className={styles.formContainer}>
                 <div className={styles.formFrame}>
-                    <form id="editForm" onSubmit={handleEditSubmit}>
+                    <form id="editForm" onSubmit={e => handleEditSubmit(e)}>
                         <label className={styles.formLabel} htmlFor="eventTitle">Event Title: </label>
                         <br />
                         <input className={styles.fieldInput} type="text" name="eventTitle" defaultValue={props.params.eventTitle} onChange={e => setFormValues({...formValues, eventTitle: e.target.value})}/>
@@ -113,11 +116,11 @@ const ShowListing = (props) => {
                         <textarea className={styles.formDesc} name="desc" placeholder="Event Description" rows="8" defaultValue={props.params.desc} onChange={e => setFormValues({...formValues, desc: e.target.value})}/>
                         <br />
                         <label className={styles.formLabel} htmlFor="image">Please update image &#40;15MB or less&#41;: </label>
-                        <input type="file" id="image" name="image" accept="image/jpeg" onChange={e => setFormValues({...formValues, image: e.target.files})}/>
+                        <input style={{color: "red"}} type="file" id="image" name="image" accept="image/jpeg" onChange={e => setFormValues({...formValues, image: e.target.files})}/>
                         <br />
                         <br />
-                        <button className={styles.submit} name="submit" onClick={handleEditSubmit}>Submit</button>
-                        <button onClick={() => setEditForm(false)}>Cancel</button>
+                        <button className={styles.submit} name="submit" type="submit">Submit</button>
+                        <button name="cancel" onClick={() => setEditForm(false)}>Cancel</button>
                     </form>
                 </div>
             </div>

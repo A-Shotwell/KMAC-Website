@@ -89,6 +89,7 @@ app.post('/uploadShow', upload.single(), async function (req, res) {
 app.get('/getShows', bodyParser.json(), async function (req, res){
     try {
         const allShows = await Show.find()
+        // console.log(allShows)
         res.status(200).send(allShows)
     } catch (err) {
         console.log(err)
