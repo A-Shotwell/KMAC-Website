@@ -55,8 +55,6 @@ const Admin = () => {
             }
         })
 
-        // console.log([...formData])
-
         try {
             const response = axios.post('http://localhost:4000/uploadShow', formData)
             console.log(response)
@@ -104,7 +102,7 @@ const Admin = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className={styles.showListings}>
                 {
                     currShows === null ? null : currShows.map((show, index) => {
                         return <ShowListing key={index} params={show} />

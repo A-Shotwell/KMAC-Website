@@ -16,12 +16,12 @@ const ShowListing = (props) => {
     const [deleteWarning, setDeleteWarning] = useState(false)
     const [editForm, setEditForm] = useState(false)
     const [formValues, setFormValues] = useState({
-        eventTitle: null,
-        location: null,
-        date: null,
-        time: null,
-        ticket: null,
-        desc: null,
+        eventTitle: props.params.eventTitle,
+        location: props.params.location,
+        date: props.params.date, // CONVERT
+        time: props.params.time, // CONVERT
+        ticket: props.params.ticket,
+        desc: props.params.desc,
         image: null
     })
 
@@ -46,6 +46,7 @@ const ShowListing = (props) => {
 
     const handleDelete = () => {
         // TODO: delete request with props.params._id
+        axios.post('http://localhost:4000/delShow', { _id: props.params._id })
 
         // Alert deletion and reload page
         alert(`SHOW DELETED:\n${props.params.eventTitle}`)
@@ -56,7 +57,7 @@ const ShowListing = (props) => {
         e.preventDefault()
 
         // TODO: post request for show update with props.params._id
-        
+
         console.log(formValues)
         alert(`SHOW EDITED:\n${formValues.eventTitle}\nFORMERLY:\n${props.params.eventTitle}`)
         window.location.reload()

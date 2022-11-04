@@ -19,6 +19,7 @@ h1 {
 
 .titleContainer {
     margin-bottom: .6%;
+    margin-top: 2%;
     overflow: hidden;
 }
 
@@ -37,6 +38,9 @@ h1 {
 }
 
 .newShowHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 2.5%;
     width: 90%;
 }
@@ -46,7 +50,6 @@ h1 {
     flex-direction: column;
     width: 90%;
     margin-top: -7%;
-    margin-left: 2%;
 }
 
 .fieldInput {
@@ -66,4 +69,8 @@ h1 {
     border: 1px solid transparent;
     border-radius: 50px;
     margin-bottom: 3%;
+}
+
+.showListings {
+    margin-top: 10px;
 }

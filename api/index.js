@@ -34,6 +34,7 @@ const port = process.env.PORT
 
 // Set CORS and connect
 app.use(cors()) 
+
 app.listen(port, () => console.log(`Server listening on port ${port}`))
 
 mongoose.connect(process.env.MONGOOSE_CONNECT)
@@ -86,15 +87,25 @@ app.post('/uploadShow', upload.single(), async function (req, res) {
     
 })
 
-app.get('/getShows', bodyParser.json(), async function (req, res){
+app.get('/getShows', bodyParser.json(), async function (req, res) {
     try {
         const allShows = await Show.find()
-        // console.log(allShows)
         res.status(200).send(allShows)
     } catch (err) {
         console.log(err)
         res.status(400).send(err)
     }    
+})
+
+app.post('/delShow', bodyParser.json(), async function (req, res) {
+    console.log(req.body)
+    try {
+        await Show.deleteOne({ _id: req.body._id })
+        res.status(200).send("SHOW DELETED")
+    } catch (err) {
+        console.log(err)
+        res.status(400).send(err)
+    }
 })
 
 app.post('/contact', bodyParser.json(), function(req, res){
