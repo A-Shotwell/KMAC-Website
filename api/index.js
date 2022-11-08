@@ -48,27 +48,33 @@ const mailjet = MailJet.apiConnect(
     process.env.MAIL_SECRET
 )
 
-// Upload new show 
-app.post('/uploadShow', upload.single(), async function (req, res) {    
-    // Convert date
-    const dateParts = req.body.date.split('-')
+// Convert date
+const convertDate = (date) => {
+    const dateParts = date.split('-')
     dateParts.push(dateParts.shift())
     const newDate = dateParts.join('-')
+    return newDate
+}
 
-    // Convert time
-    const timeParts = req.body.time.split(":")
+// Convert time
+const convertTime = (time) => {
+    const timeParts = time.split(":")
     const daylight = timeParts[0] < 12 ? " AM" : " PM"
     timeParts[0] !== "12" && parseInt(timeParts[0]) !== 0 
     ? timeParts.unshift(timeParts.shift() % 12) 
     : timeParts[0] = "12"
     const newTime = timeParts.join(":") + daylight
+    return newTime
+}
 
+// Upload new show 
+app.post('/uploadShow', upload.single(), async function (req, res) {    
     // ACCESS BODY, CONFORM TO SCHEMA
     const newShow = new Show({
         eventTitle: req.body.eventTitle,
         location: req.body.location,
-        date: newDate,
-        time: newTime,
+        date: convertDate(req.body.date),
+        time: convertTime(req.body.time),
         ticket: req.body.ticket,
         desc: req.body.desc,
         image: req.body.image
@@ -97,6 +103,28 @@ app.get('/getShows', bodyParser.json(), async function (req, res) {
     }    
 })
 
+app.post('/updateShow', upload.single(), async function (req, res) {
+    try {
+        // UPDATE SHOW from req.body
+        const newValues = {
+            eventTitle: req.body.eventTitle,
+            location: req.body.location,
+            date: convertDate(req.body.date),
+            time: convertTime(req.body.time),
+            ticket: req.body.ticket,
+            desc: req.body.desc,
+            image: req.body.image
+        }
+
+        await Show.updateOne({ _id: req.body._id }, newValues)
+        res.status(200).send(`SHOW UPDATED: ${req.body._id}`)
+    } catch (err) {
+        console.log(err)
+        res.status(400).send(err)
+    }
+})
+
+// For some reason, does not work with app.delete(). req.body is an empty object.
 app.post('/delShow', bodyParser.json(), async function (req, res) {
     console.log(req.body)
     try {

@@ -15,6 +15,7 @@ const Admin = () => {
         image: null
     })
 
+    // Retrieve existing show listings from database
     const [currShows, setCurrShows] = useState(null)
 
     useEffect(() => {
@@ -35,7 +36,6 @@ const Admin = () => {
                 const reader = new FileReader()
                 reader.onload = function () {
                     resolve(reader.result)
-                    // console.log(`IMAGE FILE:\n ${imageFile}`) // imageFile IS NOT UNDEFINED HERE, BASE64 STRING
                 }
                 reader.readAsDataURL(document.getElementById("image").files[0])
             })
@@ -46,7 +46,7 @@ const Admin = () => {
         Array.from(document.getElementById("form").elements).forEach(element => {           
             switch (element.name){
                 case "image":
-                    formData.append(`${element.name}`, imageFile) // UNDEFINED. WHY?
+                    formData.append(`${element.name}`, imageFile)
                     break
                 case "submit":
                     break
@@ -56,7 +56,8 @@ const Admin = () => {
         })
 
         try {
-            const response = axios.post('http://localhost:4000/uploadShow', formData)
+            const response = await axios.post('http://localhost:4000/uploadShow', formData)
+            console.log(formData)
             console.log(response)
             alert('NEW SHOW SUBMITTED')
             window.location.reload()
@@ -104,7 +105,7 @@ const Admin = () => {
             </div>
             <div className={styles.showListings}>
                 {
-                    currShows === null ? null : currShows.map((show, index) => {
+                    currShows === null ? <h3>NO CURRENT SHOWS</h3> : currShows.map((show, index) => {
                         return <ShowListing key={index} params={show} />
                     })
                 }

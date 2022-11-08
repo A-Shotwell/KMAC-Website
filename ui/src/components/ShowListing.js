@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import axios from 'axios'
 import styles from './ShowListing.module.css'
+import { dateConvert, timeConvert } from '../utils/conversions'
 
 // SHOW OBJECT SHAPE:
+//     (_id)
 //     eventTitle: null,
 //     location: null,
 //     date: null,
@@ -14,35 +16,20 @@ import styles from './ShowListing.module.css'
 const ShowListing = (props) => {
     // Toggle deletion warning
     const [deleteWarning, setDeleteWarning] = useState(false)
+
+    // Toggle form
     const [editForm, setEditForm] = useState(false)
+
+    // Form values, initialized with old values as default
     const [formValues, setFormValues] = useState({
         eventTitle: props.params.eventTitle,
         location: props.params.location,
-        date: props.params.date, // CONVERT
-        time: props.params.time, // CONVERT
+        date: dateConvert(props.params.date),
+        time: timeConvert(props.params.time),
         ticket: props.params.ticket,
         desc: props.params.desc,
         image: null
     })
-
-    // covert props.params.date to format "year-month-day", call for date input default value
-    const dateConvert = () => {
-        const dateArr = props.params.date.split('-')
-        const year = dateArr.pop()
-        dateArr.unshift(year)
-        return dateArr.join('-')
-    }
-
-    // covert props.param.time to 24-hour format, call for time input default value
-    const timeConvert = () => {
-        const timeArr = props.params.time.split(' ')
-        const time = timeArr[0].split(":")
-        if (timeArr[1] === 'PM')
-            time[0] = ((parseInt(time[0])) + 12).toString()
-        if (parseInt(time[0]) < 10)
-            time[0] = "0" + time[0]
-        return time.join(":")
-    }
 
     const handleDelete = () => {
         // TODO: delete request with props.params._id
@@ -53,14 +40,49 @@ const ShowListing = (props) => {
         window.location.reload()
     }
 
-    const handleEditSubmit = (e) => {     
+    const handleEditSubmit = async (e) => {     
         e.preventDefault()
 
         // TODO: post request for show update with props.params._id
+        const formData = new FormData()
 
-        console.log(formValues)
-        alert(`SHOW EDITED:\n${formValues.eventTitle}\nFORMERLY:\n${props.params.eventTitle}`)
-        window.location.reload()
+        // FILE READER
+        const getImageFile = () => {
+            return new Promise(resolve => {
+                const reader = new FileReader()
+                reader.onload = function () {
+                    resolve(reader.result)
+                }
+                reader.readAsDataURL(document.getElementById("editImage").files[0])
+            })
+        }
+        
+        const imageFile = await getImageFile()
+
+        formData.append('_id', props.params._id)
+        
+        Array.from(document.getElementById("editForm").elements).forEach(element => {           
+            switch (element.name){
+                case "editImage":
+                    formData.append(`${element.name}`, imageFile) // UNDEFINED. WHY?
+                    break
+                case "submit":
+                    break
+                default:
+                    formData.append(`${element.name}`, element.value)
+            }
+        })
+
+        try {
+            const response = axios.post('http://localhost:4000/updateShow', formData)
+            console.log(response)
+            alert(`SHOW EDITED:\n${formValues.eventTitle}\nFORMERLY:\n${props.params.eventTitle}`)
+            window.location.reload()
+
+        } catch (e) {
+            alert(e)
+        }
+        // -------------------- Taken and modified from Admin.js form -------------------------
     }
 
     return (
@@ -92,7 +114,7 @@ const ShowListing = (props) => {
             editForm &&
             <div className={styles.formContainer}>
                 <div className={styles.formFrame}>
-                    <form id="editForm" onSubmit={e => handleEditSubmit(e)}>
+                    <form id="editForm" enctype="multipart/form-data" onSubmit={e => handleEditSubmit(e)}>
                         <label className={styles.formLabel} htmlFor="eventTitle">Event Title: </label>
                         <br />
                         <input className={styles.fieldInput} type="text" name="eventTitle" defaultValue={props.params.eventTitle} onChange={e => setFormValues({...formValues, eventTitle: e.target.value})}/>
@@ -103,11 +125,11 @@ const ShowListing = (props) => {
                         <br />
                         <label className={styles.formLabel} htmlFor="date">Date: </label>
                         <br />
-                        <input className={styles.fieldInput} type="date" name="date" defaultValue={dateConvert()} onChange={e => setFormValues({...formValues, date: e.target.value})}/>
+                        <input className={styles.fieldInput} type="date" name="date" defaultValue={dateConvert(props.params.date)} onChange={e => setFormValues({...formValues, date: e.target.value})}/>
                         <br />
                         <label className={styles.formLabel} htmlFor="time">Time: </label>
                         <br />
-                        <input className={styles.fieldInput} type="time" name="time" defaultValue={timeConvert()} onChange={e => setFormValues({...formValues, time: e.target.value})}/>
+                        <input className={styles.fieldInput} type="time" name="time" defaultValue={timeConvert(props.params.time)} onChange={e => setFormValues({...formValues, time: e.target.value})}/>
                         <br />
                         <label className={styles.formLabel} htmlFor="ticket">Ticket: </label>
                         <br />
@@ -117,7 +139,7 @@ const ShowListing = (props) => {
                         <textarea className={styles.formDesc} name="desc" placeholder="Event Description" rows="8" defaultValue={props.params.desc} onChange={e => setFormValues({...formValues, desc: e.target.value})}/>
                         <br />
                         <label className={styles.formLabel} htmlFor="image">Please update image &#40;15MB or less&#41;: </label>
-                        <input style={{color: "red"}} type="file" id="image" name="image" accept="image/jpeg" onChange={e => setFormValues({...formValues, image: e.target.files})}/>
+                        <input style={{color: "red"}} type="file" id="editImage" name="editImage" accept="image/jpeg" onChange={e => setFormValues({...formValues, image: e.target.files})}/>
                         <br />
                         <br />
                         <button className={styles.submit} name="submit" type="submit">Submit</button>
