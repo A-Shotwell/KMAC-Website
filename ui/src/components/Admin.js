@@ -20,7 +20,6 @@ const Admin = () => {
 
     useEffect(() => {
         axios.get("http://localhost:4000/getShows").then(response => {
-            // console.log(response.data)
             setCurrShows(response.data)
         })
     }, [])
@@ -64,7 +63,7 @@ const Admin = () => {
 
         } catch (e) {
             alert(e)
-            // console.log(e)
+            console.log(e)
         }
     }
 

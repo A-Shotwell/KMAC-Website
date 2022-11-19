@@ -5,6 +5,7 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import MailJet from 'node-mailjet'
 import multer from 'multer'
+import getISO from './utils/date-time.js'
 
 // SUGGESTED FIX for: '__dirname is not defined in ES module scope'
 import path from 'path'
@@ -96,6 +97,11 @@ app.post('/uploadShow', upload.single(), async function (req, res) {
 app.get('/getShows', bodyParser.json(), async function (req, res) {
     try {
         const allShows = await Show.find()
+
+        allShows.sort((a,b) => {
+            return getISO(a) > getISO(b) ? 1 : -1
+        })
+
         res.status(200).send(allShows)
     } catch (err) {
         console.log(err)
