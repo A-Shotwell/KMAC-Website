@@ -1,0 +1,59 @@
+.loginMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(65, 62, 62);
+}
+
+.loginWindow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(18, 18, 19);
+    padding: 5%;
+}
+
+.loginLabel {
+    color: white;
+}
+
+.loginInput {
+    all: unset;
+    border: 1px solid black;
+    background: white;
+}
+
+.loginInput:focus {
+    all: unset;
+    border: 1px solid black;
+    background: white;
+}
+
+.loginSubmitButton {
+
+}
+
+.loginError {
+    color: red;
+}
+
+.labelContainer {
+    margin-bottom: 10%;
+}
+
+.inputContainer {
+    margin-bottom: 10%;
+}
+
+.submitContainer {
+    margin-bottom: 10%;
+}
+
+.errorContainer {
+
+}
+

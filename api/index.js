@@ -68,6 +68,14 @@ const convertTime = (time) => {
     return newTime
 }
 
+// Verify Admin Password
+app.post('/verify', bodyParser.json(), function(req, res){
+    console.log(req.body)
+    console.log(`PASSWORD SUBMITTED -- ${req.body.password}\nPASSWORD -- ${process.env.ADMIN_PASS}`)
+    const check = req.body.password === process.env.ADMIN_PASS
+    res.status(200).send(check)
+})
+
 // Upload new show 
 app.post('/uploadShow', upload.single(), async function (req, res) {    
     // ACCESS BODY, CONFORM TO SCHEMA

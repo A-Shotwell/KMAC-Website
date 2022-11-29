@@ -1,10 +1,9 @@
-import React, { Fragment } from 'react'
+import React, { useState } from 'react'
 import Main from './components/Main.js'
 import Admin from './components/Admin'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-// ShowListing component test
-import ShowListing from './components/ShowListing.js'
+import axios from 'axios'
+import styles from './components/Login.module.css'
 
 /*
     PROBLEMS: 
@@ -13,24 +12,46 @@ import ShowListing from './components/ShowListing.js'
       - Nav Bar lays over "CONTACT/BOOKING" buttons on contact form. Need to adjust CSS.
 */
 
-// ShowListing component test
-const dummyValues = {
-  eventTitle: "Test Show",
-  location: "Anywhere, Testville, USA",
-  date: "10-25-2022",
-  time: "7:00 AM",
-  ticket: "$10",
-  desc: "Test description describing things testfully.",
-  image: null
-}
-
 function App() {
+  // ADMIN PASSWORD VERIFICATION
+  const [ver, setVer] = useState(null)
+  const [showErr, setShowErr] = useState(false)
+
+  // ADMIN PASSWORD VERIFICATION
+  const verPass = async (password) => {
+    try {
+      axios.post('http://localhost:4000/verify', { password: document.getElementById("pass").value })
+      .then(response => setVer(response.data))
+
+      if (!ver) {
+        setVer(null)
+        setShowErr(true)
+        document.getElementById("pass").reset()
+      }
+        
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+// Password window
+  const pass = (
+    <div className={styles.loginMain}>
+      <div className={styles.loginWindow}>
+        <div className={styles.labelContainer}><label className={styles.loginLabel} htmlFor="pass">Enter Password</label></div>
+        <div className={styles.inputContainer}><input className={styles.loginInput} type="password" name="pass" id="pass"/></div>
+        <div className={styles.submitContainer}><button className={styles.loginSubmitButton} type="button" onClick={verPass}>Submit</button></div>
+        <div className={styles.errorContainer}>{!showErr ? null : <span className={styles.loginError}>Incorrect Password</span>}</div>
+      </div>
+    </div>
+  )
+
   return (
     <BrowserRouter>
       <Routes>
         <Route index path="/" element={<Main />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/test" element={<ShowListing params={dummyValues} />} /> {/* USED TO TEST COMPONENTS. REMOVE THIS ROUTE AFTER DEVELOPMENT IS COMPLETE. */}
+        <Route path="/test" element={ver ? <Admin /> : pass} />
       </Routes> 
     </BrowserRouter>
   );
