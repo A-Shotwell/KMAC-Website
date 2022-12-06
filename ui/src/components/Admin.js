@@ -16,7 +16,7 @@ const Admin = () => {
     })
 
     // Retrieve existing show listings from database
-    const [currShows, setCurrShows] = useState(null)
+    const [currShows, setCurrShows] = useState([])
 
     useEffect(() => {
         axios.get("http://localhost:4000/getShows").then(response => {
@@ -104,7 +104,7 @@ const Admin = () => {
             </div>
             <div className={styles.showListings}>
                 {
-                    currShows === null ? <h3>NO CURRENT SHOWS</h3> : currShows.map((show, index) => {
+                    !currShows[0] ? <div className={styles.noShow}><h3 style={{color: "white"}}>NO CURRENT SHOWS</h3></div> : currShows.map((show, index) => {
                         return <ShowListing key={index} params={show} />
                     })
                 }

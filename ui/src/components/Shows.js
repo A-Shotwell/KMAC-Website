@@ -1,5 +1,6 @@
 import {React, useState} from 'react';
 import styles from './Shows.module.css';
+import axios from 'axios';
 
 /*
     PROBLEM: Horizontal scrolling shifts show template slightly to the left and right, 

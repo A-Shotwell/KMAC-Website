@@ -9,7 +9,6 @@ import styles from './components/Login.module.css'
     PROBLEMS: 
       - Horizontal scrolling shifts show template slightly to the left and right.
       - Upcoming shows window not yet responsive.
-      - Nav Bar lays over "CONTACT/BOOKING" buttons on contact form. Need to adjust CSS.
 */
 
 function App() {
@@ -21,14 +20,13 @@ function App() {
   const verPass = async (password) => {
     try {
       axios.post('http://localhost:4000/verify', { password: document.getElementById("pass").value })
-      .then(response => setVer(response.data))
-
-      if (!ver) {
-        setVer(null)
-        setShowErr(true)
-        document.getElementById("pass").reset()
-      }
-        
+      .then(response => {
+        if (response.data === false){
+          setShowErr(true)
+        } else {
+          setVer(true)
+        }
+      })        
     } catch (err) {
       console.log(err)
     }
@@ -50,7 +48,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index path="/" element={<Main />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={ver ? <Admin /> : pass} />
         <Route path="/test" element={ver ? <Admin /> : pass} />
       </Routes> 
     </BrowserRouter>
