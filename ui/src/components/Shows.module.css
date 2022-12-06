@@ -140,3 +140,14 @@
     display: block;
     padding: 1em;
 }
+
+.noShows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color:rgba(50, 236, 191, 1);
+    text-shadow:rgba(183, 35, 35, 1);
+    font-size: large;
+}

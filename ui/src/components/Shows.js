@@ -1,6 +1,7 @@
 import {React, useState} from 'react';
 import styles from './Shows.module.css';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 /*
     PROBLEM: Horizontal scrolling shifts show template slightly to the left and right, 
@@ -20,6 +21,14 @@ const Shows = () => {
         desc: string,
         image: file ???
     */
+
+    const [shows, getShows] = useState([null])
+
+    useEffect(() => {
+        axios.get("http://localhost:4000/getShows").then(response => {
+            getShows(response.data)
+        })
+    }, [])
 
     // FOR TESTING PURPOSES, REPLACE WITH ARRAY FROM DATABASE QUERY
     const testShows = [
@@ -52,9 +61,9 @@ const Shows = () => {
         }
     ]
 
-    const displayImage = () => {
+    const displayImage = (image) => {
         // REPLACE WITH IMAGE FILE FROM DATABASE QUERY, FILE READER?
-        return <img src={process.env.PUBLIC_URL+"images/poster.jpg"} style={{height: 'auto', width: '100%'}} alt="poster image" />
+        return <img src={image} style={{height: 'auto', width: '100%'}} alt="poster image" />
     }
 
     const Show = (details) => {
@@ -62,7 +71,7 @@ const Shows = () => {
             <div className={styles.showMain}>
                 <div className={styles.posterFrame} style={null /* SET BACKGROUND IMAGE HERE, COVER??? */}>
                     {/* <span>{details.image}</span> */}
-                    <span>{displayImage()}</span>
+                    <span>{displayImage(details.image)}</span>
                 </div>
                 <div className={styles.textFrame}>
                     <h1 className={styles.showTextHeader}>{details.eventTitle}</h1>
@@ -88,7 +97,7 @@ const Shows = () => {
                         document.getElementById('showWindow').scrollLeft -= (document.getElementById('show').offsetWidth)
                     }}>&lArr;</div>
                     <div className={styles.showWindow} id='showWindow'>
-                        {testShows.map((show, index) => (
+                        {!shows[0] ? <div className={styles.noShows}><p>NO UPCOMING SHOWS</p></div> : shows.map((show, index) => (
                             <div key={index} className={styles.showBody} id="show">{Show(show)}</div>
                         ))}
                     </div>
