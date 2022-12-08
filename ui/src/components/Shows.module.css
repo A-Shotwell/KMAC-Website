@@ -96,6 +96,7 @@
 }
 
 .showWindow {
+    display: flex;
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -113,6 +114,7 @@
     background-position: center;
     background-size: cover;
     margin-right: 5%;
+    overflow: hidden;
 }
 
 .textFrame {
@@ -150,4 +152,43 @@
     color:rgba(50, 236, 191, 1);
     text-shadow:rgba(183, 35, 35, 1);
     font-size: large;
+}
+
+.showImage {
+    height: auto; 
+    width: 100%;
+    object-fit: cover;
+}
+
+@media screen and (min-width: 361px) and (max-width: 768px) {
+    .showMain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .posterFrame {
+        width: 100%;
+        height: 50%;
+    }
+
+    .textFrame {
+        width: 100%;
+        height: 50%;
+    }
+
+    .scrollButton {
+        width: 10%;
+    }
+
+    .bannerText {
+        margin-top: 10%;
+    }
+
+    .showImage {
+        /* max-height: 100%; 
+        max-width: 100%; */
+        max-height: 100%;
+        max-width: 100%;
+    }
 }
