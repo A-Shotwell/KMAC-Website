@@ -127,11 +127,12 @@ app.post('/updateShow', upload.single(), async function (req, res) {
             time: convertTime(req.body.time),
             ticket: req.body.ticket,
             desc: req.body.desc,
-            image: req.body.image
+            image: req.body.editImage
         }
 
         await Show.updateOne({ _id: req.body._id }, newValues)
         res.status(200).send(`SHOW UPDATED: ${req.body._id}`)
+
     } catch (err) {
         console.log(err)
         res.status(400).send(err)

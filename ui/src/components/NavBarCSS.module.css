@@ -82,7 +82,7 @@ MOBILE PROBLEMS:
 
 .logoHero {
     height: 20vw;
-    transform: translate(40vw, 15vw) rotate(-10deg);
+    transform: translate(45vw, 15vw) rotate(-10deg);
     filter: drop-shadow(7px 7px rgba(183, 35, 35, 1));
 }
 
@@ -128,9 +128,17 @@ MOBILE PROBLEMS:
 
 /********************** RESPONSIVE BREAKPOINTS ********************************/
 
-@media (min-width: 769px) {
+@media screen and (max-width: 1099px) and (min-width: 769px) {
     .navDrop {
         display: none;
+    }
+
+    .logoHero {
+        transform: translate(0vw, 0vw) rotate(-10deg);
+        height: auto;
+        width: 50%;
+        top: 10%;
+        left: 23%;
     }
 }
 
@@ -140,8 +148,11 @@ MOBILE PROBLEMS:
     }
 
     .logoHero {
-        height: 30vw;
-        transform: translate(10vw, 30vw) rotate(-10deg);
+        height: auto;
+        width: 70%;
+        transform: translate(0vw, 0vw) rotate(-10deg);
+        top: 10%;
+        left: 12%;
         filter: drop-shadow(7px 7px rgba(183, 35, 35, 1));
     }
     

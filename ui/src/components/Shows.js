@@ -27,10 +27,8 @@ const Shows = () => {
         })
     }, [])
 
-    const displayImage = (image) => {
-        // className={styles.showImage}
-        // style={{backgroundImage: `URL: ${URL.createObjectURL(image)}`}}
-        return <img src={image} className={styles.showImage} alt="poster image" />
+    const displayImage = (image) => {        
+        return <a href={image} target="_blank"><img src={image} className={styles.showImage} alt="poster image" /></a>
     }
 
     const Show = (details) => {

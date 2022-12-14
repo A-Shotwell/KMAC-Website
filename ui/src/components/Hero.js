@@ -19,8 +19,9 @@ const Hero = () => {
 
     return (
         <div className={styles.container} id="home">
-            {window.innerWidth >= 769  && <img src="images/kmac-transparent-1-red.png" className={styles.imageWide}/>}
-            {window.innerWidth < 769  && <img src="images/kmac-transparent-3-red.png" className={styles.imageMobile}/>}
+            {window.innerWidth >= 1100  && <img src="images/kmac-transparent-1-red.png" className={styles.imageWide}/>}
+            {window.innerWidth < 1100 && window.innerWidth > 500  && <img src="images/kmac-transparent-2-red.png" className={styles.imageMedium}/>}
+            {window.innerWidth <= 500  && <img src="images/kmac-transparent-3-red.png" className={styles.imageMobile}/>}
             <div className={styles.overlay} />
             <div className={styles.background} />
         </div>

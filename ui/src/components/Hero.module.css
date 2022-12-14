@@ -13,10 +13,20 @@
 
 .imageMobile {
     z-index: 100;
-    position: absolute;
+    position: relative;
     margin-left: auto;
     margin-right: auto;
-    top: 40%;
+    bottom: 0%;
+}
+
+.imageMedium {
+   display: block;
+   position: absolute;
+   width: 90%;
+   height: auto;
+   bottom: 0;
+   left: 5%;
+   z-index: 100;
 }
 
 .overlay {
@@ -31,20 +41,22 @@
 }
 
 .background {
-    position: absolute;
     width: 100vw;
     height: 100vh;
-
     background: url("../../public/images/skyline.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: 7% 7%;
+    /* background-position: 7% 7%; */
 }
 
 /* --------------- RESPONSIVE BREAKPOINTS --------------- */
 
-@media (min-width: 769px) {
-
+@media screen and (max-width: 1099px) and (min-width: 769px) {
+    .imageMedium {
+        width: 70%;
+        left: 15%;
+        bottom: 0%;
+    }
 }
 
 @media screen and (min-width: 361px) and (max-width: 768px) {
@@ -54,7 +66,7 @@
         height: 100vh;
     
         background: url("../../public/images/denver-skyline-3.jpg");
-        background-size: 400%;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: 15% 50%;
     }
@@ -76,7 +88,7 @@
         width: 100vw;
         height: 100vh;    
         background: url("../../public/images/denver-skyline-3.jpg");
-        background-size: 400%;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: 15% 50%;
     }
