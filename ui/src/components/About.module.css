@@ -14,42 +14,59 @@
 }
 
 .section {
-    position: absolute;
-    transform: translateX(110%);
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* transform: translateX(110%); */
+    right: 5vw;
     background: rgba(0,0,0,.5);
-    width: 35vw;
-    height: 80vh;
-    padding: 10vh;
+    /* width: 35vw;
+    height: 80vh; */
+    height: 100%;
+    width: 50%;
+    left: 50%;
+    /* padding: 10vh; */
     overflow: hidden;
+    float: right;
 }
 
 .header {
     color: white;
     font-weight: lighter;
-    font-size: 2.2em;
-    margin-bottom: 4vh;
+    font-size: 2em;
+    /* font-size: 300%; */
+    margin-top: 75px;
+    margin-bottom: -10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 5%;
+    overflow: hidden;
+    height: 5vw;
+    width: auto;
 }
 
 .text {
     color: white;
+    font-size: 150%;
 }
 
 .textContainer {
     background: rgba(0,0,0,.25);
     padding: 1em;
     height: 80%;
-    width: 100%;
+    width: 80%;
     margin-left: -1em;
     margin-top: 2em;
+    margin-bottom: 5%;
 }
 
 .border {
     position: relative;
-    left: 5vw;
-    top: 10vh;
     display: flex;
-    height: 77vh;
-    width: 77vh;
+    height: 39vw;
+    width: 39vw;
     background: linear-gradient(135deg, rgba(183, 35, 35, 1), rgba(51, 169, 236, 1));
     border: 1px solid transparent;
     border-radius: 500px;
@@ -66,8 +83,8 @@
 
 .profilePic {
     display: block;
-    height: 70vh;
-    width: 70vh;
+    height: 35vw;
+    width: 35vw;
     border: 0px solid transparent;
     border-radius: 500px;
     background: url('../../public/images/007-COLOR.png');
@@ -80,8 +97,14 @@
 }
 
 .noScroll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
+    width: 50%;
+    /* background: green; */
     overflow: hidden;
+    float: left;
 }
 
 /* --------------- ANIMATION FRAMES  --------------- */
@@ -108,33 +131,20 @@
 
 }
 
-@media screen and (min-width: 361px) and (max-width: 768px) {
+@media screen and (min-width: 0px) and (max-width: 999px) {
     .main {
-        display: block;
-        height: 100vh;
-        width: 100vw;
-        background: linear-gradient(229.54deg, rgba(183, 35, 35, 0.39) 3.15%, rgba(74, 183, 35, 0.39) 29.66%, rgba(50, 236, 191, 0.39) 52.25%), url("../../public/images/sound-booth.jpg");
-        background-size: cover;
-        overflow: hidden;
+
     }
 
     .section {
-        position: absolute;
-        transform: translate(2.8%, 45%);
-        background: rgba(0,0,0,.5);
-        width: 50vw;
-        height: 45vh;
-        padding: 10vh;
-        margin-top: 2.5vh;
-        overflow: hidden;
+       height: 65%;
+       width: 100%;
+       transform: translateY(50%);
     }
 
     .header {
-        display: block;
-        color: white;
-        font-weight: lighter;
+        height: 20%;
         font-size: 2em;
-        margin-bottom: -1vh;
     }
 
     .textContainer::-webkit-scrollbar {
@@ -143,20 +153,23 @@
     
     .textContainer {
         background: rgba(0,0,0,.25);
-        padding: 1em;
-        height: 80%;
-        width: 145%;
-        margin-left: -3.85em;
-        margin-top: 2em;
+        margin: 0;
+        /* margin-top: 5%; */
+        margin-bottom: 5%;
+        /* background: green; */
+        width: 90%;
+        /* left: 5%; */
+        justify-self: auto;
+        /* margin-left: 1%; */
     }
     
+    /* WORKS */
     .border {
-        left: 17vw;
-        top: 10vh;
         height: 27vh;
         width: 27vh;
     }
     
+    /* WORKS */
     .profilePic {
         height: 26vh;
         width: 26vh;
@@ -165,9 +178,10 @@
     }
 
     .noScroll {
-        height: 90%;
-        overflow: hidden;
-        transform: translateY(-4%)
+        position: relative;
+        height: auto;
+        width: 100%;
+        margin-top: -500px;
     }
 }
 

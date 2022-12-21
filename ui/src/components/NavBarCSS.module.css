@@ -168,7 +168,8 @@ MOBILE PROBLEMS:
         position: fixed;
         height: 25px;
         width: auto;
-        transform: translate(85vw, 15px);
+        top: 14px;
+        right: 20px;
     }
 }
 
@@ -195,7 +196,8 @@ MOBILE PROBLEMS:
         position: fixed;
         height: 25px;
         width: auto;
-        transform: translate(85vw, 15px);
+        top: 14px;
+        right: 20px;
     }
 }
 
