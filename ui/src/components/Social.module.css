@@ -1,0 +1,118 @@
+.main {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 35%;
+    width: 35%;
+    left: 5%;
+    top: 325%;
+    overflow: hidden;
+}
+
+.banner {
+    display: block;
+    position: relative;
+    font-size: 4.5em;
+    font-weight: 400;
+    color: rgb(40, 239, 236);
+    text-shadow: 5px 5px rgba(183, 35, 35, 1);
+    overflow: hidden;
+}
+
+.listItem {
+    background: red;
+    height: 10vh;
+    width: 20%;
+    float: left;
+}
+
+.listContainer {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.socialContainer {
+    position: relative;
+    height: 10vh;
+    width: 30vw;
+    overflow: hidden;
+}
+
+.spotify {
+    background: url('../../public/images/spotifyLogo.png');
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.facebook {
+    background: url('../../public/images/facebookLogo.png');
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.instagram {
+    background: url('../../public/images/instagramLogo.png');
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.twitter {
+    background: url('../../public/images/twitterLogo.png');
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        top: 297.5%;
+        left: 10%;
+        width: 80vw;
+    }
+
+    .banner {
+        display: none;
+        overflow-y: hidden;
+    }
+
+    .socialContainer {
+        height: 12vh;
+        width: 88vw;
+    }
+
+    .spotify {
+        background: url('../../public/images/spotifyLogo.png');
+        background-size: 50% auto;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .facebook {
+        background: url('../../public/images/facebookLogo.png');
+        background-size: 50% auto;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .instagram {
+        background: url('../../public/images/instagramLogo.png');
+        background-size: 50% auto;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .twitter {
+        background: url('../../public/images/twitterLogo.png');
+        background-size: 50% auto;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    
+}

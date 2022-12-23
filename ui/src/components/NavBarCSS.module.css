@@ -26,7 +26,7 @@ MOBILE PROBLEMS:
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: 54px;
+    height: 8vh;
     background-color: rgba(0,0,0,0.65);
     overflow: hidden;
 }
@@ -140,12 +140,20 @@ MOBILE PROBLEMS:
         top: 10%;
         left: 23%;
     }
+
+    .logoNav {
+        transform: translate(34vw, 1.5vh) rotate(-10deg);
+    }
 }
 
-@media screen and (min-width: 361px) and (max-width: 768px){ /* 412 */
+@media screen and (min-width: 361px) and (max-width: 773px){ /* 412 */
     .nav ul {
         display: none;
     }
+
+    /* .navRight {
+        padding-right: 10px;
+    } */
 
     .logoHero {
         height: auto;
@@ -168,12 +176,12 @@ MOBILE PROBLEMS:
         position: fixed;
         height: 25px;
         width: auto;
-        top: 14px;
-        right: 20px;
+        top: 23px;
+        right: 35px;
     }
 }
 
-@media screen and (min-width: 1px) and (max-width: 360px){
+@media screen and (min-width: 0px) and (max-width: 360px){
     .nav ul {
         display: none;
     }
@@ -196,7 +204,7 @@ MOBILE PROBLEMS:
         position: fixed;
         height: 25px;
         width: auto;
-        top: 14px;
+        top: 23px;
         right: 20px;
     }
 }

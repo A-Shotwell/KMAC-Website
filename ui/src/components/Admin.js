@@ -59,7 +59,10 @@ const Admin = () => {
             console.log(formData)
             console.log(response)
             alert('NEW SHOW SUBMITTED')
-            window.location.reload()
+            
+            axios.get("http://localhost:4000/getShows").then(response => {
+            setCurrShows(response.data)
+            })
 
         } catch (e) {
             alert(e)

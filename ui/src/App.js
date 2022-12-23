@@ -8,6 +8,7 @@ import styles from './components/Login.module.css'
 import Hero from './components/Hero'
 import NavBar from './components/NavBar.js'
 import About from './components/About'
+import Social from './components/Social'
 
 /*
     PROBLEMS: 
@@ -52,7 +53,7 @@ function App() {
       <Routes>
         <Route index path="/" element={<Main />} />
         <Route path="/admin" element={ver ? <Admin /> : pass} />
-        <Route path="/test" element={<About />} />
+        <Route path="/test" element={ver ? <Admin /> : pass} />
       </Routes> 
     </BrowserRouter>
   );

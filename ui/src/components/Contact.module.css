@@ -11,68 +11,7 @@
     overflow: hidden;
 }
 
-.banner {
-    display: block;
-    position: absolute;
-    font-size: 4.5em;
-    font-weight: 400;
-    color: rgb(40, 239, 236);
-    text-shadow: 5px 5px rgba(183, 35, 35, 1);
-    transform: translate(18vh, 15vw);
-}
 
-.socialContainer {
-    position: absolute;
-    height: 10vh;
-    width: 30vw;
-    transform: translate(21vh, 24vw);
-}
-
-.listContainer {
-    display: flex;
-    justify-content: space-between;
-}
-
-.listItem {
-    background: red;
-    height: 10vh;
-    width: 20%;
-    float: left;
-}
-
-.spotify {
-    background: url('../../public/images/spotifyLogo.png');
-    background-size: 80% auto;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.facebook {
-    background: url('../../public/images/facebookLogo.png');
-    background-size: 80% auto;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.instagram {
-    background: url('../../public/images/instagramLogo.png');
-    background-size: 80% auto;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.twitter {
-    background: url('../../public/images/twitterLogo.png');
-    background-size: 80% auto;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.link {
-    display: block;
-    height: 100%;
-    width: 100%;
-}
 
 /* --------------- RESPONSIVE BREAKPOINTS --------------- */
 
@@ -82,19 +21,4 @@
         background-repeat: no-repeat;
         background-size: inherit;
     }
-
-    .banner {
-        transform: translate(11vh, 22vw);
-        font-size: 2.5em;
-    }
-
-    .socialContainer {
-        transform: translate(13vh, 30vw);
-        height: 15vh;
-        width: 40vw;
-    }
-}
-
-@media screen and (min-width: 1px) and (max-width: 360px) {
-
 }
