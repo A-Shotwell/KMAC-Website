@@ -64,6 +64,8 @@ const Admin = () => {
             setCurrShows(response.data)
             })
 
+            document.getElementById("form").reset()
+
         } catch (e) {
             alert(e)
             console.log(e)
@@ -105,7 +107,7 @@ const Admin = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.showListings}>
+            <div className={styles.showListings} id="listings">
                 {
                     !currShows[0] ? <div className={styles.noShow}><h3 style={{color: "white"}}>NO CURRENT SHOWS</h3></div> : currShows.map((show, index) => {
                         return <ShowListing key={index} params={show} />

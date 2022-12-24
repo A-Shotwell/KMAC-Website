@@ -5,10 +5,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
 import styles from './components/Login.module.css'
 
-import Hero from './components/Hero'
-import NavBar from './components/NavBar.js'
-import About from './components/About'
-import Social from './components/Social'
+// import Hero from './components/Hero'
+// import NavBar from './components/NavBar.js'
+// import About from './components/About'
+// import Social from './components/Social'
 
 /*
     PROBLEMS: 
@@ -53,7 +53,7 @@ function App() {
       <Routes>
         <Route index path="/" element={<Main />} />
         <Route path="/admin" element={ver ? <Admin /> : pass} />
-        <Route path="/test" element={ver ? <Admin /> : pass} />
+        {/* <Route path="/test" element={ver ? <Admin /> : pass} /> */}
       </Routes> 
     </BrowserRouter>
   );
