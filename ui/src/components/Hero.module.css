@@ -94,3 +94,27 @@
         background-position: 15% 50%;
     }
 }
+
+/* iPad Air */
+@media screen and (device-height: 1180px) {
+    .imageMedium {
+        width: 100%;
+        left: 0%;
+     }
+}
+
+/* Surface Pro 7 */
+@media screen and (device-height: 1368px) {
+    .imageMedium {
+        width: 100%;
+        left: 0%;
+     }
+}
+
+/* Nest Hub */
+@media screen and (device-height: 600px) {
+    .imageMedium {
+        width: 65%;
+        left: 0%;
+     }
+}

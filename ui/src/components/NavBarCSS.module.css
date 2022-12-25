@@ -146,14 +146,10 @@ MOBILE PROBLEMS:
     }
 }
 
-@media screen and (min-width: 361px) and (max-width: 773px){ /* 412 */
+@media screen and (min-width: 0px) and (max-width: 773px){ /* 412 */
     .nav ul {
         display: none;
     }
-
-    /* .navRight {
-        padding-right: 10px;
-    } */
 
     .logoHero {
         height: auto;
@@ -176,7 +172,7 @@ MOBILE PROBLEMS:
         position: fixed;
         height: 25px;
         width: auto;
-        top: 23px;
+        top: 15px;
         right: 35px;
     }
 }
@@ -206,6 +202,165 @@ MOBILE PROBLEMS:
         width: auto;
         top: 23px;
         right: 20px;
+    }
+}
+
+/* iPhone SE */
+@media screen and (device-height: 667px) {
+    .menuButton {
+        top: 14px;
+        right: 20px;
+    }
+}
+
+/* iPhone XR */
+@media screen and (device-height: 896px) {
+    .menuButton {
+        top: 19px;
+        height: 4vh;
+        right: 5vw;
+    }
+
+    .logoHero {
+        height: 30vw;
+        transform: translate(0vh, 15vw) rotate(-10deg);
+        filter: drop-shadow(7px 7px rgba(183, 35, 35, 1));
+    }
+}
+
+/* iPad Mini */
+@media screen and (device-height: 1024px) {
+    .menuButton {
+        height: 40px;
+        top: 20px;
+        right: 30px;
+    }
+}
+
+/* iPad Air */
+@media screen and (device-height: 1180px) and (device-width: 820px) {
+    .navRight {
+        padding-right: 0px;
+    }
+
+    .logoHero {
+        height: 20vh;
+        width: auto;
+        transform: translate(-10vw, 5vh) rotate(-10deg);
+    }
+
+    .logoNav {
+        position: fixed;
+        height: 7vh;
+        transform: translate(5vw, 1.5vh) rotate(-10deg);
+        left: 30vw;
+        filter: drop-shadow(3px 4px rgba(183, 35, 35, 1));
+    }
+}
+
+/* Pixel 5 */
+@media screen and (device-height: 851px) and (device-width: 393px) {
+    .logoHero {
+        transform: translate(0vw, 8vh) rotate(-10deg);
+    }
+}
+
+/* Samsung Galaxy S8+ */
+@media screen and (device-height: 740px) {
+    .logoHero {
+        height: 30vw;
+        width: auto;
+        transform: translate(0vw, 6vh) rotate(-10deg);
+    }
+
+    .menuButton {
+        top: 2.5vh;
+    }
+}
+
+/* Surface Pro 7 */
+@media screen and (device-height: 1368px) and (device-width: 912px) {
+    .navRight {
+        padding-right: 0px;
+    }
+    
+    .logoNav {
+        position: fixed;
+        height: 7vh;
+        transform: translate(5vw, 1.5vh) rotate(-10deg);
+        left: 30vw;
+        filter: drop-shadow(3px 4px rgba(183, 35, 35, 1));
+    }
+
+    .logoHero {
+        height: 30vw;
+        width: auto;
+        transform: translate(-10vw, 1.5vh) rotate(-10deg);
+    }
+}
+
+/* Surface Duo */
+@media screen and (device-height: 720px) {
+    .menuButton {
+        height: 25px;
+        top: 15px;
+        right: 20px;
+    }
+}
+
+/* Samsung Galaxy Fold */
+@media screen and (device-height: 653px) {
+    .logoHero {
+        height: 14vh;
+        width: auto;
+        transform: translate(-4vw, 8vh) rotate(-10deg);
+    }
+
+    .menuButton {
+        height: 23px;
+        top: 15px;
+        right: 20px;
+    }
+}
+
+/* Samsung Galaxy S20 Ultra */
+@media screen and (device-height: 915px) and (device-width: 412px) {
+    .menuButton {
+        top: 2.5vh;
+    }
+
+    .logoHero {
+        transform: translate(3vw, 8vh) rotate(-10deg);
+    }
+}
+
+/* Samsung Galaxy Fold */
+@media screen and (device-height: 914px) {
+    .logoHero {
+        transform: translate(0vw, 8vh) rotate(-10deg);
+    }
+
+    .menuButton {
+        height: 30px;
+        top: 20px;
+        right: 20px;
+    }
+}
+
+/* Nest Hub */
+@media screen and (device-height: 600px) {
+    .navRight {
+        padding-right: 0px;
+    }
+
+    .logoNav {
+        transform: translate(40vw, 1.5vh) rotate(-10deg);
+    }
+
+    .logoHero {
+        width: 40vw;
+        height: auto;
+        transform: translate(30vw, 15vh) rotate(-10deg);
     }
 }
 

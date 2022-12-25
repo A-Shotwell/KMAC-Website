@@ -15,7 +15,7 @@
 
 /* --------------- RESPONSIVE BREAKPOINTS --------------- */
 
-@media screen and (min-width: 361px) and (max-width: 768px) {
+@media screen and (min-width: 0px) and (max-width: 768px) {
     .main {
         background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.28875) 83.12%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, rgba(183, 35, 35, 0.3) 45.1%, rgba(50, 236, 191, 0.3) 77.4%, rgba(74, 183, 35, 0.3) 100%), url("../../public/images/graffiti2.jpg");
         background-repeat: no-repeat;

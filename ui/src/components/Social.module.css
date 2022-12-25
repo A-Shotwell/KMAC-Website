@@ -112,7 +112,28 @@
         background-size: 50% auto;
         background-repeat: no-repeat;
         background-position: center;
+    }   
+}
+
+/* Nest Hub */
+@media screen and (device-height: 600px) {
+    .banner {
+        font-size: 4em;
     }
 
+    .spotify {
+        background-size: 75% auto;
+    }
     
+    .facebook {
+        background-size: 75% auto;
+    }
+    
+    .instagram {
+        background-size: 75% auto;
+    }
+    
+    .twitter {
+        background-size: 75% auto;
+    } 
 }

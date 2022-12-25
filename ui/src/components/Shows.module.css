@@ -186,3 +186,63 @@
         object-fit: scale-down;
     }
 }
+
+/* iPhone SE */
+@media screen and (device-height: 667px) {
+    .showImage {
+        object-fit: contain;
+    }
+}
+
+/* iPad Air */
+@media screen and (device-height: 1180px) {
+    .showTextHeader {
+        color: rgba(50, 236, 191, 1);
+        text-shadow: 2px 2px rgba(183, 35, 35, 1);
+        
+    }
+    
+    .showTextInfo {
+        font-size: 1.7em;
+    }
+
+    .showTextDesc {
+        font-size: 1.5em;
+    }
+}
+
+/* iPad Mini */
+@media screen and (device-height: 1024px) {
+    .showTextHeader {
+        color: rgba(50, 236, 191, 1);
+        text-shadow: 2px 2px rgba(183, 35, 35, 1);
+        font-size: 2.5em;
+        margin-bottom: 0px;
+    }
+    
+    .showTextInfo {
+        font-size: 1.7em;
+    }
+
+    .showTextDesc {
+        font-size: 1.5em;
+    }
+}
+
+/* Samsung Galaxy Fold */
+@media screen and (device-height: 653px) {
+    .bannerText {
+        font-weight: lighter;
+        color: rgba(50, 236, 191, 1);
+        text-shadow: 2px 2px rgba(183, 35, 35, 1);
+        font-size: 1.25em;
+        margin-top: 10%;
+    }
+
+    .showTextHeader {
+        color: rgba(50, 236, 191, 1);
+        text-shadow: 2px 2px rgba(183, 35, 35, 1);
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+}

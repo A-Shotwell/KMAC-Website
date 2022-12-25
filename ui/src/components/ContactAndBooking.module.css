@@ -3,7 +3,7 @@
     z-index: 10;
     background: rgba(0,0,0,0.65);
     width: 45vw;
-    height: 92vh;
+    height: 100vh;
     transform: translateX(110.5%);
     top: 8vh;
     overflow: hidden;
@@ -208,8 +208,104 @@
     .confirmContainer {
         width: inherit;
     }
+
+    .submit {
+        margin-top: 1vh;
+    }
 }
 
-@media screen and (min-width: 1px) and (max-width: 360px) {
+/* iPhone SE */
+@media screen and (device-height: 667px) {
+    .container {
+        height: 85%;
+    }
+
+    .textareaContact {
+        height: 23vh;
+    }
+
+    .textareaBooking {
+        height: 10vh;
+    }
+
+    .submit {
+        margin-top: 0;
+    }
+}
+
+/* iPad Mini */
+@media screen and (device-height: 1024px) {
+    .submit {
+        font-size: 30px;
+    }
+}
+
+/* Surface Duo */
+@media screen and (device-height: 720px) and (device-width: 540px) {
+    .container {
+        height: 100vh;
+    }
+
+    .textareaContact {
+        height: 18vh;
+    }
+
+    .textareaBooking {
+        height: 8vh;
+    }
+
+    .submit {
+        margin-top: 3%;
+    }
+}
+
+/* Surface Pro 7 */
+@media screen and (device-height: 1368px) and (device-width: 912px) {
+    .container {
+        height: 100vh;
+    }
+}
+
+/* Samsung Galaxy Fold */
+@media screen and (device-height: 653px) {
+    .container {
+        height: 80%;
+    }
+
+    .textareaBooking {
+        height: 12vh;
+    }
+
+    .submit {
+        margin-top: 0%;
+    }
+}
+
+/* Samsung Galaxy A51/71 */
+@media screen and (device-height: 914px) {
+    .textareaBooking {
+        height: 24vh;
+    }
+}
+
+/* Nest Hub */
+@media screen and (device-height: 600px) and (device-width: 1024px) {
+    .container {
+        height: 100vh;
+    }
     
+    .textareaBooking {
+        height: 10vh;
+    }
+
+    .submit {
+        margin-top: 1vh; 
+    }
+}
+
+/* Nest Hub Max */
+@media screen and (device-height: 800px) and (device-width: 1280px) {
+    .container {
+        height: 100vh;
+    }
 }
