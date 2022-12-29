@@ -103,6 +103,18 @@
      }
 }
 
+/* Samsung Galaxy S20 Ultra */
+@media screen and (device-width: 412px) and (device-height: 915px) {
+    .imageMedium {
+        width: 150%;
+        left: -25%;
+     }
+
+    .imageMobile {
+        top: 39vh;
+    }
+}
+
 /* Surface Pro 7 */
 @media screen and (device-height: 1368px) {
     .imageMedium {

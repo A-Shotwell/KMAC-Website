@@ -278,6 +278,20 @@ MOBILE PROBLEMS:
     }
 }
 
+/* Samsung Galaxy S20 Ultra */
+@media screen and (device-width: 412px) and (device-height: 915px) {
+    .logoHero {
+        height: 35vw;
+        width: auto;
+        margin-left: -10%;
+    }
+    
+    .menuButton {
+        top: 10vh;
+        /* left: 70%; */
+    }
+}
+
 /* Surface Pro 7 */
 @media screen and (device-height: 1368px) and (device-width: 912px) {
     .navRight {
