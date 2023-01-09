@@ -61,16 +61,16 @@ const NavBar = () => {
         <nav className={styles.navDrop}>
           <ul>
             <li>
-              <button role="button" onClick={e => handleSelect("home")}>HOME</button>
+              <button className={styles.dropButton} role="button" onClick={e => handleSelect("home")}><span className={styles.dropButtonText}>HOME</span></button>
             </li>
             <li>
-              <button role="button" onClick={e => handleSelect("about")}>ABOUT</button>
+              <button className={styles.dropButton} role="button" onClick={e => handleSelect("about")}><span className={styles.dropButtonText}>ABOUT</span></button>
             </li>
             <li>
-              <button role="button" onClick={e => handleSelect("shows")}>SHOWS</button>
+              <button className={styles.dropButton} role="button" onClick={e => handleSelect("shows")}><span className={styles.dropButtonText}>SHOWS</span></button>
             </li>
             <li>
-              <button role="button" onClick={e => handleSelect("contact")}>CONTACT</button>
+              <button className={styles.dropButton} role="button" onClick={e => handleSelect("contact")}><span className={styles.dropButtonText}>CONTACT</span></button>
             </li>
           </ul>
         </nav>

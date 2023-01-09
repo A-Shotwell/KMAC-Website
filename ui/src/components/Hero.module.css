@@ -4,23 +4,35 @@
     overflow: hidden;
 }
 
-.imageWide {
+.heroImage {
     z-index: 100;
     position: absolute;
     left: 5vw;
     height: 100vh;
+    width: 100vw;
+    background: url("../../public/images/kmac-transparent-1-red.png");
+    background-size: 35% auto;
+    background-repeat: no-repeat;
+    /* background-color: red; */
 }
 
-.imageMobile {
+/* .imageWide {
+    z-index: 100;
+    position: absolute;
+    left: 5vw;
+    height: 100vh;
+} */
+
+/* .imageMobile {
     z-index: 100;
     position: relative;
     margin-left: auto;
     margin-right: auto;
     transform: translateY(1.8%);
     bottom: 0%;
-}
+} */
 
-.imageMedium {
+/* .imageMedium {
    display: block;
    position: absolute;
    width: 90%;
@@ -28,7 +40,7 @@
    bottom: 0;
    left: 5%;
    z-index: 100;
-}
+} */
 
 .overlay {
     z-index: 10;
@@ -95,38 +107,78 @@
     }
 }
 
+/* --------------- DEVICE-SPECIFIC BREAKPOINTS --------------- */
+
 /* iPad Air */
 @media screen and (device-height: 1180px) {
-    .imageMedium {
+    /* .imageMedium {
         width: 100%;
         left: 0%;
-     }
+     } */
 }
 
-/* Samsung Galaxy S20 Ultra */
+/* Samsung Galaxy S20 */
 @media screen and (device-width: 412px) and (device-height: 915px) {
-    .imageMedium {
-        width: 150%;
-        left: -25%;
-     }
+    .heroImage {
+        left: 0vw;
+        bottom: -40vh;
+        height: 100vh;
+        width: 100vw;
+        background: url("../../public/images/kmac-transparent-3-red.png");
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+    }
+}
 
-    .imageMobile {
-        top: 39vh;
+/* Samsung Galaxy Note Ultra */
+@media screen and (device-width: 1080px) and (device-height: 2400px) {
+    .heroImage {
+        left: 0vw;
+        bottom: -40vh;
+        height: 100vh;
+        width: 100vw;
+        background: url("../../public/images/kmac-transparent-3-red.png");
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        /* background-color: red; */
+    }
+
+    .background {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;    
+        background: url("../../public/images/denver-skyline-3.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 20% 50%;
+    }
+}
+
+/* Samsung Galaxy Note Ultra (landscape) */
+@media screen and (device-width: 2400px) and (device-height: 1080px) {
+    .heroImage {
+        left: 7.5vw;
+        height: 100vh;
+        width: 50vw;
+        background-size: 60% auto;
     }
 }
 
 /* Surface Pro 7 */
 @media screen and (device-height: 1368px) {
-    .imageMedium {
+    /* .imageMedium {
         width: 100%;
         left: 0%;
-     }
+     } */
 }
 
 /* Nest Hub */
 @media screen and (device-height: 600px) {
-    .imageMedium {
+    /* .imageMedium {
         width: 65%;
         left: 0%;
-     }
+     } */
 }
+
+/* --------------- ASPECT RATIO BREAKPOINTS --------------- */
+

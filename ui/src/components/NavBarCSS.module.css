@@ -146,7 +146,7 @@ MOBILE PROBLEMS:
     }
 }
 
-@media screen and (min-width: 0px) and (max-width: 773px){ /* 412 */
+@media screen and (min-width: 0px) and (max-width: 773px){ 
     .nav ul {
         display: none;
     }
@@ -205,6 +205,8 @@ MOBILE PROBLEMS:
     }
 }
 
+/********************** DEVICE-SPECIFIC BREAKPOINTS ********************************/
+
 /* iPhone SE */
 @media screen and (device-height: 667px) {
     .menuButton {
@@ -213,11 +215,74 @@ MOBILE PROBLEMS:
     }
 }
 
+@media screen and (device-width: 667px) and (device-height: 375px) {
+    .menuButton {
+        display: none;
+    }
+
+    .nav {
+        margin-top: 3px;
+    }
+    
+    .nav button {
+        color: rgba(50, 236, 191, 1);
+        text-shadow: 2px 2px rgba(183, 35, 35, 1);
+        text-decoration: none;
+        display: block;
+        background: transparent;
+        border: none;
+        font-size: 1.2em;
+        margin-right: 50px;
+    }
+    
+    .nav button:hover {
+        color: rgb(93, 250, 90);
+        cursor: pointer;
+    }
+    
+    .nav li {
+        list-style-type: none;
+        float: left;
+        margin-bottom: 6px;
+    }
+    
+    .navLeft {
+        padding-left: 40px;
+    }
+    
+    .navRight {
+        padding-right: 10px;
+    }
+    
+    .navLeft a {
+        margin-left: 30px;
+    }
+    
+    .navRight a {
+        margin-right: 30px;
+    }
+}
+
 /* iPhone XR */
 @media screen and (device-height: 896px) {
     .menuButton {
         top: 19px;
         height: 4vh;
+        right: 5vw;
+    }
+
+    .logoHero {
+        height: 30vw;
+        transform: translate(0vh, 15vw) rotate(-10deg);
+        filter: drop-shadow(7px 7px rgba(183, 35, 35, 1));
+    }
+}
+
+/* iPhone 12 Pro */
+@media screen and (device-height: 844px) {
+    .menuButton {
+        top: 2.5%;
+        height: 3.5vh;
         right: 5vw;
     }
 
@@ -280,6 +345,10 @@ MOBILE PROBLEMS:
 
 /* Samsung Galaxy S20 Ultra */
 @media screen and (device-width: 412px) and (device-height: 915px) {
+    .container {
+        height: 7vh;
+    }
+    
     .logoHero {
         height: 35vw;
         width: auto;
@@ -287,8 +356,82 @@ MOBILE PROBLEMS:
     }
     
     .menuButton {
-        top: 10vh;
+        margin-top: -.6vh;
         /* left: 70%; */
+    }
+
+    .navDrop {
+        display: block;
+        height: 50%;
+        width: 100%;
+        top: 1%;
+    }
+}
+
+/* Samsung Galaxy Note 20 Ultra*/
+@media screen and (device-width: 1080px) and (device-height: 2400px) {
+    .container {
+        height: 6vh;
+    }
+    
+    .logoHero {
+        height: 15vh;
+        width: auto;
+        margin-left: -15%;
+        margin-top: 20%;
+    }
+
+    .logoNav {
+        height: 7%;
+        margin-left: -27%;
+    }
+
+    .menuButton {
+        display: block;
+        position: fixed;
+        height: 3vh;
+        width: auto;
+        top: 1.5vh;
+        right: 5vw;
+    }
+
+    .nav button {
+        display: none;
+    }
+
+    .navDrop {
+        display: block;
+        height: 50%;
+        width: 100%;
+        top: 4%;
+    }
+
+    .dropButton {
+        height: 4vh;
+        font-size: larger;
+    }
+
+    .dropButtonText {
+        font-size: 2.5rem;
+    }
+}
+
+/* Samsung Galaxy Note 20 (landscape) */
+@media screen and (device-width: 2400px) and (device-height: 1080px) {
+    .logoHero {
+        height: 45vh;
+        width: auto;
+        margin-left: -5%;
+        margin-top: -5%;
+    }
+
+    .logoNav {
+        margin-left: 0%;
+        margin-top: .25%;
+    }
+
+    .nav button {
+        font-size: 1.8em;
     }
 }
 
@@ -377,4 +520,6 @@ MOBILE PROBLEMS:
         transform: translate(30vw, 15vh) rotate(-10deg);
     }
 }
+
+
 

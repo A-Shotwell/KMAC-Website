@@ -185,6 +185,14 @@
     transition-duration: .5s;
 }
 
+.submitContact {
+    margin-top: 6%;
+}
+
+.submitBooking {
+    margin-top: .5%;
+}
+
 .submit:hover {
     color: black;
     text-shadow: none;
@@ -233,10 +241,78 @@
     }
 }
 
+/* --------------- DEVICE-SPECIFIC BREAKPOINTS --------------- */
+
 /* iPad Mini */
 @media screen and (device-height: 1024px) {
     .submit {
         font-size: 30px;
+    }
+}
+
+/* iPhone SE */
+@media screen and (device-height: 667px) and (device-width: 375px) {
+    .submitContact {
+        margin-top: 7%;
+    }
+
+    .submitBooking {
+        margin-top: 1%;
+    }
+}
+
+/* iPhone XR */
+@media screen and (device-height: 896px) and (device-width: 414px) {
+    .submitContact {
+        margin-top: 18%;
+    }
+
+    .submitBooking {
+        margin-top: 15%;
+    }
+}
+
+/* iPhone 12 Pro */
+@media screen and (device-height: 844px) and (device-width: 390px) {
+    .submitContact {
+        margin-top: 16%;
+    }
+
+    .submitBooking {
+        margin-top: 12%;
+    }
+}
+
+/* iPad Air */
+@media screen and (device-height: 1180px) and (device-width: 820px) {
+    .submitContact {
+        margin-top: 16%;
+    }
+
+    .submitBooking {
+        margin-top: 12%;
+    }
+}
+
+/* iPad Mini */
+@media screen and (device-height: 1024px) and (device-width: 768px) {
+    .submitContact {
+        margin-top: 10%;
+    }
+
+    .submitBooking {
+        margin-top: 9%;
+    }
+}
+
+/* Pixel 5 */
+@media screen and (device-height: 851px) and (device-width: 393px) {
+    .submitContact {
+        margin-top: 17%;
+    }
+
+    .submitBooking {
+        margin-top: 13%;
     }
 }
 
@@ -257,12 +333,252 @@
     .submit {
         margin-top: 3%;
     }
+
+    .submitContact {
+        margin-top: 9%;
+    }
+
+    .submitBooking {
+        margin-top: 3%;
+    }
 }
 
 /* Surface Pro 7 */
 @media screen and (device-height: 1368px) and (device-width: 912px) {
     .container {
         height: 100vh;
+    }
+
+    .submitContact {
+        margin-top: 17%;
+    }
+
+    .submitBooking {
+        margin-top: 13%;
+    }
+}
+
+/* Samsung Galaxy S8+ */
+@media screen and (device-height: 740px) and (device-width: 360px) {
+    .submitContact {
+        margin-top: 10%;
+    }
+
+    .submitBooking {
+        margin-top: 4%;
+    }
+}
+
+/* Samsung Galaxy S20 Ultra */
+@media screen and (device-height: 915px) and (device-width: 412px) {
+    .submitContact {
+        margin-top: 20%;
+    }
+
+    .submitBooking {
+        margin-top: 17%;
+    }
+}
+
+/* Samsung Galaxy Note 20 Ultra */
+@media screen and (device-width: 1080px) and (device-height: 2400px) {
+    .toggleContact {
+        font-size: 3.5em;
+    }
+    
+    .toggleBooking {
+        font-size: 3.5em;
+    }
+    
+    .input, input:focus {
+        font-size: 3.5em;
+    }
+
+    .label {
+        margin-bottom: 4%;
+        font-size: 3.5em;
+    }
+
+    .datetime {
+        font-size: 3.5em;
+    }
+
+    .select {
+        font-size: 3.5em;
+    }
+
+    .option {
+        font-size: small;
+    }
+
+    .textarea {
+        font-size: 4.5em;
+    }
+    
+    .textareaContact {
+        height: 30vh;
+        margin-bottom: 3vh;
+    }
+    
+    .textareaBooking {
+        height: 12vh;
+        margin-top: 5%; 
+    }
+    
+    .submitContact {
+        margin-top: 20%;
+    }
+
+    .submitBooking {
+        margin-top: 20%;
+    }
+
+    .container {
+        /* position: absolute; */
+        transform: translate(5vw, 13vh);
+        width: 90vw;
+        height: 80vh;
+    }
+    
+    .submit {
+        font-size: 3.5em;
+        margin-top: 16%;
+    }
+
+    .confirmContainer {
+        width: inherit;
+    }
+
+    .submit {
+        margin-top: 1vh;
+    }
+
+    .warning {
+        color: rgb(252, 111, 111);
+        display: block;
+        margin-left: 7%;
+        font-size: 2.5em;
+    }
+
+    .confirmThankYou {
+        font-size: 5em;
+        margin-top: -5%;
+    }
+    
+    .confirmSubThankYou {
+        margin-top: 5%;
+        font-size: 4em;
+    }
+    
+    .confirmOkay {
+        margin-top: 10%;
+        font-size: 4em;
+        border: 2px rgba(50, 236, 191, 1) solid;
+        border-radius: 500px;
+        background: transparent;
+        color: rgba(50, 236, 191, 1);
+        text-shadow: 2px 2px rgba(183, 35, 35, 1);
+        transition-duration: .5s;
+        padding: 10%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+}
+
+/* Samsung Galaxy Note 20 Ultra (landscape) */
+@media screen and (device-width: 2400px) and (device-height: 1080px) {
+    .toggleContact {
+        font-size: 2em;
+    }
+    
+    .toggleBooking {
+        font-size: 2em;
+    }
+    
+    .input, input:focus {
+        font-size: 2em;
+    }
+
+    .label {
+        font-size: 1.5em;
+    }
+
+    .datetime {
+        font-size: 2em;
+    }
+
+    .select {
+        font-size: 2em;
+    }
+
+    .option {
+        font-size: small;
+    }
+
+    .textarea {
+        font-size: 2em;
+    }
+    
+    .textareaContact {
+        height: 30vh;
+        margin-bottom: 4vh;
+    }
+    
+    .textareaBooking {
+        height: 12vh;
+        margin-top: 2%; 
+    }
+    
+    .submitContact {
+        margin-top: 20%;
+    }
+
+    .submitBooking {
+        margin-top: 20%;
+    }
+    
+    .submit {
+        font-size: 2em;
+        margin-top: 16%;
+    }
+
+    .confirmContainer {
+        width: inherit;
+    }
+
+    .submit {
+        margin-top: 1vh;
+    }
+
+    .warning {
+        color: rgb(252, 111, 111);
+        display: block;
+        margin-left: 7%;
+        font-size: 1.5em;
+    }
+
+    .confirmThankYou {
+        font-size: 5em;
+        margin-top: -5%;
+    }
+    
+    .confirmSubThankYou {
+        margin-top: 5%;
+        font-size: 3.5em;
+    }
+    
+    .confirmOkay {
+        margin-top: 10%;
+        font-size: 3em;
+        border: 2px rgba(50, 236, 191, 1) solid;
+        border-radius: 500px;
+        background: transparent;
+        color: rgba(50, 236, 191, 1);
+        text-shadow: 2px 2px rgba(183, 35, 35, 1);
+        transition-duration: .5s;
+        padding: 10%;
+        padding-top: 2%;
+        padding-bottom: 2%;
     }
 }
 
@@ -279,12 +595,28 @@
     .submit {
         margin-top: 0%;
     }
+
+    .submitContact {
+        margin-top: 7%;
+    }
+
+    .submitBooking {
+        margin-top: 0%;
+    }
 }
 
 /* Samsung Galaxy A51/71 */
 @media screen and (device-height: 914px) {
     .textareaBooking {
         height: 24vh;
+    }
+
+    .submitContact {
+        margin-top: 15%;
+    }
+
+    .submitBooking {
+        margin-top: 3%;
     }
 }
 
@@ -301,11 +633,27 @@
     .submit {
         margin-top: 1vh; 
     }
+
+    .submitContact {
+        margin-top: 7%;
+    }
+
+    .submitBooking {
+        margin-top: 2%;
+    }
 }
 
 /* Nest Hub Max */
 @media screen and (device-height: 800px) and (device-width: 1280px) {
     .container {
         height: 100vh;
+    }
+
+    .submitContact {
+        margin-top: 12%;
+    }
+
+    .submitBooking {
+        margin-top: 10%;
     }
 }

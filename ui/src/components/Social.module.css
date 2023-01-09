@@ -115,6 +115,62 @@
     }   
 }
 
+/* -------------- DEVICE-SPECIFIC BREAKPOINTS -------------- */
+
+/* Samsung Galaxy Note Ultra */
+@media screen and (device-width: 1080px) and (device-height: 2400px) {
+    .main {
+        top: 297.5%;
+        left: 10%;
+        width: 80vw;
+    }
+
+    .banner {
+        display: none;
+        overflow-y: hidden;
+    }
+
+    .socialContainer {
+        height: 12vh;
+        width: 88vw;
+    }
+
+    .spotify {
+        background: url('../../public/images/spotifyLogo.png');
+        background-size: 50% auto;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .facebook {
+        background: url('../../public/images/facebookLogo.png');
+        background-size: 50% auto;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .instagram {
+        background: url('../../public/images/instagramLogo.png');
+        background-size: 50% auto;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    .twitter {
+        background: url('../../public/images/twitterLogo.png');
+        background-size: 50% auto;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+/* Samsung Galaxy Note Ultra (landscape) */
+@media screen and (device-width: 2400px) and (device-height: 1080px) {
+    .banner {
+        font-size: 8em;
+    }
+}
+
 /* Nest Hub */
 @media screen and (device-height: 600px) {
     .banner {

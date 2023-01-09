@@ -42,7 +42,7 @@
 
 .text {
     color: white;
-    font-size: 150%;
+    font-size: 100%;
     padding: 2%;
 }
 
@@ -314,6 +314,94 @@
     .noScroll {
         margin-top: -500px;
         transform: translateY(0vh);
+    }
+}
+
+/* Samsung Galaxy Note Ultra */
+@media screen and (device-width: 1080px) and (device-height: 2400px) {
+    .section {
+        height: 65%;
+        width: 100%;
+        transform: translateY(50%);
+     }
+ 
+     .header {
+         height: 20%;
+         font-size: 4.5em;
+         margin-top: 10vh;
+         margin-bottom: -15%;
+     }
+ 
+     .textContainer::-webkit-scrollbar {
+         display: none;
+     }
+     
+     .textContainer {
+         background: rgba(0,0,0,.25);
+         margin: 0;
+         width: 80%;
+         height: 60%;
+         justify-self: auto;
+         font-size: 3em;
+     }
+     
+     .border {
+         height: 27vh;
+         width: 27vh;
+     }
+     
+     .profilePic {
+         height: 26vh;
+         width: 26vh;
+         background: url('../../public/images/008-COLOR.png');
+         background-size: cover;
+     }
+ 
+     .noScroll {
+         position: relative;
+         height: auto;
+         width: 100%;
+         margin-top: -55vh;
+     }
+}
+
+/* Samsung Galaxy Note Ultra (landscape) */
+@media screen and (device-width: 2400px) and (device-height: 1080px) {
+    .profilePic {
+        height: 70vh;
+        width: 70vh;
+        background: url('../../public/images/007-COLOR.png');
+        background-size: cover;
+    }
+
+    .border {
+        height: 80vh;
+        width: 80vh;
+    }
+    
+    .noScroll {
+        position: relative;
+        height: auto;
+        width: 50%;
+        margin-top: 10vh;
+    }
+
+    .header {
+        height: 20%;
+        font-size: 4.5em;
+        margin-top: 10vh;
+        margin-bottom: -15%;
+    }
+
+    .textContainer::-webkit-scrollbar {
+        display: none;
+    }
+
+    .textContainer {
+        height: 75%;
+        /* width: 90%; */
+        margin-top: 10%;
+        font-size: 2em;
     }
 }
 

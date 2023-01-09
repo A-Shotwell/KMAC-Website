@@ -5,6 +5,10 @@
     fields with autofill for a second message, it will not update the state, and therefore does not validate. 
     However, if I autofill, then delete the value I just selected, then autofill AGAIN, it updates the state 
     just fine. I'm unsure how to fix this.
+
+    LINE 253:
+    No Contact Message warning was displaying black and shifted to the left without flag. Wrapped in ternary operator
+    set to flag condition to correct this faulty display.
 */
 
 import { useState, useEffect, useCallback } from 'react'
@@ -246,8 +250,8 @@ const ContactAndBooking = () => {
                     placeholder="How can I help you?" 
                     onChange={e => setContact({...contact, message: e.target.value})} 
                 />
-                <span className={!validFlag && !contact.message ? styles.warning : styles.warningHideen}>Please enter your message.</span>
-                <button className={styles.submit} role="submit">Submit</button>
+                {!validFlag && !contact.message ? <span className={!validFlag && !contact.message ? styles.warning : styles.warningHideen}>Please enter your message.</span> : null}
+                <button className={`${styles.submit} ${styles.submitContact}`} role="submit">Submit</button>
             </form>
         )
     }
@@ -316,7 +320,7 @@ const ContactAndBooking = () => {
                     onChange={e => setBooking({...booking, description: e.target.value})} 
                 />
                 <span className={!validFlag && !booking.description ? styles.warning : styles.warningHidden}>Please describe your event.</span>
-                <button className={styles.submit} role="submit">Submit</button>
+                <button className={`${styles.submit} ${styles.submitBooking}`} role="submit">Submit</button>
             </form>
         )
     }

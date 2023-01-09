@@ -246,3 +246,74 @@
         margin-bottom: 10px;
     }
 }
+
+/* Samsung Galaxy Note Ultra */
+@media screen and (device-width: 1080px) and (device-height: 2400px) {
+    .container {
+        height: 90%;
+        margin-top: 13%;
+    }
+
+    .bannerText {
+        font-size: 4em;
+    }
+    
+    .showMain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .posterFrame {
+        width: 110%;
+        height: 50%;
+    }
+
+    .textFrame {
+        width: 100%;
+        height: 50%;
+    }
+
+    .showTextHeader {
+        color: rgba(50, 236, 191, 1);
+        text-shadow: 2px 2px rgba(183, 35, 35, 1);
+        font-size: 5em;
+        margin-bottom: 10px;
+    }
+
+    .showTextInfo {
+        font-size: 3em;
+    }
+
+    .showTextDesc {
+        font-size: 2em;
+    }
+
+    .scrollButton {
+        width: 10%;
+    }
+
+    .showImage {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: scale-down;
+    }
+}
+
+/* Samsung Galaxy Note Ultra (landscape) */
+@media screen and (device-width: 2400px) and (device-height: 1080px) {
+    .showTextHeader {
+        color: rgba(50, 236, 191, 1);
+        text-shadow: 2px 2px rgba(183, 35, 35, 1);
+        font-size: 4em;
+        margin-bottom: 10px;
+    }
+
+    .showTextInfo {
+        font-size: 2em;
+    }
+
+    .showTextDesc {
+        font-size: 2em;
+    }
+}
