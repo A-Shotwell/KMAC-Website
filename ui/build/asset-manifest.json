@@ -1,12 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.a1fd1beb.css",
-    "main.js": "/static/js/main.cce00fcb.js",
+    "main.css": "/static/css/main.52cd80bd.css",
+    "main.js": "/static/js/main.ec4055d4.js",
     "static/media/graffiti2.jpg": "/static/media/graffiti2.fed4c3b25a431fe2cb52.jpg",
     "static/media/007-COLOR.png": "/static/media/007-COLOR.2128bead60f13715f39b.png",
     "static/media/graffiti1-edit.jpg": "/static/media/graffiti1-edit.e306f114f478cdf81fcf.jpg",
     "static/media/concert1.jpg": "/static/media/concert1.6213aacd5de30c3c17b6.jpg",
     "static/media/008-COLOR.png": "/static/media/008-COLOR.a0f86bb4ee18b5db586c.png",
+    "static/media/kmac-transparent-3-red.png": "/static/media/kmac-transparent-3-red.8a5f6deefb5d2d3708dc.png",
+    "static/media/kmac-transparent-1-red.png": "/static/media/kmac-transparent-1-red.484e52b58e76a573dfcf.png",
     "static/media/skyline.jpg": "/static/media/skyline.0f2ef774feb9ae829025.jpg",
     "static/media/denver-skyline-3.jpg": "/static/media/denver-skyline-3.4cfbac8d14b23209624d.jpg",
     "static/media/turntables.jpg": "/static/media/turntables.c77f033bce1f5132314e.jpg",
@@ -15,11 +17,11 @@
     "static/media/facebookLogo.png": "/static/media/facebookLogo.e0132cad39e5af7c71cd.png",
     "static/media/spotifyLogo.png": "/static/media/spotifyLogo.77b9fd8bcb8272dbcd5e.png",
     "index.html": "/index.html",
-    "main.a1fd1beb.css.map": "/static/css/main.a1fd1beb.css.map",
-    "main.cce00fcb.js.map": "/static/js/main.cce00fcb.js.map"
+    "main.52cd80bd.css.map": "/static/css/main.52cd80bd.css.map",
+    "main.ec4055d4.js.map": "/static/js/main.ec4055d4.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1fd1beb.css",
-    "static/js/main.cce00fcb.js"
+    "static/css/main.52cd80bd.css",
+    "static/js/main.ec4055d4.js"
   ]
 }
