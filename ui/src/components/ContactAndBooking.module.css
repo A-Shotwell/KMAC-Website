@@ -3,7 +3,7 @@
     z-index: 10;
     background: rgba(0,0,0,0.65);
     width: 45vw;
-    height: 100vh;
+    height: 100%;
     transform: translateX(110.5%);
     top: 8vh;
     overflow: hidden;
@@ -201,43 +201,169 @@
 
 /* --------------- RESPONSIVE BREAKPOINTS --------------- */
 
-@media screen and (min-width: 0px) and (max-width: 768px) {
+@media all and (orientation: landscape) {
+    .toggleContact {
+        font-size: 3vh;
+    }
+    
+    .toggleBooking {
+        font-size: 3vh;
+    }
+
+    .container {
+        font-size: 1rem;
+        height: 100%;
+    }
+
+    .input, input:focus {
+        font-size: 3vh;
+    }
+
+    .label {
+        /* margin-bottom: 4%; */
+        font-size: 3vh;
+    }
+
+    .datetime {
+        font-size: 3vh;
+    }
+
+    .select {
+        font-size: 3vh;
+        margin-top: 2%;
+    }
+
+    .option {
+        font-size: small;
+    }
+
+    .textarea {
+        font-size: 3vh;
+    }
+    
+    .textareaContact {
+        height: 30vh;
+        margin-top: 4%;
+    }
+
+    .textareaBooking {
+        height: 30vh;
+        margin-top: 2%; 
+    }
+
+    .submit {
+        font-size: 3vh;
+    }
+
+    .submitBooking {
+        margin-top: 4%;
+    }
+}
+
+@media all and (orientation: portrait) {
+    .container {
+        margin-top: 3vh;
+        height: 100%;
+    }
+
+    .toggleContact {
+        font-size: 3.5em;
+    }
+    
+    .toggleBooking {
+        font-size: 3.5em;
+    }
+    
+    .input, input:focus {
+        font-size: 3.5em;
+    }
+
+    .label {
+        margin-bottom: 4%;
+        font-size: 3.5em;
+    }
+
+    .datetime {
+        font-size: 3.5em;
+    }
+
+    .select {
+        font-size: 3.5em;
+    }
+
+    .option {
+        font-size: small;
+    }
+
+    .textarea {
+        font-size: 3.5em;
+    }
+    
+    .textareaContact {
+        height: 30vh;
+    }
+    
+    .textareaBooking {
+        height: 30vh;
+    }
+    
+    .submitContact {
+        margin-top: 20%;
+    }
+
+    .submitBooking {
+        margin-top: 20%;
+    }
+
     .container {
         /* position: absolute; */
         transform: translate(5vw, 13vh);
         width: 90vw;
-        height: 80vh;
+        height: 150vh;
     }
     
     .submit {
-        margin-top: 8%;
+        font-size: 4.5em;
+        margin-top: 3vh;
     }
 
     .confirmContainer {
         width: inherit;
     }
 
-    .submit {
-        margin-top: 1vh;
-    }
-}
-
-/* iPhone SE */
-@media screen and (device-height: 667px) {
-    .container {
-        height: 85%;
+    .warning {
+        color: rgb(252, 111, 111);
+        display: block;
+        margin-left: 7%;
+        font-size: 2.5em;
     }
 
-    .textareaContact {
-        height: 23vh;
+    .confirmThankYou {
+        font-size: 5em;
+        margin-top: -130%;
+    }
+    
+    .confirmSubThankYou {
+        margin-top: -5%;
+        font-size: 4em;
+    }
+    
+    .confirmOkay {
+        margin-top: 10%;
+        font-size: 4em;
+        border: 2px rgba(50, 236, 191, 1) solid;
+        border-radius: 500px;
+        background: transparent;
+        color: rgba(50, 236, 191, 1);
+        text-shadow: 2px 2px rgba(183, 35, 35, 1);
+        transition-duration: .5s;
+        padding: 10%;
+        padding-top: 2%;
+        padding-bottom: 2%;
     }
 
-    .textareaBooking {
-        height: 10vh;
-    }
-
-    .submit {
-        margin-top: 0;
+    * {
+        font-size: .50rem;
     }
 }
 
@@ -657,3 +783,4 @@
         margin-top: 10%;
     }
 }
+

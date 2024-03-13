@@ -27,6 +27,15 @@ const Shows = () => {
         })
     }, [])
 
+    useEffect(() => {
+        const handleResize = () => {
+            document.getElementById('showWindow').scrollLeft -= document.getElementById('show').offsetWidth * shows.length
+        }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
     const displayImage = (image) => {        
         return <a href={image} target="_blank"><img src={image} className={styles.showImage} alt="poster image" /></a>
     }
@@ -35,7 +44,7 @@ const Shows = () => {
         return (
             <div className={styles.showMain}>
                 <div className={styles.posterFrame}>
-                    <span>{displayImage(details.image)}</span>
+                    <span className={styles.imageContainer}>{displayImage(details.image)}</span>
                 </div>
                 <div className={styles.textFrame}>
                     <h1 className={styles.showTextHeader}>{details.eventTitle}</h1>

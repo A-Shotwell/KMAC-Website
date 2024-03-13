@@ -29,20 +29,20 @@
 .header {
     color: white;
     font-weight: lighter;
-    font-size: 2em;
-    margin-top: 75px;
+    font-size: 6vh;
+    font-size: calc(2vh + 1.5vw);
     margin-bottom: -10px;
     margin-left: 10%;
     margin-right: 10%;
     padding-top: 5%;
     overflow: hidden;
-    height: 5vw;
+    height: auto;
     width: auto;
 }
 
 .text {
     color: white;
-    font-size: 100%;
+    font-size: 3vh;
     padding: 2%;
 }
 
@@ -63,7 +63,7 @@
     width: 39vw;
     background: linear-gradient(135deg, rgba(183, 35, 35, 1), rgba(51, 169, 236, 1));
     border: 1px solid transparent;
-    border-radius: 500px;
+    border-radius: 1500px;
     padding: 1vh;
     margin-top: 2.5%;
     justify-content: center;
@@ -80,7 +80,7 @@
     height: 35vw;
     width: 35vw;
     border: 0px solid transparent;
-    border-radius: 500px;
+    border-radius: 1500px;
     background: url('../../public/images/007-COLOR.png');
     background-size: cover;
     overflow: hidden;
@@ -98,7 +98,6 @@
     width: 50%;
     overflow: hidden;
     float: left;
-    /* transform: translateY(60vh); */
 }
 
 /* --------------- ANIMATION FRAMES  --------------- */
@@ -121,204 +120,76 @@
 
 /* --------------- RESPONSIVE BREAKPOINTS --------------- */
 
-@media screen and (max-width: 997px) and (min-width: 0px) {
-    .textContainer {
-        /* margin-top: -10px; */
-        height: 50%;
-    }
-}
-
-@media screen and (max-width: 997px) and (min-width: 458px) {
-    .textContainer {
-        height: 50%;
-        transform: translateY(-4vh)
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 999px) {
-    .section {
-       height: 65%;
-       width: 100%;
-       transform: translateY(50%);
-    }
-
-    .header {
-        height: 20%;
-        font-size: 2em;
-        margin-bottom: 2%;
-    }
-
-    .textContainer::-webkit-scrollbar {
-        display: none;
-    }
-    
-    .textContainer {
-        background: rgba(0,0,0,.25);
-        margin: 0;
-        width: 80%;
-        justify-self: auto;
-    }
-    
+@media all and (orientation: landscape) {
     .border {
-        height: 27vh;
-        width: 27vh;
+        position: relative;
+        display: flex;
+        /* height: 74vh;
+        width: 74vh; */
+        height: calc(22vh + 22vw);
+        width: calc(22vh + 22vw);
+        background: linear-gradient(135deg, rgba(183, 35, 35, 1), rgba(51, 169, 236, 1));
+        border: 1px solid transparent;
+        border-radius: 1500px;
+        padding: 1vh;
+        margin-top: 2.5%;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        animation-name: borderSpinner;
+        animation-timing-function: linear;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
     }
     
     .profilePic {
-        height: 26vh;
-        width: 26vh;
-        background: url('../../public/images/008-COLOR.png');
+        display: block;
+        /* height: 70vh;
+        width: 70vh; */
+        height: calc(20vh + 20vw);
+        width: calc(20vh + 20vw);
+        border: 0px solid transparent;
+        border-radius: 1500px;
+        background: url('../../public/images/007-COLOR.png');
         background-size: cover;
+        overflow: hidden;
+        animation-name: counterSpinner;
+        animation-timing-function: linear;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+    
+    .noScroll {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 50%;
+        overflow: hidden;
+        float: left;
     }
 
-    .noScroll {
-        position: relative;
+    .header {
+        margin-top: 10vh;
+        padding-bottom: 5vh;
         height: auto;
-        width: 100%;
-        margin-top: -400px;
-    }
-}
-
-/* iPhone SE */
-@media screen and (device-height: 667px) {
-    .noScroll {
-        margin-top: -350px;
+        text-align: center;
     }
 
     .textContainer {
-        font-size: .75em;
+        font-size: 2em;
+        width: 65%;
+        margin-top: 3%;
+        margin-left: .25%;
+        margin-bottom: 10%;
     }
 
-    .noScroll {
-        transform: translateY(0vh);
-    }
-}
-
-/* iPhone XR */
-@media screen and (device-height: 896px) {
-    .noScroll {
-        margin-top: -500px;
-        transform: translateY(0vh);
+    .textContainer::-webkit-scrollbar {
+        width: 8px;
     }
 }
 
-/* iPhone 12 Pro */
-@media screen and (device-height: 844px) {
-    .noScroll {
-        margin-top: -450px;
-        transform: translateY(0vh);
-    }
-}
-
-/* Samsung Galaxy S8+ */
-@media screen and (device-height: 740px) {
-    .noScroll {
-        margin-top: -400px;
-        transform: translateY(0vh);
-    }
-
-    .textContainer {
-        font-size: .75em;
-    }
-}
-
-/* Pixel 5 */
-@media screen and (device-height: 851px) {
-    .noScroll {
-        margin-top: -475px;
-        transform: translateY(0vh);
-    }
-}
-
-/* iPad Air */
-@media screen and (device-height: 1180px) {
-    .noScroll {
-        margin-top: -650px;
-        transform: translateY(0vh);
-    }
-
-    .header {
-        margin-bottom: 90px;
-        height: 5vw;
-    }
-
-    .textContainer {
-        height: 60%;
-    }
-}
-
-/* iPad Mini */
-@media screen and (device-height: 1024px) {
-    .noScroll {
-        margin-top: -580px;
-        transform: translateY(0vh);
-    }
-
-    .header {
-        margin-bottom: 0px;
-    }
-
-    .textContainer {
-        height: 60%;
-    }
-}
-
-/* Surface Pro 7 */
-@media screen and (device-height: 1368px) {
-    .noScroll {
-        margin-top: -775px;
-        transform: translateY(0vh);
-    }
-
-    .header {
-        margin-bottom: -20px;
-    }
-
-    .textContainer {
-        height: 60%;
-    }
-}
-
-/* Surface Duo */
-@media screen and (device-height: 720px) and (device-width: 540px) {
-    .noScroll {
-        margin-top: -380px;
-        transform: translateY(0vh);
-    }
-
-    .textContainer {
-        font-size: .75em;
-    }
-}
-
-/* Samsung Galaxy Fold */
-@media screen and (device-height: 653px) {
-    .noScroll {
-        margin-top: -350px;
-        transform: translateY(0vh);
-    }
-
-    .textContainer {
-        height: 40vh;
-        font-size: .75em;
-    }
-
-    .header {
-        font-size: 18px;
-        height: 10vw;
-    }
-}
-
-/* Samsung S20 Ultra */
-@media screen and (device-height: 915px) {
-    .noScroll {
-        margin-top: -500px;
-        transform: translateY(0vh);
-    }
-}
-
-/* Samsung Galaxy Note Ultra */
-@media screen and (device-width: 1080px) and (device-height: 2400px) {
+@media all and (orientation: portrait) {
     .section {
         height: 65%;
         width: 100%;
@@ -326,10 +197,16 @@
      }
  
      .header {
-         height: 20%;
-         font-size: 4.5em;
+         height: auto;
+         font-size: calc(2.5vh + 2.5vw);
+         text-align: center;
+         margin: 0px;
          margin-top: 10vh;
-         margin-bottom: -15%;
+         padding-bottom: 2vh;
+     }
+
+     span {
+        font-size: calc(2.5vh + 2.5vw);
      }
  
      .textContainer::-webkit-scrollbar {
@@ -339,10 +216,14 @@
      .textContainer {
          background: rgba(0,0,0,.25);
          margin: 0;
+         margin-top: 5%;
+         margin-bottom: 5%;
+         padding-top: 0px;
          width: 80%;
          height: 60%;
          justify-self: auto;
-         font-size: 3em;
+         font-size: calc(20px + 1.5vw);
+         font-size: 2em;
      }
      
      .border {
@@ -363,70 +244,4 @@
          width: 100%;
          margin-top: -55vh;
      }
-}
-
-/* Samsung Galaxy Note Ultra (landscape) */
-@media screen and (device-width: 2400px) and (device-height: 1080px) {
-    .profilePic {
-        height: 70vh;
-        width: 70vh;
-        background: url('../../public/images/007-COLOR.png');
-        background-size: cover;
-    }
-
-    .border {
-        height: 80vh;
-        width: 80vh;
-    }
-    
-    .noScroll {
-        position: relative;
-        height: auto;
-        width: 50%;
-        margin-top: 10vh;
-    }
-
-    .header {
-        height: 20%;
-        font-size: 4.5em;
-        margin-top: 10vh;
-        margin-bottom: -15%;
-    }
-
-    .textContainer::-webkit-scrollbar {
-        display: none;
-    }
-
-    .textContainer {
-        height: 75%;
-        /* width: 90%; */
-        margin-top: 10%;
-        font-size: 2em;
-    }
-}
-
-/* Samsung Galaxy A51/71 */
-@media screen and (device-height: 914px) {
-    .header {
-        margin-bottom: -10px;
-    }
-
-    .noScroll {
-        margin-top: -500px;
-        transform: translateY(0vh);
-    }
-}
-
-/* Nest Hub */
-@media screen and (device-height: 600px) {
-    .noScroll {
-        transform: translateY(0vh);
-    }
-}
-
-/* Nest Hub Max */
-@media screen and (device-height: 800px) {
-    .noScroll {
-        transform: translateY(0vh);
-    }
 }

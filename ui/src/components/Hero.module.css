@@ -8,6 +8,8 @@
     z-index: 100;
     position: absolute;
     left: 5vw;
+    bottom: 0;
+    bottom: 0px;
     height: 100vh;
     width: 100vw;
     background: url("../../public/images/kmac-transparent-1-red.png");
@@ -15,32 +17,6 @@
     background-repeat: no-repeat;
     /* background-color: red; */
 }
-
-/* .imageWide {
-    z-index: 100;
-    position: absolute;
-    left: 5vw;
-    height: 100vh;
-} */
-
-/* .imageMobile {
-    z-index: 100;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    transform: translateY(1.8%);
-    bottom: 0%;
-} */
-
-/* .imageMedium {
-   display: block;
-   position: absolute;
-   width: 90%;
-   height: auto;
-   bottom: 0;
-   left: 5%;
-   z-index: 100;
-} */
 
 .overlay {
     z-index: 10;
@@ -59,12 +35,11 @@
     background: url("../../public/images/skyline.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    /* background-position: 7% 7%; */
 }
 
 /* --------------- RESPONSIVE BREAKPOINTS --------------- */
 
-@media screen and (max-width: 1099px) and (min-width: 769px) {
+/* @media screen and (max-width: 1099px) and (min-width: 769px) {
     .imageMedium {
         width: 70%;
         left: 15%;
@@ -105,42 +80,27 @@
         background-repeat: no-repeat;
         background-position: 15% 50%;
     }
-}
+} */
 
-/* --------------- DEVICE-SPECIFIC BREAKPOINTS --------------- */
-
-/* iPad Air */
-@media screen and (device-height: 1180px) {
-    /* .imageMedium {
-        width: 100%;
-        left: 0%;
-     } */
-}
-
-/* Samsung Galaxy S20 */
-@media screen and (device-width: 412px) and (device-height: 915px) {
+/* @media all and (orientation: portrait) and (max-width: 1304px) and (min-width: 400px) {
     .heroImage {
         left: 0vw;
-        bottom: -40vh;
-        height: 100vh;
-        width: 100vw;
-        background: url("../../public/images/kmac-transparent-3-red.png");
+        background: url("../../public/images/kmac-transparent-2-red.png");
+        background-size: auto 800px;
+        background-position: center 100%;
         background-repeat: no-repeat;
-        background-size: 100% auto;
     }
-}
+} */
 
-/* Samsung Galaxy Note Ultra */
-@media screen and (device-width: 1080px) and (device-height: 2400px) {
+/* Portrait narrow */
+/* @media all and (orientation: portrait) and (max-width: 545px) { */
+@media all and (orientation: portrait) and (max-width: 305px) {
     .heroImage {
         left: 0vw;
-        bottom: -40vh;
-        height: 100vh;
-        width: 100vw;
         background: url("../../public/images/kmac-transparent-3-red.png");
+        background-size: 100vw auto;
+        background-position: center 100%;
         background-repeat: no-repeat;
-        background-size: 100% auto;
-        /* background-color: red; */
     }
 
     .background {
@@ -150,35 +110,50 @@
         background: url("../../public/images/denver-skyline-3.jpg");
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: 20% 50%;
+        background-position: 15% 50%;
     }
 }
 
-/* Samsung Galaxy Note Ultra (landscape) */
-@media screen and (device-width: 2400px) and (device-height: 1080px) {
+/* Portrait wide */
+@media all and (orientation: portrait) and (min-width: 305px) {
     .heroImage {
-        left: 7.5vw;
-        height: 100vh;
-        width: 50vw;
-        background-size: 60% auto;
+        left: 0vw;
+        background: url("../../public/images/kmac-transparent-2-red.png");
+        background-size: 75vh, auto;
+        background-position: center 100%;
+        background-repeat: no-repeat;
+    }
+
+    .background {
+        position: absolute;  
+        background: url("../../public/images/denver-skyline-3.jpg");
+        background-repeat: no-repeat;
+        background-position: 20% 00%;
     }
 }
 
-/* Surface Pro 7 */
-@media screen and (device-height: 1368px) {
-    /* .imageMedium {
-        width: 100%;
-        left: 0%;
-     } */
+/* Landscape */
+@media all and (orientation: landscape) {
+    .heroImage {
+        left: 0vw;
+        height: 100%;
+        width: 100vw;
+        background: url("../../public/images/kmac-transparent-1-red.png");
+        background-size: 65vh auto;
+        background-position: 5% 100%;
+        background-repeat: no-repeat;
+    }
 }
 
-/* Nest Hub */
-@media screen and (device-height: 600px) {
-    /* .imageMedium {
-        width: 65%;
-        left: 0%;
-     } */
+@media all and (orientation: landscape) and (max-width: 695px) {
+    .heroImage {
+        left: 0vw;
+        height: 100%;
+        width: 100vw;
+        background: url("../../public/images/kmac-transparent-1-red.png");
+        background-size: 55vh auto;
+        background-position: 5% 100%;
+        background-repeat: no-repeat;
+    }
 }
-
-/* --------------- ASPECT RATIO BREAKPOINTS --------------- */
 

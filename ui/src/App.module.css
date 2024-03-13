@@ -17,7 +17,6 @@
     background: rgba(119, 119, 119, 0.65);
 }
 
-.App {  
-    height: "auto";
-    width: "100vw";
+.App {
+    /* width: 100vw; */
 }

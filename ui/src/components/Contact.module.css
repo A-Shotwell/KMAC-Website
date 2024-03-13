@@ -11,30 +11,38 @@
     overflow: hidden;
 }
 
-
-
 /* --------------- RESPONSIVE BREAKPOINTS --------------- */
 
-@media screen and (min-width: 0px) and (max-width: 768px) {
+@media all and (orientation: landscape) {
+    .main {
+        height: 150vh; 
+    }
+}
+
+@media all and (orientation: portrait) {
+    .main {
+        height: 200vh;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.28875) 83.12%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, rgba(183, 35, 35, 0.3) 45.1%, rgba(50, 236, 191, 0.3) 77.4%, rgba(74, 183, 35, 0.3) 100%), url("../../public/images/graffiti2.jpg");
+        background-repeat: no-repeat;
+        background-size: inherit;
+    }    
+}
+
+/* @media screen and (min-width: 0px) and (max-width: 768px) {
     .main {
         background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.28875) 83.12%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, rgba(183, 35, 35, 0.3) 45.1%, rgba(50, 236, 191, 0.3) 77.4%, rgba(74, 183, 35, 0.3) 100%), url("../../public/images/graffiti2.jpg");
         background-repeat: no-repeat;
         background-size: inherit;
     }
-}
+} */
 
 /* -------------- DEVICE-SPECIFIC BREAKPOINTS -------------- */
 
 /* Samsung Galaxy Note Ultra */
-@media screen and (device-width: 1080px) and (device-height: 2400px) {
+/* @media screen and (device-width: 1080px) and (device-height: 2400px) {
     .main {
         background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.28875) 83.12%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, rgba(183, 35, 35, 0.3) 45.1%, rgba(50, 236, 191, 0.3) 77.4%, rgba(74, 183, 35, 0.3) 100%), url("../../public/images/graffiti2.jpg");
         background-repeat: no-repeat;
         background-size: inherit;
     }
-}
-
-/* Samsung Galaxy Note Ultra */
-@media screen and (device-width: 2400px) and (device-height: 1080px) {
-
-}
+} */

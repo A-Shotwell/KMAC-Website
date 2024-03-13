@@ -233,7 +233,9 @@ const ContactAndBooking = () => {
                     !validFlag && (!contact.phone || ![10,11].includes(contact.phone.split('-').join('').split('').length) || contact.phone.split('-').join('').split('').some(e => !'0123456789'.includes(e)))
                     ? styles.warning
                     : styles.warningHidden
-                }>Please enter a valid phone number.</span>
+                }>
+                    Please enter a valid phone number.
+                </span>
                 <select 
                     className={styles.select} 
                     onChange={e => setContact({...contact, reason: e.target.value})}
@@ -337,7 +339,7 @@ const ContactAndBooking = () => {
     }
 
     return (
-        <div className={styles.container} id="contact">
+        <div className={styles.container}>
             {confirm && confirmWindow()}
             <button 
                 role="button"

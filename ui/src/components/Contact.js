@@ -4,7 +4,7 @@ import Social from './Social.js'
 
 const Contact = () => {
     return (
-        <div className={styles.main}>
+        <div className={styles.main} id="contact">
           <Social />
           <ContactAndBooking />
         </div>

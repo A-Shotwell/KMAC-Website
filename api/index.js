@@ -34,7 +34,9 @@ const app = express()
 const port = process.env.PORT
 
 // Set CORS and connect
-app.use(cors()) 
+app.use(cors({
+    origin: "http://localhost:3000"
+})) 
 
 app.listen(port, () => console.log(`Server listening on port ${port}`))
 
@@ -207,7 +209,7 @@ app.post('/booking', bodyParser.json(), function(req, res){
                         Name: 'KMAC Music Contact Inbox'
                     }
                 ],
-                Subject: `NEW bOOKING REQUEST from ${req.body.name}`,
+                Subject: `NEW BOOKING REQUEST from ${req.body.name}`,
                 TextPart: `${req.body.name} would like to book your services!\n\n\tDATE: ${day}\n\tTIME: ${timeFunc(req.body.time)}\n\tDESCRIPTION:\n\t\t${req.body.description}\n\n\tCONTACT INFO:\n\t\t${req.body.email}\n\t\t${req.body.phone}`,
                 HTMLPart: null,
             },

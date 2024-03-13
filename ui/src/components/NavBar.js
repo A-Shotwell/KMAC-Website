@@ -1,6 +1,8 @@
 import { React, useEffect, useState } from "react";
 import styles from "./NavBarCSS.module.css";
 
+// PROBLEM: Close menu button "X" only responds when tapping the upper part of the image.
+
 const NavBar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [dropMenu, setDropMenu] = useState(false);
@@ -24,7 +26,7 @@ const NavBar = () => {
 
     const handleSelect = (target) => {
       const element = document.querySelector(`#${target}`);
-      element.scrollIntoView({behavior: 'smooth', block: 'end'});
+      element.scrollIntoView({behavior: 'smooth', block: 'start'});
       setDropMenu(false);
     }
 
@@ -76,6 +78,7 @@ const NavBar = () => {
         </nav>
       }
       <img src="images/logo.png" alt="KMAC logo" className={`${styles.logo} ${scrollPosition > 0 ? styles.logoNav : styles.logoHero}`} />
+      
     </div>
   );
 };

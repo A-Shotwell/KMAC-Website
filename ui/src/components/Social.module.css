@@ -4,17 +4,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 35%;
-    width: 35%;
-    left: 5%;
-    top: 325%;
+    height: 100vh;
+    width: 50vw;
     overflow: hidden;
 }
 
 .banner {
     display: block;
     position: relative;
-    font-size: 4.5em;
+    font-size: 6vw;
     font-weight: 400;
     color: rgb(40, 239, 236);
     text-shadow: 5px 5px rgba(183, 35, 35, 1);
@@ -32,6 +30,12 @@
     display: flex;
     justify-content: space-between;
     overflow: hidden;
+}
+
+.link {
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 .socialContainer {
@@ -69,7 +73,7 @@
     background-position: center;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .main {
         top: 297.5%;
         left: 10%;
@@ -113,14 +117,29 @@
         background-repeat: no-repeat;
         background-position: center;
     }   
-}
+} */
 
 /* -------------- DEVICE-SPECIFIC BREAKPOINTS -------------- */
 
-/* Samsung Galaxy Note Ultra */
-@media screen and (device-width: 1080px) and (device-height: 2400px) {
+
+
+@media all and (orientation: landscape) {
     .main {
-        top: 297.5%;
+        /* background: green; */
+    }
+
+    .banner {
+        margin-top: 20%;
+    }
+    
+    .socialContainer {
+        /* top: 15%; */
+    }
+}
+
+@media all and (orientation: portrait) {
+    .main {
+        top: 257.5%;
         left: 10%;
         width: 80vw;
     }
@@ -133,6 +152,7 @@
     .socialContainer {
         height: 12vh;
         width: 88vw;
+        top: 15%;
     }
 
     .spotify {
@@ -162,34 +182,4 @@
         background-repeat: no-repeat;
         background-position: center;
     }
-}
-
-/* Samsung Galaxy Note Ultra (landscape) */
-@media screen and (device-width: 2400px) and (device-height: 1080px) {
-    .banner {
-        font-size: 8em;
-    }
-}
-
-/* Nest Hub */
-@media screen and (device-height: 600px) {
-    .banner {
-        font-size: 4em;
-    }
-
-    .spotify {
-        background-size: 75% auto;
-    }
-    
-    .facebook {
-        background-size: 75% auto;
-    }
-    
-    .instagram {
-        background-size: 75% auto;
-    }
-    
-    .twitter {
-        background-size: 75% auto;
-    } 
 }

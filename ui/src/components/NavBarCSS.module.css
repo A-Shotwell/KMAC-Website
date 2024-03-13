@@ -26,13 +26,16 @@ MOBILE PROBLEMS:
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: 8vh;
+    height: 7vh;
     background-color: rgba(0,0,0,0.65);
     overflow: hidden;
 }
 
 .nav {
     margin-top: 3px;
+    overflow: hidden;
+    height: 50%;
+    font-size: 3vh;
 }
 
 .nav button {
@@ -42,8 +45,8 @@ MOBILE PROBLEMS:
     display: block;
     background: transparent;
     border: none;
-    font-size: 1.2em;
-    margin-right: 50px;
+    font-size: .8em;
+    margin: 50px;
 }
 
 .nav button:hover {
@@ -54,15 +57,23 @@ MOBILE PROBLEMS:
 .nav li {
     list-style-type: none;
     float: left;
-    margin-bottom: 6px;
+    margin-bottom: 0px;
 }
 
 .navLeft {
+    display: flex;
+    align-items: center;
+    height: 100%;
     padding-left: 40px;
+    margin-left: 10px;
 }
 
 .navRight {
-    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 40px;
+    margin-right: 10px;
 }
 
 .navLeft a {
@@ -76,21 +87,10 @@ MOBILE PROBLEMS:
 .logo {
     z-index: 100000;
     position: absolute;
-    width: auto;
+    transform: rotate(-10deg);
+    filter: drop-shadow(5px 5px rgba(183, 35, 35, 1));
     transition: all .5s;
-}
-
-.logoHero {
-    height: 20vw;
-    transform: translate(45vw, 15vw) rotate(-10deg);
-    filter: drop-shadow(7px 7px rgba(183, 35, 35, 1));
-}
-
-.logoNav {
-    position: fixed;
-    height: 10vh;
-    transform: translate(40vw, 1.5vh) rotate(-10deg);
-    filter: drop-shadow(3px 4px rgba(183, 35, 35, 1));
+    transition-timing-function: ease;
 }
 
 .menuButton {
@@ -107,12 +107,12 @@ MOBILE PROBLEMS:
 .navDrop ul {
     display: flex;
     flex-direction: column;
+    margin-top: 5.3vh;
 }
 
 .navDrop button {
     width: 100vw;
-    margin-top: 10px;
-    font-size: 20px;
+    font-size: 1.8em;
     color: rgba(50, 236, 191, 1);
     text-shadow: 2px 2px rgba(183, 35, 35, 1);
     background-color: rgba(0,0,0,0.65);
@@ -128,96 +128,75 @@ MOBILE PROBLEMS:
 
 /********************** RESPONSIVE BREAKPOINTS ********************************/
 
-@media screen and (max-width: 1099px) and (min-width: 769px) {
-    .navDrop {
-        display: none;
+@media all and (orientation: landscape) {
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+        width: 30%;
     }
 
-    .logoHero {
-        transform: translate(0vw, 0vw) rotate(-10deg);
-        height: auto;
-        width: 50%;
-        top: 10%;
-        left: 23%;
-    }
-
-    .logoNav {
-        transform: translate(34vw, 1.5vh) rotate(-10deg);
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 773px){ 
     .nav ul {
+        display: flex;
+        justify-content: space-around;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav button {
+        margin: 0px;
+        height: 80%;
+        padding-top: 10%;
+        overflow: hidden;
+    }
+
+    .dropButton {
         display: none;
+    }
+
+    .navRight {
+        padding: 0;
+        margin: 0;     
+    }
+
+    .navLeft {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
     }
 
     .logoHero {
         height: auto;
-        width: 70%;
-        transform: translate(0vw, 0vw) rotate(-10deg);
-        top: 10%;
-        left: 12%;
-        filter: drop-shadow(7px 7px rgba(183, 35, 35, 1));
+        width: 50vw;
+        top: 35%;
+        left: 45%;
     }
     
     .logoNav {
         position: fixed;
+        height: auto;
+        width: 100px;
+        top: 1%;
+        left: 50%;
+        transform: translate(-50%, 0) rotate(-10deg);  
+    }
+}
+
+@media all and (orientation: portrait) {
+    .container {
         height: 8vh;
-        transform: translate(5vw, 1.5vh) rotate(-10deg);
-        filter: drop-shadow(3px 4px rgba(183, 35, 35, 1));
     }
 
     .menuButton {
+        position: fixed;
         display: block;
-        position: fixed;
-        height: 25px;
-        width: auto;
-        top: 15px;
-        right: 35px;
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 360px){
-    .nav ul {
-        display: none;
-    }
-
-    .logoHero {
-        height: 30vw;
-        transform: translate(10vw, 30vw) rotate(-10deg);
-        filter: drop-shadow(7px 7px rgba(183, 35, 35, 1));
-    }
-    
-    .logoNav {
-        position: fixed;
-        height: 8vh;
-        transform: translate(5vw, 1.5vh) rotate(-10deg);
-        filter: drop-shadow(3px 4px rgba(183, 35, 35, 1));
-    }
-
-    .menuButton {
-        display: block;
-        position: fixed;
-        height: 25px;
-        width: auto;
-        top: 23px;
-        right: 20px;
-    }
-}
-
-/********************** DEVICE-SPECIFIC BREAKPOINTS ********************************/
-
-/* iPhone SE */
-@media screen and (device-height: 667px) {
-    .menuButton {
-        top: 14px;
-        right: 20px;
-    }
-}
-
-@media screen and (device-width: 667px) and (device-height: 375px) {
-    .menuButton {
-        display: none;
+        align-self: center;
+        height: 4%;
+        top: 2vh;
+        right: 7vw;
     }
 
     .nav {
@@ -225,301 +204,44 @@ MOBILE PROBLEMS:
     }
     
     .nav button {
-        color: rgba(50, 236, 191, 1);
-        text-shadow: 2px 2px rgba(183, 35, 35, 1);
-        text-decoration: none;
-        display: block;
-        background: transparent;
-        border: none;
-        font-size: 1.2em;
-        margin-right: 50px;
-    }
-    
-    .nav button:hover {
-        color: rgb(93, 250, 90);
-        cursor: pointer;
-    }
-    
-    .nav li {
-        list-style-type: none;
-        float: left;
-        margin-bottom: 6px;
-    }
-    
-    .navLeft {
-        padding-left: 40px;
-    }
-    
-    .navRight {
-        padding-right: 10px;
-    }
-    
-    .navLeft a {
-        margin-left: 30px;
-    }
-    
-    .navRight a {
-        margin-right: 30px;
-    }
-}
-
-/* iPhone XR */
-@media screen and (device-height: 896px) {
-    .menuButton {
-        top: 19px;
-        height: 4vh;
-        right: 5vw;
-    }
-
-    .logoHero {
-        height: 30vw;
-        transform: translate(0vh, 15vw) rotate(-10deg);
-        filter: drop-shadow(7px 7px rgba(183, 35, 35, 1));
-    }
-}
-
-/* iPhone 12 Pro */
-@media screen and (device-height: 844px) {
-    .menuButton {
-        top: 2.5%;
-        height: 3.5vh;
-        right: 5vw;
-    }
-
-    .logoHero {
-        height: 30vw;
-        transform: translate(0vh, 15vw) rotate(-10deg);
-        filter: drop-shadow(7px 7px rgba(183, 35, 35, 1));
-    }
-}
-
-/* iPad Mini */
-@media screen and (device-height: 1024px) {
-    .menuButton {
-        height: 40px;
-        top: 20px;
-        right: 30px;
-    }
-}
-
-/* iPad Air */
-@media screen and (device-height: 1180px) and (device-width: 820px) {
-    .navRight {
-        padding-right: 0px;
-    }
-
-    .logoHero {
-        height: 20vh;
-        width: auto;
-        transform: translate(-10vw, 5vh) rotate(-10deg);
-    }
-
-    .logoNav {
-        position: fixed;
-        height: 7vh;
-        transform: translate(5vw, 1.5vh) rotate(-10deg);
-        left: 30vw;
-        filter: drop-shadow(3px 4px rgba(183, 35, 35, 1));
-    }
-}
-
-/* Pixel 5 */
-@media screen and (device-height: 851px) and (device-width: 393px) {
-    .logoHero {
-        transform: translate(0vw, 8vh) rotate(-10deg);
-    }
-}
-
-/* Samsung Galaxy S8+ */
-@media screen and (device-height: 740px) {
-    .logoHero {
-        height: 30vw;
-        width: auto;
-        transform: translate(0vw, 6vh) rotate(-10deg);
-    }
-
-    .menuButton {
-        top: 2.5vh;
-    }
-}
-
-/* Samsung Galaxy S20 Ultra */
-@media screen and (device-width: 412px) and (device-height: 915px) {
-    .container {
-        height: 7vh;
-    }
-    
-    .logoHero {
-        height: 35vw;
-        width: auto;
-        margin-left: -10%;
-    }
-    
-    .menuButton {
-        margin-top: -.6vh;
-        /* left: 70%; */
-    }
-
-    .navDrop {
-        display: block;
-        height: 50%;
-        width: 100%;
-        top: 1%;
-    }
-}
-
-/* Samsung Galaxy Note 20 Ultra*/
-@media screen and (device-width: 1080px) and (device-height: 2400px) {
-    .container {
-        height: 6vh;
-    }
-    
-    .logoHero {
-        height: 15vh;
-        width: auto;
-        margin-left: -15%;
-        margin-top: 20%;
-    }
-
-    .logoNav {
-        height: 7%;
-        margin-left: -27%;
-    }
-
-    .menuButton {
-        display: block;
-        position: fixed;
-        height: 3vh;
-        width: auto;
-        top: 1.5vh;
-        right: 5vw;
-    }
-
-    .nav button {
         display: none;
     }
 
     .navDrop {
-        display: block;
-        height: 50%;
-        width: 100%;
-        top: 4%;
+        margin: 0px;
+        top: 2.7%;
     }
 
-    .dropButton {
-        height: 4vh;
-        font-size: larger;
+    .navDrop button {
+        width: 100vw;
+        /* margin-top: 10px; */
+        font-size: calc(.6vh + .6vw);
+        color: rgba(50, 236, 191, 1);
+        text-shadow: 2px 2px rgba(183, 35, 35, 1);
+        background-color: rgba(0,0,0,0.65);
+        border: none;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 
     .dropButtonText {
-        font-size: 2.5rem;
+        font-size: 2.5em;
     }
-}
-
-/* Samsung Galaxy Note 20 (landscape) */
-@media screen and (device-width: 2400px) and (device-height: 1080px) {
+    
     .logoHero {
-        height: 45vh;
-        width: auto;
-        margin-left: -5%;
-        margin-top: -5%;
-    }
-
-    .logoNav {
-        margin-left: 0%;
-        margin-top: .25%;
-    }
-
-    .nav button {
-        font-size: 1.8em;
-    }
-}
-
-/* Surface Pro 7 */
-@media screen and (device-height: 1368px) and (device-width: 912px) {
-    .navRight {
-        padding-right: 0px;
+        height: auto;
+        width: 60vw;
+        top: 12%; 
+        left: 20%;
     }
     
     .logoNav {
         position: fixed;
-        height: 7vh;
-        transform: translate(5vw, 1.5vh) rotate(-10deg);
-        left: 30vw;
+        transform: scale(.25, .25) translate(-130vw, -50vh) rotate(-10deg);
         filter: drop-shadow(3px 4px rgba(183, 35, 35, 1));
     }
-
-    .logoHero {
-        height: 30vw;
-        width: auto;
-        transform: translate(-10vw, 1.5vh) rotate(-10deg);
-    }
 }
 
-/* Surface Duo */
-@media screen and (device-height: 720px) {
-    .menuButton {
-        height: 25px;
-        top: 15px;
-        right: 20px;
-    }
-}
-
-/* Samsung Galaxy Fold */
-@media screen and (device-height: 653px) {
-    .logoHero {
-        height: 14vh;
-        width: auto;
-        transform: translate(-4vw, 8vh) rotate(-10deg);
-    }
-
-    .menuButton {
-        height: 23px;
-        top: 15px;
-        right: 20px;
-    }
-}
-
-/* Samsung Galaxy S20 Ultra */
-@media screen and (device-height: 915px) and (device-width: 412px) {
-    .menuButton {
-        top: 2.5vh;
-    }
-
-    .logoHero {
-        transform: translate(3vw, 8vh) rotate(-10deg);
-    }
-}
-
-/* Samsung Galaxy Fold */
-@media screen and (device-height: 914px) {
-    .logoHero {
-        transform: translate(0vw, 8vh) rotate(-10deg);
-    }
-
-    .menuButton {
-        height: 30px;
-        top: 20px;
-        right: 20px;
-    }
-}
-
-/* Nest Hub */
-@media screen and (device-height: 600px) {
-    .navRight {
-        padding-right: 0px;
-    }
-
-    .logoNav {
-        transform: translate(40vw, 1.5vh) rotate(-10deg);
-    }
-
-    .logoHero {
-        width: 40vw;
-        height: auto;
-        transform: translate(30vw, 15vh) rotate(-10deg);
-    }
-}
 
 
 
