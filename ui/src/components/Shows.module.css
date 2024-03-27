@@ -135,7 +135,8 @@
     color: rgba(50, 236, 191, 1);
     text-shadow: 2px 2px rgba(183, 35, 35, 1);
     font-weight: lighter;
-    font-size: 1.1em;
+    /* font-size: 1.1em; */
+    font-size: 3vh;
 }
 
 .showTextDesc {
@@ -191,7 +192,8 @@
     }
 
     .showTextDesc {
-        font-size: calc(1.1vh + 1.1vw);
+        /* font-size: calc(1.1vh + 1.1vw); */
+        font-size: 3vh;
     }
 
     .noShows {
@@ -216,6 +218,7 @@
         color: white;
         padding: 1%;
         scroll-behavior: smooth;
+        overflow: hidden;
     }
     
     .bannerText {
@@ -225,22 +228,25 @@
     .showTextHeader {
         color: rgba(50, 236, 191, 1);
         text-shadow: 2px 2px rgba(183, 35, 35, 1);
-        font-size: calc(2vh + 2vw);
-        margin-bottom: 10px;
+        /* font-size: calc(2vh + 2vw); */
+        font-size: 7vw;
+        margin-bottom: 5px;
         padding-left: 5%;
         padding-right: 5%;
         padding-top: 5%;
     }
 
     .showTextInfo {
-        font-size: calc(1.25vh + 1.25vw);
+        /* font-size: calc(1.25vh + 1.25vw); */
+        font-size: 4.5vw;
         padding-left: 5%;
         padding-right: 5%;
         padding-top: 5%;
     }
 
     .showTextDesc {
-        font-size: calc(1.1vh + 1.1vw);
+        /* font-size: calc(1.1vh + 1.1vw); */
+        font-size: 3vh;
     }
 
     .noShows p {

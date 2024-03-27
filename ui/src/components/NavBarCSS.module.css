@@ -237,7 +237,7 @@ MOBILE PROBLEMS:
     
     .logoNav {
         position: fixed;
-        transform: scale(.25, .25) translate(-130vw, -50vh) rotate(-10deg);
+        transform: scale(.25, .25) translate(-700px, -50vh) rotate(-10deg);
         filter: drop-shadow(3px 4px rgba(183, 35, 35, 1));
     }
 }

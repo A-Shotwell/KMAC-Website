@@ -21,7 +21,7 @@
 
 @media all and (orientation: portrait) {
     .main {
-        height: 200vh;
+        height: 150vh;
         background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.28875) 83.12%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, rgba(183, 35, 35, 0.3) 45.1%, rgba(50, 236, 191, 0.3) 77.4%, rgba(74, 183, 35, 0.3) 100%), url("../../public/images/graffiti2.jpg");
         background-repeat: no-repeat;
         background-size: inherit;
