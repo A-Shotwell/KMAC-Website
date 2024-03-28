@@ -84,3 +84,26 @@ h1 {
     align-items: center;
     justify-content: center;
 }
+
+@media all and (orientation: portrait) {
+    h1 {
+        font-size: 20px;
+    }
+
+    label {
+        font-size: 15px;
+    }
+
+    input {
+        font-size: 15px;
+    }
+
+    textarea {
+        font-size: 15px;
+    }
+
+    button {
+        margin-top: 15px;
+        font-size: 15px;
+    }
+}
